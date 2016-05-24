@@ -1,0 +1,11 @@
+[31-Jan-2012 10:58:53] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/syshost/public_html/sysadmin/modulos/usuarios/php/ver_usuario_abm.php on line 28
+[31-Jan-2012 11:01:10] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/syshost/public_html/sysadmin/modulos/usuarios/php/ver_usuario_abm.php on line 28
+[31-Jan-2012 11:04:23] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/syshost/public_html/sysadmin/modulos/usuarios/php/ver_usuario_abm.php on line 28
+[31-Jan-2012 11:06:44] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/syshost/public_html/sysadmin/modulos/usuarios/php/ver_usuario_abm.php on line 28
+[31-Jan-2012 11:07:11] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/syshost/public_html/sysadmin/modulos/usuarios/php/ver_usuario_abm.php on line 28
+[03-Jun-2012 22:15:14] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/u350168915/public_html/modulos/usuarios/php/ver_usuario_perfil.php on line 32
+[03-Jun-2012 22:15:14] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/u350168915/public_html/modulos/usuarios/php/ver_usuario_perfil.php on line 52
+[03-Jun-2012 22:15:14] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/u350168915/public_html/modulos/usuarios/php/ver_usuario_perfil.php on line 86
+[03-Jun-2012 22:21:39] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/u350168915/public_html/modulos/usuarios/php/ver_usuario_perfil.php on line 32
+[03-Jun-2012 22:21:39] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/u350168915/public_html/modulos/usuarios/php/ver_usuario_perfil.php on line 52
+[03-Jun-2012 22:21:39] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/u350168915/public_html/modulos/usuarios/php/ver_usuario_perfil.php on line 86

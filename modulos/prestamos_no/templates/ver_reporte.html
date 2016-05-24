@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Listado libros no devueltos</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script>
+print();
+</script>
+</head>
+<style type="text/css">
+/* 
+	Grey Suits you Sir. Please host the images on your own server.
+	written by Stuart Colville http://www.muffinresearch.co.uk
+*/
+body{
+margin:0 auto; 
+width:978px;
+
+}
+table,td
+{
+	border               : 1px solid #CCC;
+	border-collapse      : collapse;
+ 	 font                 : small "Tahoma", "Bitstream Vera Sans", Verdana, Helvetica, sans-serif;
+	 font-size:10px;
+}
+p{
+ 	 font                 :  "Tahoma", "Bitstream Vera Sans", Verdana, Helvetica, sans-serif;
+	 font-size:12px;
+
+
+}
+
+table
+{
+	border                :none;
+}
+thead th,
+tbody th
+{
+	background            : #FFF  repeat-x;
+  	color                 : #666;  
+	padding               : 5px 10px;
+ 	 border-left           : 1px solid #CCC;
+	border-right           : 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+}
+tbody th
+{
+  background            : #fafafb;
+  border-top            : 1px solid #CCC;
+  text-align            : left;
+  font-weight           : normal;
+}
+tbody tr td
+{
+	padding               : 5px 10px;
+  color                 : #666;
+}
+tbody tr:hover
+{
+  background            : #FFF  repeat;
+}
+
+tbody tr:hover td
+{
+  color                 : #454545;
+}
+tfoot td,
+tfoot th
+{
+  border-left           : none;
+  border-top            : 1px solid #CCC;
+	padding               : 4px;
+  background            : #FFF  repeat;
+  color                 : #666;
+}
+caption
+{
+	text-align            : left;
+	font-size             : 120%;
+	padding               : 10px 0;
+	color                 : #666;
+}
+table a:link
+{
+	color                 : #666;
+}
+table a:visited
+{
+	color                 : #666;
+}
+table a:hover
+{
+	color                 : #003366;
+	text-decoration       : none;
+}
+table a:active
+{
+	color                 : #003366;
+}
+</style>
+
+<body>
+
+
+<p align="center">&nbsp;
+</p>
+
+<table width="100%"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <th align="center"><strong>Listado Libros No devueltos </strong> </th>
+  </tr>
+</table>
+<p><small></small></p>
+<table width="100%" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th  align="left">Fecha Prestamo</th>
+	<th align="left">Fecha a devolver</th>
+	<th align="left">Libro</th>
+	<th align="left">Socio</th>
+  </tr>
+{LISTADO}
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="0" cellpadding="1" cellspacing="1" >
+  <tr align="left">
+     <td colspan="4">Fecha:{fecha_actual} </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

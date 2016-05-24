@@ -1,0 +1,35 @@
+  <tr class="alt">
+    <td align="left">{tabla07_nropersona}</td>
+    <td align="left">{nombre_y_apellido}</td>
+	<td align="center">{tabla07_edad}</td>
+    <td align="left">{tabla07_dni}</td>
+    <td align="left">{tabla07_telfijo}</td>
+	<td align="left">{tabla07_celular}</td>
+	<td align="left">{tabla07_direccion}</td>
+<!-- 	<td align="left"><a href="modulos/personas/php/tmp/{tabla07_imagen}" target="_blank"></a></td> -->
+		<td align="left"><img src="media/fotos/icono_{id_tabla07}.jpg"  height="42" width="42" ></td>
+
+	
+ 	<td align="center"> 
+		<!-- <a href="javascript:;" onClick='
+		    $("#popup").val();
+			$("#popup").dialogr({ 
+			modal: true,
+			title : "Ficha Persona: {nombre_y_apellido}",
+			width: 600, 
+			height: 400, 
+			overlay: { 
+				opacity: 0.5, 
+				background: "black" 
+			}
+			});
+		$("#popup").dialogr("open");
+		{funcion_reporte}
+		' title="Ver Datos"><img width="16" hspace="5" border="0" alt="Ficha Personal:  {nombre_y_apellido}"  src="media/iconos/{icono_reporte}"></a>
+ -->
+
+		<a title="Editar" href="javascript:{funcion_editar};"><img src="media/iconos/edit.png" alt="Editar" width="16" hspace="5" border="0"></a> 
+		<a title="Elminar" href="javascript:{funcion_borrar};"><img src="media/iconos/del.png" alt="Eliminar" width="16" hspace="5" border="0"></a>
+	</td>
+</tr>	
+

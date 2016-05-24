@@ -1,0 +1,39 @@
+        <div class="article">
+          <h2><span>Cont&aacute;ctenos</span></h2>
+          <div class="clr"></div>
+  <p>P&oacute;ngase en contacto con nuestros operadores para conocer los servicios que le podemos proporcionar. <br>
+    Puede enviarnos su consulta tambi&eacute;n a nuestra correo electr&oacute;nico, <a href="mailto:info@laboratoriobarros.com.ar">info@laboratoriobarros.com.ar</a>; O bien completanto el siguiente formulario.</p>
+		<div id="listado_consultas">
+          <h2><span>Env&iacute;enos su Consulta </span></h2>
+          <div class="clr"></div>
+          <form action="#" method="post" id="form_consultas" name="form_consultas">
+            <ol>
+              <li>
+                <label for="name">Nombre y Apellido  (*)</label>
+                <input id="nombre" name="name" class="text" />
+              </li>
+              <li>
+                <label for="email">Correo (*)</label>
+                <input id="email" name="email" class="text" />
+              </li>
+              <li>
+                <label for="website">Asunto (*)</label>
+                <input id="asunto" name="website" class="text" />
+              </li>
+              <li>
+                <label for="message">Mensaje (*)</label>
+                <textarea id="mensaje" name="message" rows="8" cols="50"></textarea>
+              </li>
+              <li>
+<!--                 <input type="image" name="Enviar Consulta" id="imageField" src="images/enviar.gif" onClick="enviar_consulta(form_consultas.nombre.value,form_consultas.email.value,form_consultas.asunto.value,form_consultas.mensaje.value);" class="send" />
+ -->				<a href="javascript:;" onClick="enviar_consulta(form_consultas.nombre.value,form_consultas.email.value,form_consultas.asunto.value,form_consultas.mensaje.value);"><img style="border:0; "src="images/enviar.gif"></a>
+<!-- 				
+<a href="javascript:;" class='icon-button mail-icon' onclick="enviar_consulta(form_consultas.nombre.value,form_consultas.email.value,form_consultas.asunto.value,form_consultas.mensaje.value);"><span class='et-icon'><span>Enviar Consulta</span></span></a>
+ -->                <div class="clr"></div>
+              </li>
+            </ol>
+          </form>
+		  <p>(*) Todos los campos son obligatorios</p>
+		  </div>
+		  </div>
+        

@@ -1,0 +1,13 @@
+  <tr class="alt">
+    <td align="left">{tabla01_usuario}</td>
+    <td align="left">{tabla01_nombre}</td>
+    <td align="center"><a href="javascript:;" onClick="
+	$('#popup').innerHTML='';
+	$('#popup').dialogr({modal: true,title : 'Perfiles Asociados a {tabla01_nombre}', overlay:{  opacity: 0.6,  background: 'black'}});
+	$('#popup').dialogr('open');
+	 {ver_perfiles}"><img src="media/iconos/windows.png" alt="Editar" width="12" hspace="5" border="0"></a></td>
+    <td align="center">{tabla01_activo}</td>
+    <td align="center"> <a title="Editar" href="javascript:{funcion_editar};"><img src="media/iconos/edit.png" alt="Editar" width="16" hspace="5" border="0"></a> 
+								<a title="Elminar" href="javascript:{funcion_borrar};"><img src="media/iconos/del.png" alt="Eliminar" width="16" hspace="5" border="0"></a> </td>
+  </tr>
+

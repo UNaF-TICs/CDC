@@ -1,0 +1,47 @@
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{tit}</p></th>
+ 
+    <th width="4%" colspan="5" align="center"><p align="right"><a title="Cerrar" href="javascript:{funcion_cancelar};"><img src="media/iconos/cerrar.png" width="20" height="20" border="0"></a></p></th>
+  </tr>
+</table>
+<form name="abm" id="abm" method="post" >
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+ <tr class="alt" align="left"  >
+   <td colspan="2"  valign="top"> M&oacute;dulo</td>
+   <td colspan="6" align="left"><select name="rela_tabla02" id="rela_tabla02" >
+     <option value="" selected>Seleccione ...</option>
+     
+       
+     	{MODULOS}
+	 
+     
+   </select></td>
+ </tr>
+ <tr class="alt" align="left"  >
+   <td colspan="8" valign="top">&nbsp;</td>
+   </tr>
+ <tr class="alt" align="left"  >
+   <td width="3%" valign="top">Alta</td>
+   <td width="22%" valign="top">
+   <input type="checkbox" name="checkbox" id="tabla04_alta" {tabla04_alta} value="" >     </td>
+   <td width="4%" valign="top">Baja</td>
+   <td width="13%" valign="top">
+      <input type="checkbox" name="tabla04_baja" id="tabla04_baja" {tabla04_baja} value="">     </td>
+   <td width="10%" valign="top">Modificaci&oacute;n</td>
+   <td width="6%" valign="top">      <input type="checkbox" id="tabla04_modificacion" {tabla04_modificacion} name="tabla04_modificacion" value="">     
+   </td>
+   <td width="7%" valign="top">Reporte</td>
+   <td width="35%" valign="top">      <input type="checkbox" id="tabla04_reporte" {tabla04_reporte} name="tabla04_reporte" value="">   </td>
+ </tr>
+ <tr class="alt" align="left"  >
+   <td colspan="8" valign="top">&nbsp;</td>
+   </tr>
+ </table>
+ <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+ <tr>
+   <td align="right"><input class="button_login" type="button" onClick="javascript:;{funcion_guardar}" value="Guardar" tabindex="3" name="Submit" title="Guardar"></td>
+   <td align="left"><input class="button_login" type="button" onClick="javascript:;{funcion_cancelar}" value="Cancelar" tabindex="3" name="Submit" title="Cancelar"></td>
+ </tr>  
+ </table>
+</form>

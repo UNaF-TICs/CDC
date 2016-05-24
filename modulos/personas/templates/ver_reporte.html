@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link rel="stylesheet" type="text/css" href="agenda.css">
+        <title>Insertar nuevo contacto</title>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+         <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false">
+        </script>
+            <script type="text/javascript">
+            var mapa;
+            var marcador;
+            var geocoder;            
+
+            function inicializar(){    
+            geocoder = new google.maps.Geocoder();        
+            var myLatlng = new google.maps.LatLng(37.192869,-3.613186);
+            var mapOptions = {
+                  zoom: 10,
+                  center: myLatlng,
+                  mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            mapa = new google.maps.Map(document.getElementById('tabs'), mapOptions);    
+
+            google.maps.event.addListener(mapa, 'click', function (event){
+                creaMarcador(event.latLng)
+                });
+
+            }
+
+            function creaMarcador(localizacion){                
+                // Crear marcador
+                   if (marcador) marcador.setMap(null);                   
+                   marcador = new google.maps.Marker({
+                   position: localizacion,
+                   draggable: true, 
+                   map: mapa
+                });
+                mapa.setCenter(localizacion);
+                 // Rellenar X e Y
+                document.formulario.latitud.value=localizacion.lat();
+                document.formulario.longitud.value=localizacion.lng();
+
+                // Modificar X e Y al mover
+                google.maps.event.addListener(marcador,'drag',function(event){
+                    document.formulario.latitud.value=event.latLng.lat();
+                    document.formulario.longitud.value=event.latLng.lng();
+                    //mapa.setCenter(localizacion);
+                });
+
+            }
+
+            function direc(){            
+            var dire = document.getElementById("direccion").value;            
+              geocoder.geocode( {'address': dire}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                  mapa.setCenter(results[0].geometry.location);
+                  creaMarcador(results[0].geometry.location);
+              }
+             else {
+                  alert("Geocode was not successful for the following reason: " + status);
+            }                
+            });
+
+            }
+            </script>
+    </head>
+    <body onload="inicializar()">
+        <h1>Alta de Contacto:</h1>
+        <form action="insertaragendamapa.php" method="post" name="formulario">
+            <div style="float:right">X: <input type="text" name="latitud"/> 
+            Y: <input type="text" name="longitud"/><br/><br/>
+            <div id="tabs" style="width:500px;height:500px">&nbsp;</div>
+            </div>Nombre: <input type="text" name="nombre"/><br/><br/>
+            Apellidos: <input type="text" name="ap1"/> &nbsp;
+            <input type="text" name="ap2"/><br/><br/>
+            Teléfono: <input type="text" name="telefono"/><br/><br/>
+            e-mail: <input type="text" name="email"/><br/><br/>
+            Dirección: <input type="text" id="direccion" name="direccion" onchange="direc()"/> 
+    <br/><br/>
+            Provincia: <input type="text" name="provincia"/><br/><br/>
+            Fecha de Nacimiento: <input type="text" name="fecha"/><br/><br/>
+
+            <br/><br/>
+            <input type="submit" value="Guardar"/>
+            <input type="reset" value="Limpiar"/>
+        </form>
+
+    </body>
+</html>
+<div id="print_datos">
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+ <tr class="alt" align="left" >
+   <th align="left"> Usuario: {tabla01_nombre} </th>
+<th width="60%" align="left">&nbsp; </th>
+ <th width="7%" align="left"><a href="modulos/personas/php/ver_reporte_imp.php?id_tabla07={id_tabla07}" target="_blank"><img src="media/iconos/print.png" alt="Imprimir" width="16" hspace="5" border="0"></a></th>
+ </tr>
+  </tr>
+  <tr class="alt" align="left" >
+    <td align="left"><strong>Informaci&oacute;n:</strong></td>
+    <td colspan="2"><div align="left"><img src="media/fotos/icono_{id_tabla07}.jpg"  height="100" width="100" ></div></td>
+  </tr>
+  <tr class="alt" align="left" >
+   <td width="33%" align="left"><strong> Nro Legajo:</strong></td>
+   <td colspan="2"> 
+{tabla07_nropersona}</td>
+ </tr>
+  <tr class="alt" align="left" >
+   <td align="left"><strong>DNI:</strong></td>
+   <td colspan="2">{tabla07_dni}</td>
+ </tr>
+  <tr class="alt" align="left" >
+   <td align="left"><strong>Apellido/s y Nombre/s:</strong></td>
+   <td colspan="2">{nombre_y_apellido}</td>
+ </tr>
+ 
+ <tr class="alt" align="left" >
+   <td align="left"><strong>Tel&eacute;fono Fijo:</strong></td>
+   <td colspan="2">{tabla07_telfijo}</td>
+ </tr>
+ 
+  <tr class="alt" align="left" >
+   <td align="left"><strong>Celular:</strong></td>
+   <td colspan="2">{tabla07_celular}</td>
+ </tr>
+  <tr class="alt" align="left" >
+    <td align="left"><strong>Domicilio:</strong></td>
+    <td colspan="2">{tabla07_direccion}</td>
+  </tr>
+  <tr class="alt" align="left" >
+    <td align="left"><strong>Mail:</strong></td>
+    <td colspan="2">{tabla07_mail}</td>
+  </tr>
+  <tr class="alt" align="left" >
+    <td align="left"><strong>Fecha de Nacimiento:</strong></td>
+    <td colspan="2">{tabla07_cumple}</td>
+  </tr>
+  <tr class="alt" align="left" >
+    <td align="left"><strong>Edad:</strong></td>
+    <td colspan="2">{edad}</td>
+  </tr>
+ </table>
+  <p>&nbsp;</p>
+   </table>
+<p>&nbsp;</p>
+</div>
+<!--   <p align="center"><a href="javascript:;" onclick="print_datos();" title="Imprimir"><img src="media/iconos/imprimir.gif" alt="imprimir" width="30" height="30" border="0" /></a></p>
+ -->

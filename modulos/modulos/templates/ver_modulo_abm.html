@@ -1,0 +1,100 @@
+<script>
+
+var session_archivo_csv=0;
+function enviar_archivos_csv()
+{
+	var browserName=navigator.appName;
+	//id = document.getElementById('estado_carga');
+	$('#estado_cargar').text('Cargando archivo ...');
+	session_archivo_csv=1;
+	if (browserName=="Microsoft Internet Explorer")
+ 	{
+		abm.submit();
+	}
+	else
+	{
+		abm = document.getElementById('abm');
+		abm.submit();
+	}
+}
+
+function resultado_carga_archivos_csv(mensaje)
+{
+	//id = document.getElementById('.estado_carga');
+	if (mensaje=="Ok")
+	{
+		
+		$('#estado_cargar').text('Archivo Cargado Correctamente.');
+		session_archivo_csv=2;
+	}
+	else
+	{
+		$('#estado_cargar').text('Error al cargar el archivo.');
+		session_archivo_csv=3;
+	}
+}
+
+</script>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{tit}</p></th>
+ 
+    <th colspan="5" align="center"><p align="right"><a title="Cerrar" href="javascript:{funcion_cancelar};"><img src="media/iconos/cerrar.png" width="20" height="20" border="0"></a></p></th>
+  </tr>
+</table>
+<form name="abm" id="abm" method="post" enctype="multipart/form-data" action="modulos/modulos/php/cargar_icono_modulo.php" target="iframeUpload">
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+   <tr class="alt" align="left"  >
+   <td valign="top">
+     Tipo de M&oacute;dulo</td>
+   <td align="left"><select name="tabla02_tipo" id="tabla02_tipo" >
+     
+       
+     	{TIPO}
+	 
+     
+   </select></td>
+ </tr>
+  <tr align="left" class="alt">
+     <td align="left">M&oacute;dulo Padre :</td>
+     <td height="30" valign="top"><select name="rela_padre" id="rela_padre" >
+       <option value="" selected>Ninguno</option>
+       
+     	{PADRES}
+	 
+     </select></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td>Nombre:</td>
+   <td height="30"><input name="tabla02_nombre" type="text" id="tabla02_nombre" value="{tabla02_nombre}" size="50"></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td>Path: </td>
+   <td height="30"><textarea name="tabla02_path_home" cols="60" rows="10" id="tabla02_path_home">{tabla02_path_home}</textarea>
+ </tr>
+ <tr class="alt" align="left" >
+   <td>&Iacute;cono:</td>
+   <td height="30"><input name="tabla02_imagen" id="tabla02_imagen" type="file" onChange="enviar_archivos_csv();">
+   <div id="estado_carga">Adjunte un archivo</div>
+   </td>
+ </tr>
+ <tr class="alt" align="left"  >
+   <td valign="top">Orden:</td>
+   <td align="left">
+   <input name="tabla02_orden" type="text" id="tabla02_orden" value="{tabla02_orden}" size="50">
+   </td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td>Ayuda: </td>
+   <td height="30"><textarea name="tabla02_ayuda" cols="60" rows="10" id="tabla02_ayuda">{tabla02_ayuda}</textarea>
+  </tr>
+ </table>
+ <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+ <tr>
+   <td align="right"><input class="button_login" type="button" onClick="javascript:;{funcion_guardar}" value="Aceptar" tabindex="3" name="Submit" title="Guardar"></td>
+   <td align="left"><input class="button_login" type="button" onClick="javascript:;{funcion_cancelar}" value="Cancelar" tabindex="3" name="Submit" title="Cancelar"></td>
+ </tr>  
+ </table>
+</form>
+ <iframe name="iframeUpload" style="display:none"></iframe>
+ <p>&nbsp;</p>

@@ -1,0 +1,26 @@
+  <tr class="alt">
+    <td align="left">{tabla05_fecha} - {tabla05_hora}</td>
+    <td align="left">{tabla01_nombre}</td>
+    <td align="left">{tabla05_accion}</td>
+    <td align="left">{tabla05_operacion}</td>
+    <td align="left">{tabla05_mensaje}</td>
+    <td align="left">{tabla02_nombre}</td>
+        <td align="center" >
+		<a href="javascript:;" onClick='
+		    $("#popup").val();
+			$("#popup").dialogr({ 
+			modal: true,
+			title : "Log de {tabla01_nombre}",
+			width: 600, 
+			height: 400, 
+			overlay: { 
+				opacity: 0.5, 
+				background: "black" 
+			}
+			});
+		$("#popup").dialogr("open");
+		{funcion_reporte}
+		' title="Ver Datos"><img width="16" hspace="5" border="0" alt="Reporte"  src="media/iconos/{icono_reporte}"></a>
+
+</tr>
+

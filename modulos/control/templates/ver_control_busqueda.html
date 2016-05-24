@@ -1,0 +1,89 @@
+<script>
+	$(function() {
+		$( "#fecha_desde,#fecha_hasta" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+
+			$( "#buscador" ).button({
+            icons: {
+                primary: "ui-icon-arrowthick-1-s"
+            },
+            text: false
+            });
+
+	});
+</script>
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{titulo}</p></th>
+  </tr>
+</table>
+<br>
+
+<form name="ver_busqueda">
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+    <tr align="left" >
+      <th width="97%">Buscador</th>
+<!--       <th  align="right"><a title="Abrir Buscador" href="javascript:;" onClick="$('#formulario_control').toggle();"><img src="media/iconos/down.png" alt="Nuevo" width="16" border="0" class="mimage"></a></th>-->
+     <th width="3%"  align="right" id="buscador"><button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="Button with icon only"></button></th>
+ </tr>
+</table>
+<table width="100%"  border="0" cellpadding="0" cellspacing="0" id="formulario_control" style="display:">
+    <tr class="alt" align="left" >
+    <td width="10%" height="30">Usuario:</td>
+    <td width="26%"><select name="id_tabla01_buscar" id="id_tabla01_buscar" size="1" class="listbox" style="width:200px;" >
+      <option selected="selected" value="">Todos</option>
+      
+      
+          
+        
+			  {USUARIOS}
+    
+    
+        
+    
+    </select></td>
+    <td width="11%">M&oacute;dulo:      </td>
+    <td width="23%"><select name="id_tabla02_buscar" id="select" size="1" class="listbox" style="width:200px;" >
+      <option selected="selected" value="">Todos</option>
+      
+        
+      
+          
+        
+			  {MODULOS}
+    
+    
+        
+    
+      
+    </select></td>
+    <td width="14%">Operaci&oacute;n / Dato:</td>
+    <td width="16%"><input type="text" name="texto" id="texto" /></td>
+  </tr>
+    <tr class="alt" align="left" >
+    <td height="30">Desde la Fecha: 
+      
+<!--       <a title="Cargar fecha" href="javascript:NewCal('fecha_desde','ddMMyyyy')">
+      <input name="reset" type="reset" class="button" onclick="return showCalendar('fecha_desde', 'y-mm-dd');" value="..."/>
+ -->      </a></td>
+    <td><input  name="fecha_desde" type="text"  class="textinput"  id="fecha_desde" size="12" onClick="this.value=''" /></td>
+    <td height="30">Hasta la Fecha:</td>
+    <td><input name="fecha_hasta" type="text" class="textinput" id="fecha_hasta" size="12"  onClick="this.value=''" />
+    <td height="30" colspan="2">&nbsp;</td>
+    </tr>
+<tr class="alt" align="left" >
+    <td height="30" colspan="6" align="center"><input name="buscar" type="button" class="button" id="buscar" value="Buscar" onclick="{funcion_busqueda};$('input[type=text]').val('');$('#id_tabla01_buscar,#id_tabla02_buscar').val('');" /></td>
+  </tr>
+</table>
+</form>
+<p>&nbsp;</p>
+
+
+<div id="listado">
+
+</div>
+
+

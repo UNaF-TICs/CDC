@@ -1,0 +1,53 @@
+
+h1, h2, h3 { font-weight:bold}
+h1 { font-size: 16px; }
+h2 { font-size: 14px;  }
+h3 { font-size: 12px; }
+
+h1 {	font-size:16px;
+}
+
+table{
+	/*border-collapse: collapse;*/
+	margin: 0px;
+	/*border:0px solid #000000;*/
+}
+
+
+th {
+	color: #000;
+	font-weight: bold;
+	font-size:16px;
+	height:25px;
+	line-height:40px;
+	font-family:Arial, Helvetica, sans-serif;
+	padding: 0;
+}
+
+td {
+	padding: 1px 1px;
+	font-size:10px;
+	font-family:Arial, Helvetica, sans-serif;
+
+}
+
+td table {
+	border:none;
+	padding:0;
+}
+
+
+td {border-bottom: 0px solid #000;border-left: 0px solid #000; }
+td.no-leftbor {border-left: none; }
+
+tr.alt td strong {
+	font-weight:bold;
+}
+tr.alt td {
+	font-size:12px;
+}
+p {margin:0; padding:0; font-size:13px;}
+
+img, a, #tabs_btn { display:none;}
+
+img.reporte {display: block;}

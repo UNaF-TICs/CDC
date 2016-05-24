@@ -1,0 +1,327 @@
+<link href="../../../css/print.css" rel="stylesheet" type="text/css" >
+<style type="text/css">
+.solicitud td{font-size:12px; padding:3px;}
+p{font-size:12px; }
+#pagare p{font-size:15px; text-align:justify;}
+#pagare p.center{font-size:15px; text-align:center;}
+#pagare h1{font-size:24px; margin:0;}
+#pagare h2{font-size:20px; margin:0;}
+#pagare h2 strong{font-size:15px; margin:0;}
+
+
+.small p{font-size:9px;}
+blockquote{ margin: 0 10px }
+
+.resumen_firma {border: none }
+.resumen_firma td {border-bottom: none;border-left: none; }
+
+.Estilo1 {
+	font-size: 14px;
+	font-weight: bold;
+}
+.img_show {
+	display: block;
+}
+.Estilo2 {font-size: 16px}
+</style>
+<div style=" margin:0 auto; width:700px; padding-left:20px;" >
+<div id="solicitud_cuerpo">
+<p align="right"> <p align="right"><img width="280" height="92" src="../../../media/images/POF01.jpg" alt="Cuadro de texto: POF-02A" class="img_show"></p>
+
+<p align="center" class="Estilo1">&nbsp;</p>
+<p align="center" class="Estilo1 Estilo2">PLANTA FUNCIONAL DE UNIDADES EDUCATIVAS </p>
+<p align="center">&nbsp; </p>
+<p><strong>DATOS DE CONTACTO </strong></p>
+<p>&nbsp;</p>
+<p>Apellido y Nombre: <strong>&nbsp; {nombre_apellido}</strong></p>
+<p>&nbsp;</p>
+<p><strong>DATOS DE LA UNIDAD EDUCATIVA </strong><strong>&nbsp; </strong></p>
+<p>&nbsp;</p>
+<table width="100%" class="solicitud"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="90" valign="top"><strong>CUE </strong></td>
+    <td width="132" valign="top"><strong>Sigla y N&deg; de U.E. </strong></td>
+    <td width="300" valign="top"><strong>Nombre U.E. </strong></td>
+    <td width="198" valign="top"><strong>Direcci&oacute;n de Nivel o Departamento </strong></td>
+  </tr>
+  <tr>
+    <td width="90" valign="top">{syseduc06_cue}-{syseduc06_anexo}</td>
+    <td width="132" valign="top">{syseduc06_codigo_juridiccion}</td>
+    <td width="300" valign="top">{syseduc06_establecimiento}</td>
+    <td width="198" valign="top">{sysrele02_nombre} </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><strong>UBICACI&Oacute;N DE LA UNIDAD EDUCATIVA </strong><strong>&nbsp; </strong></p>
+<p>&nbsp;</p>
+<table width="100%" class="solicitud"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="181" valign="top"><p align="center"><strong>Departamento </strong></p></td>
+    <td width="305" valign="top"><p align="center"><strong>Localidad </strong></p></td>
+    <td width="236" valign="top"><p align="center"><strong>Del. Zonal </strong></p></td>
+  </tr>
+  <tr>
+    <td width="181" valign="top"><p align="center">{syseduc06_departamento_temp}</p></td>
+    <td width="305" valign="top"><p align="center">{syseduc06_localidad_temp}</p></td>
+    <td width="236" valign="top"><p align="center">{syseduc09_nombre}</p></td>
+  </tr>
+</table>
+<br>
+<table width="100%" class="solicitud"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="181" valign="top"><p align="center"><strong>Domicilio</strong></p></td>
+    <td width="305" valign="top"><p align="center"><strong>Tel-Celular </strong></p></td>
+    <td width="236" valign="top"><p align="center"><strong>Correo Electronico </strong></p></td>
+  </tr>
+  <tr>
+    <td width="181" valign="top"><p align="center">{sysrele01_direccion_postal}</p></td>
+    <td width="305" valign="top"><p align="center">{sysrele01_telefono}-{sysrele01_celular}</p></td>
+    <td width="236" valign="top"><p align="center">{sysrele01_correo_oficial}<a href="mailto:XXXXXXX@XXX.XXX">XXXXXXX@XXX.XXX </a></p></td>
+  </tr>
+</table>
+<p align="center"><strong>&nbsp; </strong></p>
+<p><strong>SITUACI&Oacute;N LEGAL</strong></p>
+<p>&nbsp;</p>
+<table width="100%" class="solicitud"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="367"><p><strong>ITEMS </strong></p></td>
+    <td width="115" align="center"><strong>Fecha de Creaci&oacute;n </strong></td>
+    <td width="116" align="center"><strong>Inst. Legal N&ordm; </strong></td>
+    <td width="106" align="center"><strong>Fecha del Inst. Legal </strong></td>
+  </tr>
+  <tr align="center">
+    <td width="367" align="left">Creaci&oacute;n de la Unidad Escolar</td>
+    <td width="115">{sysrele01_fecha_creacion}</td>
+    <td width="116">{sysrele01_instrumento_legal}</td>
+    <td width="106">{sysrele01_fecha_instrumento_legal}</td>
+  </tr>
+</table>
+<p align="center">&nbsp;</p>
+<table width="100%" class="solicitud"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="367">Complejidad ( …..Art. 7&ordm;, II), Ley 931)
+        </td>
+    <td width="120">{sysrele09_descripcion}</td>
+  </tr>
+  <tr>
+    <td width="367">Condicionamiento de Trabajo (A1: 20%, III), Ley 931) 
+        </td>
+    <td width="120">{sysrele10_descripcion}</td>
+  </tr>
+</table>
+<p align="center">&nbsp;</p>
+<table width="100%" class="solicitud"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="113">Observaciones</td>
+    <td width="581">{sysrele01_observacion}</td>
+  </tr>
+</table>
+<p align="center">&nbsp;</p>
+<p style="page-break-after:always;" ></p>
+<p align="center">&nbsp;</p>
+<p align="right"><img width="280" height="92" src="../../../media/images/POF02A.jpg" alt="Cuadro de texto: POF-02A" class="img_show"></p>
+<p>&nbsp;</p>
+<p><strong>PLANES DE ESTUDIO EDUCACION FORMAL </strong></p>
+<p>&nbsp;</p>
+<table width="100%" class="solicitud"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="447">Plan de Estudio/Carrera</td>
+    <td width="141">Inst. Legal N&ordm; </td>
+    <td width="130">Fecha del Inst. Legal </td>
+    <td width="130">Observaciones</td>
+  </tr>
+  {PLAN_FORMAL}
+</table>
+<p align="center">* Indicar el nombre de los Planes de estudio vigentes y la fecha en la que fueron creados o habilitados, a razon de una fila por plan de estudio. </p>
+<p><strong>CUADRO ANAL&Iacute;TICO DE PLAN/ES DE ESTUDIOS (Plan de estudio </strong><strong>, Curso/A&ntilde;o/Grado/Sala/Grupo/Ciclo, Secci&oacute;n/Divisi&oacute;n, Tipo Seccion, Turno, Total Carga horaria, Asignaci&oacute;n Carga Horaria, Total matr&iacute;cula). Detallar todas los cursos y secciones de la Unidad Educativa. </strong></p>
+<p>&nbsp; </p>
+<table width="251%" class="solicitud"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="93" rowspan="2">Plan de Estudio/Carrera</td>
+    <td width="75" rowspan="2">Instrumento 
+      Legal de 
+      Creaci&oacute;n de       (Curso/A&ntilde;o/
+      Grado)</td>
+    <td width="56" rowspan="2"><p>Fecha de Creaci&oacute;n</p>
+      <p>/Hab.</p></td>
+    <td width="40" rowspan="2" ><p>A&ntilde;o/</p>
+      <p>Grado</p>      <p>/Sala</p></td>
+    <td width="56" rowspan="2" >Secci&oacute;n/
+      Divisi&oacute;n</td>
+    <td width="50" rowspan="2" >Tipo Seccion</td>
+    <td width="41" rowspan="2">Turno </td>
+	 <td width="45" rowspan="2">Estado</td>
+     <td width="150" rowspan="2" >Tot. Hs Secc s/Plan Est.</td>
+    <td  colspan="3">Horas c&aacute;tedra Designadas por situaci&oacute;n de revista </td>
+    <td width="158" rowspan="2" >Tot. Mat</td>
+	 <td width="495" rowspan="2" >Observaci&oacute;n</td>
+  </tr>
+  <tr>
+   <td width="151">Tot Tit. </td>
+    <td width="155">Tot Int.</td>
+    <td width="162">Tot Sup. </td>
+	  </tr>
+	  {PLAN_FORMAL_ANALITICO}
+	   <tr>
+    <td height="115" colspan="8" align="center" valign="top">TOTAL ACTIVOS </td>
+    <td width="150" valign="top">{total_hs_seccion_formal}</td>
+	<td width="151" valign="top">{total_hs_titulares_formal}</td>
+	<td width="155" valign="top">{total_hs_interinos_formal}</td>
+	<td width="162" valign="top">{total_hs_suplentes_formal}</td>
+		<td width="158" valign="top">{total_matriculados_formal}</td>	
+		<td width="495" valign="top">&nbsp;</td>	
+	
+  </tr> 
+</table>
+<br>
+<p align="center">&nbsp; </p>
+<p style="page-break-after:always; " align="center"></p>
+<p align="center">&nbsp; </p>
+<p align="right"><img width="280" height="92" src="../../../media/images/POF02B.jpg" alt="Cuadro de texto: POF-02A" class="img_show"></p>
+<p>&nbsp;</p>
+<p><strong>PLANES EDUCACION NO FORMAL* </strong></p>
+<p>&nbsp;</p>
+<!-- <table width="100%" class="solicitud"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="454"><p>Plan de Estudio/Cursos/Capacitacciones/Talleres </p></td>
+    <td width="143"><p align="center">Inst. Legal N&ordm; </p></td>
+    <td width="132"><p align="center">Fecha del Inst. Legal </p></td>
+  </tr>
+  {PLAN_NO_FORMAL}
+
+</table> -->
+<p align="center">&nbsp; </p>
+<p><strong>CUADRO ANAL&Iacute;TICO DE PLAN/ES DE ESTUDIOS (Plan de estudio </strong><strong>, Curso/A&ntilde;o/Grado/Sala/Grupo/Ciclo, Secci&oacute;n/Divisi&oacute;n, Tipo Seccion, Turno, Total Carga horaria, Asignaci&oacute;n Carga Horaria, Total matr&iacute;cula). Detallar todas los cursos y secciones de la Unidad Educativa. </strong></p>
+<p>&nbsp; </p>
+<table width="100%" class="solicitud"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="99" rowspan="2">Plan de Estudio/Cursos/Capacitaciones</td>
+    <td width="77" rowspan="2">Instrumento 
+      Legal de 
+      Creaci&oacute;n de       (Curso/A&ntilde;o/
+      Grado)</td>
+    <td width="83" rowspan="2"><p>Fecha de Creaci&oacute;n</p>
+      <p>/Hab.</p></td>
+    <td width="40" rowspan="2" ><p>A&ntilde;o/</p>
+      <p>Grado</p>      <p>/Sala</p></td>
+    <td width="62" rowspan="2" >Secci&oacute;n/
+      Divisi&oacute;n</td>
+    <td width="54" rowspan="2" >Tipo Seccion</td>
+    <td width="45" rowspan="2">Turno </td>
+	 <td width="130" rowspan="2">Estado</td>
+     <td width="48" rowspan="2" >Tot. Hs Secc s/Plan Est.</td>
+    <td  colspan="3">Horas c&aacute;tedra Designadas por situaci&oacute;n de revista </td>
+    <td width="65" rowspan="2" >Tot. Mat</td>
+    <td width="65" rowspan="2" >Observaciones</td>
+  </tr>
+  <tr>
+   <td width="33">Tot Tit. </td>
+    <td width="30">Tot Int.</td>
+    <td width="38">Tot Sup. </td>
+	  </tr>
+	  {PLAN_NO_FORMAL_ANALITICO}
+	 	   <tr>
+    <td colspan="8" align="center" valign="top">TOTAL</td>
+    <td width="130" valign="top">{total_hs_seccion_noformal}</td>
+	<td width="130" valign="top">{total_hs_titulares_noformal}</td>
+	<td width="130" valign="top">{total_hs_interinos_noformal}</td>
+	<td width="130" valign="top">{total_hs_suplentes_noformal}</td>
+	<td width="130" valign="top">{total_matriculados_noformal}</td>	
+	
+    <td width="130" valign="top">&nbsp;</td>
+      </tr>  
+</table>
+<p>&nbsp; </p>
+<p style="page-break-after:always; " align="center"></p>
+<p>&nbsp; </p>
+<p align="right"><img width="280" height="92" src="../../../media/images/POF03.jpg" alt="Cuadro de texto: POF-02A" class="img_show"></p>
+<p>&nbsp;</p>
+<p><strong>PLANTA ORGANICA FUNCIONAL </strong></p>
+<p>&nbsp;</p>
+<table width="100%" class="solicitud"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="352"><p align="center">AUTORIDADES </p>
+        <p align="center">CARGOS </p>
+        <p align="center">HS. C&Aacute;TEDRA * </p></td>
+    <td width="73"><p align="center">CANT </p>
+        <p align="center">TIT </p></td>
+    <td width="73"><p align="center">CANT </p>
+        <p align="center">INT </p></td>
+    <td width="73"><p align="center">CANT </p>
+        <p align="center">SUP </p></td>
+    <td width="157"><p align="center">&nbsp; </p>
+        <p align="center">TOTAL </p></td>
+  </tr>
+  {PLANTA_ORGANICA}
+<!--   <tr>
+    <td width="352" valign="top"><p>Total Horas c&aacute;tedra creadas fuera de las horas creadas por el plan de estudio (no se incluyen las horas de los profesores por tiempo) </p></td>
+    <td width="73" valign="top"><p align="center">&nbsp; </p></td>
+    <td width="73" valign="top"><p align="center">&nbsp;</p></td>
+    <td width="73" valign="top"><p align="center">&nbsp; </p></td>
+    <td width="157" valign="top"><p align="center"><strong>&nbsp; </strong></p></td>
+  </tr> -->
+</table>
+<p align="center">&nbsp; </p>
+<p>* <strong>Total Horas C&aacute;tedras para Fines Determinados: son la suma total de aquellas horas creadas fuera de la horas estipuladas por el plan de estudio, no se deben incluir las horas correspondiente a los profesores por tiempo. </strong></p>
+<p><strong>* Los cargos incluidos son al solo efecto de servir como orientaci&oacute;n respecto de la forma en que deber&iacute;a realizarse la carga.</strong></p>
+<p>&nbsp; </p>
+<p style="page-break-after:always; " align="center"></p>
+<p> <br>
+</p>
+<p align="right"><img width="280" height="92" src="../../../media/images/POF04.jpg" alt="Cuadro de texto: POF-02A" class="img_show"></p>
+<p>&nbsp;</p>
+<p><strong>CUADRO ANALITICO DE LA PLANTA ORGANICA FUNCIONAL </strong></p>
+<p>&nbsp; </p>
+<br>
+<table width="100%" class="solicitud"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="439"><p>CARGO </p></td>
+    <td width="61"><p align="center">N&deg; </p></td>
+    <td width="123"><p align="center">&nbsp; </p>
+        <p align="center">Fecha </p>
+        <p align="center">Creaci&oacute;n </p></td>
+		<td width="99"><p align="center">Inst. Legal </p></td>
+    <td width="99"><p align="center">Cubierto/No Cubierto </p></td>
+	<td width="99" align="center">Reg. Profesor Itinerante </td>
+    <td width="99" align="center">Observaciones</td>
+  </tr>
+  {PLANTA_ORGANICA_ANALITICO}
+
+</table>
+<p>&nbsp; </p>
+<p>Los datos consignados en los Formularios POF-01, POF-02A, POF-02B, POF- 03, POF-04 revisten el car&aacute;cter de Declaraci&oacute;n Jurada y est&aacute;n de acuerdo con la documentaci&oacute;n obrante en la Unidad Educativa a mi Cargo. Que es de mi conocimiento la legislaci&oacute;n vigente en la materia y que estoy obligado a denunciar de inmediato, las modificaciones que se produzcan en el futuro. La omisi&oacute;n o falseamiento de los datos consignados en este documento ser&aacute; causal para el inicio de las actuaciones administrativas previstas en la Ley 971, de procedimientos administrativos, y Decreto 1431/80, Anexo III. </p>
+<p>&nbsp; </p>
+<table width="100%" class="solicitud"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="4"><p>Formosa, {fecha_actual}</p>      <p align="center">&nbsp; </p>      <p align="center">&nbsp;</p></td>
+    </tr>
+  <tr>
+    <td width="124">&nbsp;</td>
+    <td width="139">&nbsp;</td>
+    <td width="248">&nbsp;</td>
+    <td width="189">&nbsp;</td>
+  </tr>
+    <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+    <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr align="center">
+    <td colspan="2">Firma Secretario</td>
+    <td>Sello</td>
+    <td>Firma Director/a </td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+<p align="center"><strong>&nbsp; </strong></p>
+<p>&nbsp; </p>
+</div>
+</div>

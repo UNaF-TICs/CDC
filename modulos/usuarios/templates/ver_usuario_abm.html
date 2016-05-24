@@ -1,0 +1,45 @@
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{tit}</p></th>
+ 
+    <th colspan="5" align="center"><p align="right"><a title="Cerrar" href="javascript:{funcion_cancelar};"><img src="media/iconos/cerrar.png" width="20" height="20" border="0"></a></p></th>
+  </tr>
+</table>
+<form name="abm_usuarios" id="abm_usuarios" method="post" >
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+ <tr class="alt" align="left" >
+   <td width="24%">Login</td>
+   <td width="76%" height="30"><input name="tabla01_usuario" type="text" id="tabla01_usuario" value="{tabla01_usuario}" size="50"></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td>Contrase&ntilde;a</td>
+   <td height="30"><input name="tabla01_contrasena" type="password" id="tabla01_contrasena" value="{tabla01_contrasena}" size="50"></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td>Nombre</td>
+   <td height="30"><input name="tabla01_nombre" type="text" id="tabla01_nombre" value="{tabla01_nombre}" size="50"></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td>Correo</td>
+   <td height="30"><input name="tabla01_mail" type="text" id="tabla01_mail" value="{tabla01_mail}" size="50"></td>
+ </tr>  
+ <tr class="alt" align="left"  >
+   <td valign="top">
+     Habilitado</td>
+   <td align="left"><select name="tabla01_activo" id="tabla01_activo" >
+     <option value="" selected>Seleccione ...</option>
+     
+       
+     	{ESTADO}
+	 
+     
+   </select></td>
+ </tr>
+ </table>
+ <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+ <tr>
+   <td align="right"><input class="button_login" type="button" onClick="javascript:;{funcion_guardar}" value="Aceptar" tabindex="3" name="Submit" title="Guardar"></td>
+   <td align="left"><input class="button_login" type="button" onClick="javascript:;{funcion_cancelar}" value="Cancelar" tabindex="3" name="Submit" title="Cancelar"></td>
+ </tr>  
+ </table>
+</form>

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Club Sarmiento - Listado de personas</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script>
+print();
+</script>
+</head>
+<style type="text/css">
+/* 
+	Grey Suits you Sir. Please host the images on your own server.
+	written by Stuart Colville http://www.muffinresearch.co.uk
+*/
+body{
+margin:0 auto; 
+width:978px;
+
+}
+table,td
+{
+	border               : 1px solid #CCC;
+	border-collapse      : collapse;
+ 	 font                 : small "Tahoma", "Bitstream Vera Sans", Verdana, Helvetica, sans-serif;
+	 font-size:10px;
+}
+p{
+ 	 font                 :  "Tahoma", "Bitstream Vera Sans", Verdana, Helvetica, sans-serif;
+	 font-size:12px;
+
+
+}
+
+table
+{
+	border                :none;
+}
+thead th,
+tbody th
+{
+	background            : #FFF  repeat-x;
+  	color                 : #666;  
+	padding               : 5px 10px;
+ 	 border-left           : 1px solid #CCC;
+	border-right           : 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+}
+tbody th
+{
+  background            : #fafafb;
+  border-top            : 1px solid #CCC;
+  text-align            : left;
+  font-weight           : normal;
+}
+tbody tr td
+{
+	padding               : 5px 10px;
+  color                 : #666;
+}
+tbody tr:hover
+{
+  background            : #FFF  repeat;
+}
+
+tbody tr:hover td
+{
+  color                 : #454545;
+}
+tfoot td,
+tfoot th
+{
+  border-left           : none;
+  border-top            : 1px solid #CCC;
+	padding               : 4px;
+  background            : #FFF  repeat;
+  color                 : #666;
+}
+caption
+{
+	text-align            : left;
+	font-size             : 120%;
+	padding               : 10px 0;
+	color                 : #666;
+}
+table a:link
+{
+	color                 : #666;
+}
+table a:visited
+{
+	color                 : #666;
+}
+table a:hover
+{
+	color                 : #003366;
+	text-decoration       : none;
+}
+table a:active
+{
+	color                 : #003366;
+}
+</style>
+
+<body>
+
+
+<p align="center">
+	<img  src="../../../media/logo_sarmiento.jpg" alt="Logo Negocio" width="83px" hspace="5" border="0">
+</p>
+
+<table width="100%"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <th align="center"><strong>Listado de personas </strong> </th>
+  </tr>
+</table>
+<p><small>Cantidad de personas: {cantidad_pasajeros}</small></p>
+<table width="100%" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+   <th width="8%" align="left" >Nro personas</th>
+ <th width="15%" align="left" >Apellido</th>
+  <th width="15%" align="left" >Nombre</th>
+   <th width="20%" align="left" >Direcci&oacute;n</th>
+   <th width="6%" align="left" >Localidad</th>
+   <th width="8%" align="left" > Tel. Fijo </th>
+   <th width="6%" align="left" >Celular</th>
+    <th width="9%" align="left" >Cumplea&ntilde;os</th>
+ 	<th width="13%" align="left">Mail</th>
+  </tr>
+{LISTADO}
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="0" cellpadding="1" cellspacing="1" >
+  <tr align="left">
+     <td colspan="11">Fecha:{fecha_actual} </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

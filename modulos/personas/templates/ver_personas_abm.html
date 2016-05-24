@@ -1,0 +1,148 @@
+<script type="text/javascript">
+$('input, select').keypress(enter2tab);
+$(document).ready(function() {
+	 $("#tabla07_dni").focus();
+	 //$("input, textarea").placeholder();
+	//Valido Solo Caracteres
+	$('#tabla07_apellido,#tabla07_nombre').alpha({allow:" "});
+	//Valido Solo Números
+
+		//
+		$('#tabla07_cumple').numeric({allow:"-"});
+		$('#tabla07_dni').numeric();
+		$( "#tabla07_cumple" ).datepicker({
+		changeMonth: true,
+		changeYear: true,
+		onClose: function(date) {
+						var edad_calc=calcAge(date);
+						$("#edad").val(edad_calc);
+        }  
+	});
+	$('#tabla07_esbeneficiario').change(function() {
+		var es=$('#tabla07_esbeneficiario').prop('checked');
+		if (es==true)
+		{
+			$('#tabla07_nrotarjeta').val('');
+			$("#tabla07_nrotarjeta").removeAttr("disabled");
+
+		}else{
+			$('#tabla07_nrotarjeta').val('');
+			$("#tabla07_nrotarjeta").attr("disabled","disabled");
+		}		
+	});
+});
+
+
+var session_archivo_csv=0;
+function enviar_archivos_csv()
+{
+	var browserName=navigator.appName;
+	//id = document.getElementById('estado_carga');
+	$('#estado_cargar').text('Cargando archivo ...');
+	session_archivo_csv=1;
+	if (browserName=="Microsoft Internet Explorer")
+ 	{
+		abm.submit();
+	}
+	else
+	{
+		abm = document.getElementById('abm');
+		abm.submit();
+	}
+}
+
+function resultado_carga_archivos_csv(mensaje)
+{
+	//id = document.getElementById('.estado_carga');
+	if (mensaje=="Ok")
+	{
+		
+		$('#estado_cargar').text('Archivo Cargado Correctamente.');
+		session_archivo_csv=2;
+	}
+	else
+	{
+		$('#estado_cargar').text('Error al cargar el archivo.');
+		session_archivo_csv=3;
+	}
+}
+
+</script>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th  align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{tit}</p></th>
+ 
+    <th width="3%"  align="center"><p align="right"><a title="Cerrar" href="javascript:{funcion_cancelar};"><img src="media/iconos/cerrar.png" width="16" border="0" class="mimage"></a></p></th>
+  </tr>
+</table>
+<form name="abm" id="abm" method="post" onload="inicializar()" enctype="multipart/form-data" action="modulos/personas/php/cargar_icono_modulo.php" target="iframeUpload">
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+ <tr class="alt" align="left" >
+   <td width="37%"><strong>Nro Legajo:</strong></td>
+   <td width="63%"><input name='tabla07_nropersona' style="width:200px;" type='text'  id="tabla07_nropersona" value='{tabla07_nropersona}' size='48'  >
+     </td>
+   </tr>
+ <tr class="alt" align="left" >
+   <td><strong>DNI:</strong></td>
+   <td><input name="tabla07_dni" class="obligatorio" style="width:200px;" type="text" id="tabla07_dni" value="{tabla07_dni}" maxlength="8" size="33" tabindex="1"   placeholder="M&iacute;nimo 7 d&iacute;gitos"></td>
+   </tr>
+ <tr class="alt" align="left" >
+   <td width="37%"><strong>Apellido:</strong></td>
+   <td><input name='tabla07_apellido' style="width:200px; text-transform:uppercase;" type='text' class="obligatorio" id="tabla07_apellido" value='{tabla07_apellido}' size='48' tabindex="2"  placeholder="Obligatorio" >
+     </td>
+   </tr>
+  <tr class="alt" align="left" >
+   <td><strong>Nombre:</strong></td>
+   <td><input name='tabla07_nombre' style="width:200px; text-transform:uppercase;" type='text' class='obligatorio' id="tabla07_nombre" value='{tabla07_nombre}' size='48'  tabindex="3" placeholder="Obligatorio" >
+     </td>
+   </tr>
+ <tr class="alt" align="left" >
+   <td><strong>Domicilio:</strong></td>
+   <td height="81"><textarea name="tabla07_direccion" cols="50"  id="tabla07_direccion" style="width:200px; text-transform:uppercase;"  tabindex="4" placeholder="" >{tabla07_direccion}</textarea></td>
+   </tr>
+ <tr class="alt" align="left" >
+   <td><strong>Tel&eacute;fono Fijo:</strong></td>
+   <td><input name='tabla07_telfijo' style="width:200px;" type='text'  id="tabla07_telfijo" value='{tabla07_telfijo}' size='48'  tabindex="5" placeholder=""></td>
+   </tr>
+
+ <tr class="alt" align="left" >
+   <td><strong>Celular:</strong></td>
+   <td><input name='tabla07_celular' style="width:200px;" type='text'  id="tabla07_celular" value='{tabla07_celular}' size='48'  tabindex="6"  placeholder="" ></td>
+   </tr>
+ <tr class="alt" align="left" >
+    <td><strong>Fecha de Nacimiento:</strong></td>
+   <td  colspan="2"><input name='tabla07_cumple' class="obligatorio" style="width:100px;" type='text'  id="tabla07_cumple" value='{tabla07_cumple}' size='48'  tabindex="7" placeholder="Ej: 01-01-2000" >
+    <strong>Edad:</strong> <input name='tabla07_cumple2' class="edad" style="width:60px;" type='text'  id="edad" value='{edad}' size='48'  readonly  >
+   </td>
+   </tr>
+   </tr>
+ <tr class="alt" align="left" >
+   <td><strong>E-mail:</strong></td>
+   <td><input name='tabla07_mail' style="width:200px;" type='text' class='textinput' id="tabla07_mail" value='{tabla07_mail}' size='48'  tabindex="8" placeholder=""></td>
+   </tr>
+ <tr class="alt" align="left" >
+   <td><strong>Sexo:</strong></td>
+   <td><select name="tabla07_sexo" class="obligatorio" id="tabla07_sexo" size="1" tabindex="11" style="width:100px;" >
+      <option value="" selected>Seleccione...</option>
+	 <option value="0" {selected_des}>Masculino</option>
+     <option value="1" {selected_hab}>Femenino</option>
+   </select></td>
+   </tr> 
+   <tr class="alt" align="left" >
+   <td><strong>Fotograf&iacute;a:</strong></td>
+     <td height="30"><input name="tabla07_imagen" id="tabla07_imagen" type="file" onChange="enviar_archivos_csv();">
+   <div id="estado_carga">Adjunte un archivo</div>
+   </td>
+ </tr>
+ </table>
+ <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+ <tr>
+   <td width="47%" align="right"><input class="button_login" type="button" onClick="javascript:;{funcion_guardar_volver}" onKeyPress=" if (event.which == 13 ){{funcion_guardar_volver};}"  tabindex="13" value="Guardar y Volver"  name="Submit" title="Guardar y Volver"></td>
+   <td width="10%" align="center"><input class="button_login" type="button" onClick="javascript:;{funcion_guardar}" onKeyPress=" if (event.which == 13 ){{funcion_guardar};}"  tabindex="14" value="Guardar"  name="Submit" title="Guardar"></td>
+   <td width="43%" align="left"><input class="button_login" type="button" onClick="javascript:;{funcion_cancelar}" onKeyPress=" if (event.which == 13 ){{funcion_cancelar};}" tabindex="15" value="Cancelar" name="Submit" title="Cancelar"></td>
+ </tr>  
+ </table>
+</form>
+<iframe name="iframeUpload" style="display:none"></iframe>
+
+ <p>&nbsp;</p>

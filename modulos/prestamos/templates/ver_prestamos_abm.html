@@ -1,0 +1,80 @@
+ <script>
+				$( "#tabla12_fecha_devolucion,#tabla12_fecha_devolucion" ).datepicker({
+					changeMonth: true,
+					changeYear: true	
+				});
+				$( "#tabla12_fecha_prestamo,#tabla12_fecha_prestamo" ).datepicker({
+					changeMonth: true,
+					changeYear: true	
+				});
+				$( "#tabla12_fecha_a_devolver,#tabla12_fecha_a_devolver" ).datepicker({
+					changeMonth: true,
+					changeYear: true	
+				});
+</script>
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    
+	<th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{tit}</p></th>
+ 
+    <th colspan="5" align="center"><p align="right"><a title="Cerrar" href="javascript:{funcion_cancelar};"><img src="media/iconos/cerrar.png" width="16"  border="0"></a></p></th>
+  </tr>
+
+</table>
+
+<form name="abm_prestamos" id="abm_prestamos">
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr class="alt" align="left" >
+   <td width="24%">Fecha Prestamo:</td>
+   <td width="76%" ><input name="tabla12_fecha_prestamo" type="text" id="tabla12_fecha_prestamo" value="{tabla12_fecha_prestamo}" size="10" class="obligatorio" placeholder="Obligatorio"   {disabled}></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Fecha a devolver:</td>
+   <td width="76%" ><input name="tabla12_fecha_a_devolver" type="text" id="tabla12_fecha_a_devolver" value="{tabla12_fecha_a_devolver}" size="10" class="obligatorio" placeholder="Obligatorio"   {disabled}></td>
+ </tr>
+  <tr class="alt" align="left" >
+    <td>Libro:</td>
+    <td ><select name="rela_tabla10" id="rela_tabla10" class="obligatorio" style="height:auto; width:300px;" {disabled}>
+      <option value="">Seleccione..</option>
+      
+       
+         
+        
+			{LIBROS}
+        
+      
+   
+     
+   
+    </select></td>
+  </tr>
+  <tr class="alt" align="left" >
+    <td>Socio</td>
+    <td ><select name="rela_tabla07" id="rela_tabla07" class="obligatorio" style="height:auto; width:300px;" {disabled}>
+      <option value="">Seleccione..</option>
+      
+       
+         
+        
+			{SOCIOS}
+        
+      
+   
+     
+   
+    </select></td>
+  </tr>
+  <tr class="alt" align="left" style='display:{hide};' >
+   <td width="24%">Fecha Devolucion:</td>
+   <td width="76%" ><input name="tabla12_fecha_devolucion" type="text" id="tabla12_fecha_devolucion" value="{tabla12_fecha_devolucion}" size="15" class="obligatorio" placeholder="Obligatorio"   {disabled}></td>
+ </tr>
+ 
+ </table>
+ <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+ <tr>
+   <td align="right"><input class="button_login" type="button" onClick="javascript:;{funcion_guardar}" value="Aceptar" tabindex="3" name="Submit" title="Guardar"></td>
+   <td align="left"><input class="button_login" type="button" onClick="javascript:;{funcion_cancelar}" value="Cancelar" tabindex="3" name="Submit" title="Cancelar"></td>
+ </tr>  
+ </table>
+</form>

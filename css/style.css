@@ -1,0 +1,216 @@
+html, body {
+	font:normal 11px tahoma,arial,helvetica;
+	margin:0;
+	padding:0;
+	border:0 none;
+	height:100%;
+	background-color:#699BFF;
+
+}
+#contenedor_layout {
+	margin-top: 16px;
+	background:	#999;
+	height:		90%;
+	width:		100%;
+	_width:		700px; /* min-width for IE6 */
+}
+#popup{
+	font:normal 11px tahoma,arial,helvetica;
+	margin: auto;
+	border:0 none;
+	overflow:auto;
+	width:100%;
+	height:100%;
+
+}
+#popup_2{
+	font:normal 11px tahoma,arial,helvetica;
+	margin: auto;
+	border:0 none;
+	overflow:auto;
+	width:100%;
+	height:100%;
+
+}
+.pane {
+	display:	none; /* will appear when layout inits */
+}
+
+#content_tab{
+	margin: 20px;
+	font:normal 11px tahoma,arial,helvetica;
+}
+a, a img { 
+	background: inherit; 
+	color: #555;
+	text-decoration: none; 
+	border:0 none;
+}
+p {margin: 0; padding: 0;}
+
+.ui-layout-pane { /* all 'panes' */ 
+	background: #FFF; 
+	border: 1px solid #BBB; 
+	padding: 10px; 
+	overflow: auto;
+	
+} 
+
+.ui-layout-resizer { /* all 'resizer-bars' */ 
+	background: #DDD; 
+} 
+
+.ui-layout-toggler { /* all 'toggler-buttons' */ 
+	background: #AAA; 
+} 
+
+#tabs li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
+
+
+/* --------------------------- Content --------------------------- */
+#content {
+	padding: 1%;
+	margin: 0 auto;
+	text-align: left;
+	width:98%;
+	
+}
+#content p {
+	margin-bottom: 2px;
+}
+#content h1,h2,h3,h4,h5,h6 {
+	margin-bottom: 2px;
+}
+
+form table {
+	float:right;
+}
+
+form h1 {
+	color: #3e83c9;
+}
+
+table {
+	border-collapse: collapse;
+	margin: 0px;
+}
+
+th {
+	background-color: #2C5F92;
+	color: #fff;
+	font-weight: bold;
+	padding: 6px 11px;
+	/*border-right: 1px solid #fff;*/
+	line-height: 1.2;
+}
+
+td {
+	/*border-bottom: 1px solid #7289A9;*/
+	border-bottom: 1px solid #2C5F92;
+	padding: 6px 11px;
+
+}
+
+.home td {
+	border-bottom: none;
+	padding: 0;
+}
+
+table tr td table tr td {
+	border-bottom: none;
+
+}
+td * {padding: 0;}
+
+tr.alt {
+/*background-color: #DFEAF2;*/
+background-color:#E0E8EB;
+}
+optgroup{font-family: Arial, Helvetica, Verdana, sans-serif; 
+	font-style: normal;
+}
+
+#content h1 {
+	color: #7289A9;
+	padding-bottom: 0.3em;
+}
+.button_login {
+	font-size: 11px;
+	vertical-align: top;
+	margin: 0;
+	background: #FFF url(smoothness/images/bg_buton.jpg) repeat-x; 
+	padding: 4px 5px;
+	color: #333;
+	border: 1px solid #628DB9;
+	cursor:pointer;
+}
+#dialog-form label, input { display:inline; font:normal 11px tahoma,arial,helvetica; }
+#dialog-form input.text { margin-bottom:12px; width:95%; padding: .4em; }
+#dialog-form fieldset { padding:0; border:0; margin-top:25px; }
+.validateTips { border: 1px solid transparent; padding: 0.3em; font:normal 11px tahoma,arial,helvetica;}
+.recom_login { border: 1px solid transparent; padding: 0.3em; font:normal 11px tahoma,arial,helvetica;}
+.mimage {
+vertical-align: middle;
+}		/*
+.a_order{
+color: #FFFFFF;
+}*/
+input[type=text] {
+padding-rigth:5px;
+} 
+.highlight{
+	background-image:url(images/highlight.gif);
+}
+
+/*Pading tab*/
+.ui-tabs-paging-next { 
+	float: right !important;
+}
+.ui-tabs-paging-prev,
+.ui-tabs-paging-next {
+	background: transparent !important;
+	border: 0 !important;
+	margin-bottom: 1px !important;
+	font-weight: bold;
+}
+
+.ui-tabs-paging-prev a,
+.ui-tabs-paging-next a {
+    display: block; 
+    position: relative; 
+    top: 1px; 
+    border: 0;
+    z-index: 2; 
+    padding: 0;
+    /* color: #444; */ 
+    text-decoration: none;
+	background: transparent !important; 
+	cursor: pointer;
+}
+.ui-tabs-paging-next a:hover,
+.ui-tabs-paging-next a:focus,
+.ui-tabs-paging-next a:active,
+.ui-tabs-paging-prev a:hover,
+.ui-tabs-paging-prev a:focus,
+.ui-tabs-paging-prev a:active { 
+	background: transparent; 
+}
+.ui-tabs-paging-disabled {
+	visibility: hidden;
+}
+/*table jqueryu ui */
+styleTable { border-collapse: separate; }
+.styleTable TD { font-weight: normal !important; padding: .4em; border-top-width: 0px !important; }
+.styleTable TH { text-align: center; padding: .8em .4em; }
+.styleTable TD.first, .styleTable TH.first { border-left-width: 0px !important; }
+
+.asc{
+	background:url(images/sorta.gif) no-repeat right center;
+}
+.desc{
+	background:url(images/sortd.gif) no-repeat right center;
+}
+.obligatorio{
+border: 2px solid #FF7871;
+padding: .1em;
+}

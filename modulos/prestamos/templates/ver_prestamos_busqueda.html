@@ -1,0 +1,104 @@
+<script>
+	$(function() {
+		$( "#fecha_desde,#fecha_hasta,#fecha_desde_devolver,#fecha_hasta_devolver" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});			
+
+	});
+</script>
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{titulo}</p></th>
+  </tr>
+  <tr class="alt">
+	<td width="71%" ><a title="Agregar" href="javascript:{funcion_agregar};"><img src="media/iconos/add.png" alt="Nuevo" width="16" border="0" class="mimage"><strong> Agregar Prestamo</strong> </a></td>
+    <td width="24%" align="right" valign="middle"><strong>prestamos cargadas: </strong>{cantidad}</td>
+  </tr>
+</table>
+<br>
+<form name="ver_busqueda_prestamos" id="ver_busqueda_prestamos">
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+    <tr align="left" >
+      <th>Buscador</th>
+      <th  align="right"><a title="Abrir Buscador" href="javascript:;" onClick="$('#formulario_tours').toggle();"><img src="media/iconos/down.png" alt="Nuevo" width="16" border="0" class="mimage"></a></th>
+    </tr>
+</table>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" id="formulario_tours" style="display:">
+	
+    <tr class="alt" align="left" >
+    <td height="30">Libro: 
+      <select name="rela_tabla10" id="rela_tabla10" class="obligatorio" style="height:auto; width:150px;" {disabled}>
+        <option value="">Seleccione..</option>
+        
+      
+       
+         
+        
+			{LIBROS}
+        
+      
+   
+     
+   
+    
+      </select></td>
+    <td height="30">Socio:
+      <select name="rela_tabla07" id="select" class="obligatorio" style="height:auto; width:150px;" {disabled}>
+        <option value="">Seleccione..</option>
+        
+        
+      
+       
+         
+        
+			{SOCIOS}
+        
+      
+   
+     
+   
+    
+      
+      </select></td>
+    <td height="30">&nbsp;</td>
+    <td height="30">&nbsp;</td>
+    </tr>
+    <tr class="alt" align="left" >
+      <td width="27%" height="30">Fecha prestamo desde: 
+      <input  name="fecha_desde" type="text"  class="textinput"  id="fecha_desde" size="8" onClick="this.value=''" />    
+      <td width="28%">Fecha prestamos hasta:
+      <input name="fecha_hasta" type="text" class="textinput" id="fecha_hasta" size="8"  onClick="this.value=''" /> 
+      <td>Fecha a devolver desde:
+        <input  name="fecha_desde_devolver" type="text"  class="textinput"  id="fecha_desde_devolver" size="8" onClick="this.value=''" /></td>
+      <td id="info_prestamos">Fecha a devolver Hasta : 
+      <input name="fecha_hasta_devolver" type="text" class="textinput" id="fecha_hasta_devolver" size="8"  onClick="this.value=''" /></td>
+    </tr>
+    <tr class="alt" align="left" >
+      <td height="30" colspan="2"><input name="buscar" type="button" class="button_login" id="buscar2" value="Buscar" onClick="{funcion_busqueda};" />
+        <input name="buscar" type="button" class="button_login" id="buscar2" value="Limpiar" onClick="$('#ver_busqueda_prestamos').reset();{funcion_busqueda};" />    
+      <td width="22%">&nbsp;</td>
+      <td width="23%" id="info_prestamos"></td>
+    </tr>
+</table>
+</form>
+<p>&nbsp;</p>
+<div id="listado_prestamos">
+<table width="100%" border="0" cellpadding="1" cellspacing="1" class="tabla_highlight">
+  <tr>
+   <th  align="left">Fecha Prestamo</th>
+	<th align="left">Fecha a devolver</th>
+	<th align="left">Libro</th>
+	<th align="left">Socio</th>
+	<th align="left">Fecha Devolucion </th>
+    <th align="center" >Acciones </th>
+  </tr>
+{LISTADO}
+</table>
+<table width="100%" border="0" cellpadding="1" cellspacing="1">
+  <tr align="center">
+    <td colspan="6">{paginas} </td>
+  </tr>
+</table>
+</div>

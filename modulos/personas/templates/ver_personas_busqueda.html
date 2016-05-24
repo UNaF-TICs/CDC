@@ -1,0 +1,74 @@
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th colspan="7" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{titulo}</p></th>
+  </tr>
+    <tr class="alt">
+      <td width="10%" align="left"><a title="Agregar" href="javascript:{funcion_agregar};"><img src="media/iconos/add.png" alt="Nuevo" width="16" border="0" class="mimage"><strong> Agregar</strong> </a></td>
+ 	<td width="2%" align="left"><a title="Exportar PDF" href="modulos/personas/php/exportar_excel.php" target="_blank"><img src="media/iconos/pdf.png" alt="Nuevo" width="16" border="0" class="mimage"></a></td>
+ 	 <td width="49%" align="left"><a title="Exportar Excel" href="modulos/personas/php/exportar_excel.php?tipo=xls"><img src="media/iconos/excel.png" alt="Nuevo" width="16" border="0" class="mimage"></a></td>
+   <td width="39%" align="right" valign="middle"><strong>Personas cargadas: </strong>{cantidad}</td>
+  </tr>
+</table>
+<br>
+
+<form name="ver_busqueda_personas" id="ver_busqueda_personas" autocomplete="off">
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+    <tr align="left" >
+      <th width="97%">Buscador</th>
+      <th width="3%"  align="right"><a title="Abrir Buscador" href="javascript:;" onClick="$('#formulario_personas').toggle();"><img src="media/iconos/down.png" alt="Nuevo" width="16" border="0" class="mimage"></a></th>
+    </tr>
+</table>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" id="formulario_personas" style="display:">
+    <tr class="alt" align="left" >
+     <td  height="30"><strong>Apellido/s:
+          <input name="apellido" type="text" class="textinput" id="apellido" size="20" style="text-transform:uppercase;" onChange="{funcion_busqueda}">
+      </strong> </td>
+	  <td  height="30"><strong> Nombre/s:
+          <input name="nombre" type="text" class="textinput" id="nombre" size="20" style="text-transform:uppercase;" onChange="{funcion_busqueda}">
+      </strong></td>
+      <td height="30"><strong>DNI:
+        <input name="tabla07_dni" type="text" class="textinput" id="tabla07_dni" size="20" onChange="{funcion_busqueda}">
+      </strong>  </td>
+    </tr>
+    <tr class="alt" align="left" >
+      <td  height="30"><strong>Legajo:
+          <input name="nropersonas" type="text" class="textinput" id="nropersonas" size="20" onChange="{funcion_busqueda}">
+      </strong></td>
+      <td  height="30"></td>
+      <td height="30">&nbsp;</td>
+    </tr>
+    <tr class="alt" align="center" >
+      <td height="30" colspan="3">        <!-- <strong>Categor&iacute;a</strong>:
+          <select name="categoria" id="categoria" style="width:200px;" class='listbox' onFocus="siguienteCampo ='fin';">
+            <option value="">Seleccione..</option>
+			{CATEGORIA}
+        </select> -->       		  <input name="buscar" type="button" class="button_login" id="buscar" value="Buscar" onClick="{funcion_busqueda};" />
+		  <input name="limpiar" type="button" class="button_login" id="limpiar" value="Limpiar" onClick="$('#ver_busqueda_personas').reset();{funcion_busqueda};" /></td>
+</tr>	
+<!--     <tr class="alt" align="center" >
+      <td height="30" colspan="3">        <input name="buscar" type="button" class="button" id="buscar" value="Buscar" onClick="{funcion_busqueda};$('#ver_busqueda_escribanos').reset();">      </td>
+    </tr> -->
+  </table>
+</form>
+<p>&nbsp;</p>
+<div id="listado_personas">
+<table width="100%" border="0" cellpadding="1" cellspacing="1">
+  <tr>
+		<th  align="left">Nro Leg.</th>
+		<th   align="left">Apellido/s y Nombre/s</th>
+		<th align="center">Edad</th>
+		<th align="left">DNI</th>
+		<th  align="left">Tel. Fijo</th>
+		<th  align="left">Celular</th>
+		<th align="left">Domicilio</th>
+		<th   align="left">Fotografia</th>
+		<th align="center" width="18%">  Acciones </th>
+  </tr>
+	{LISTADO}
+</table>
+<table width="100%" border="0" cellpadding="1" cellspacing="1">
+  <tr align="center">
+    <td colspan="9">{paginas} </td>
+  </tr>
+</table>
+</div>

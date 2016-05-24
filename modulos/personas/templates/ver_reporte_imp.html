@@ -1,0 +1,167 @@
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Datos Clientes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script>
+print();
+</script>
+</head>
+<style type="text/css">
+/* 
+	Grey Suits you Sir. Please host the images on your own server.
+	written by Stuart Colville http://www.muffinresearch.co.uk
+*/
+body{
+margin:0 auto; 
+width:978px;
+
+}
+table,td
+{
+	border               : 1px solid #CCC;
+	border-collapse      : collapse;
+ 	 font                 : small "Tahoma", "Bitstream Vera Sans", Verdana, Helvetica, sans-serif;
+	 font-size:10px;
+}
+p{
+ 	 font                 :  "Tahoma", "Bitstream Vera Sans", Verdana, Helvetica, sans-serif;
+	 font-size:12px;
+
+
+}
+
+table
+{
+	border                :none;
+}
+thead th,
+tbody th
+{
+	background            : #FFF  repeat-x;
+  	color                 : #666;  
+	padding               : 5px 10px;
+ 	 border-left           : 1px solid #CCC;
+	border-right           : 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+}
+tbody th
+{
+  background            : #fafafb;
+  border-top            : 1px solid #CCC;
+  text-align            : left;
+  font-weight           : normal;
+}
+tbody tr td
+{
+	padding               : 5px 10px;
+  color                 : #666;
+}
+tbody tr:hover
+{
+  background            : #FFF  repeat;
+}
+
+tbody tr:hover td
+{
+  color                 : #454545;
+}
+tfoot td,
+tfoot th
+{
+  border-left           : none;
+  border-top            : 1px solid #CCC;
+	padding               : 4px;
+  background            : #FFF  repeat;
+  color                 : #666;
+}
+caption
+{
+	text-align            : left;
+	font-size             : 120%;
+	padding               : 10px 0;
+	color                 : #666;
+}
+table a:link
+{
+	color                 : #666;
+}
+table a:visited
+{
+	color                 : #666;
+}
+table a:hover
+{
+	color                 : #003366;
+	text-decoration       : none;
+}
+table a:active
+{
+	color                 : #003366;
+}
+</style>
+
+<body>
+<p align="center">
+	<!-- <img  src="../../../media/logo.jpg" alt="Logo Negocio" width="150" hspace="5" border="0"> -->
+</p>
+
+ <table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+ <tr class="alt" align="left" >
+   <th align="left"> Usuario: {tabla01_nombre} </th>
+<th width="60%" align="left"></th>
+ <th width="7%" align="left"></th>
+ </tr>
+  </tr>
+ <tr class="alt" align="left" >
+   <td width="33%" align="left"><strong> Nro Legajo:</strong></td>
+   <td colspan="2"> 
+{tabla07_nropersona}</td>
+ </tr>
+  <tr class="alt" align="left" >
+   <td align="left"><strong>DNI:</strong></td>
+   <td colspan="2">{tabla07_dni}</td>
+ </tr>
+  <tr class="alt" align="left" >
+   <td align="left"><strong>Apellido/s y Nombre/s:</strong></td>
+   <td colspan="2">{nombre_y_apellido}</td>
+ </tr>
+ 
+ <tr class="alt" align="left" >
+   <td align="left"><strong>Tel&eacute;fono Fijo:</strong></td>
+   <td colspan="2">{tabla07_telfijo}</td>
+ </tr>
+ 
+  <tr class="alt" align="left" >
+   <td align="left"><strong>Celular:</strong></td>
+   <td colspan="2">{tabla07_celular}</td>
+ </tr>
+  <tr class="alt" align="left" >
+    <td align="left"><strong>Domicilio:</strong></td>
+    <td colspan="2">{tabla07_direccion}</td>
+  </tr>
+  <tr class="alt" align="left" >
+    <td align="left"><strong>Mail:</strong></td>
+    <td colspan="2">{tabla07_mail}</td>
+  </tr>
+  <tr class="alt" align="left" >
+    <td align="left"><strong>Fecha de Nacimiento:</strong></td>
+    <td colspan="2">{tabla07_cumple}</td>
+  </tr>
+  <tr class="alt" align="left" >
+    <td align="left"><strong>Edad:</strong></td>
+    <td colspan="2">{edad}</td>
+  </tr>
+ </table>
+  <p>&nbsp;</p>
+  </table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>
+  
+   
+   
+   
+

@@ -1,0 +1,82 @@
+ <script>
+				$( "#tabla10_fecha_entrada,#tabla10_fecha_entrada" ).datepicker({
+					changeMonth: true,
+					changeYear: true	
+				});
+</script>
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    
+	<th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{tit}</p></th>
+ 
+    <th colspan="5" align="center"><p align="right"><a title="Cerrar" href="javascript:{funcion_cancelar};"><img src="media/iconos/cerrar.png" width="16"  border="0"></a></p></th>
+  </tr>
+
+</table>
+
+<form name="abm_libros" id="abm_libros">
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+ <tr class="alt" align="left" >
+   <td width="24%">T&iacute;tulo:</td>
+   <td width="76%" ><input name="tabla10_titulo" type="text" id="tabla10_titulo" value="{tabla10_titulo}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Descripci&oacute;n:</td>
+   <td width="76%" ><input name="tabla10_subtitulo" type="text" id="tabla10_subtitulo" value="{tabla10_subtitulo}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">SubT&iacute;tulo:</td>
+   <td width="76%" ><input name="tabla10_descripcion" type="text" id="tabla10_descripcion" value="{tabla10_descripcion}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+  <tr class="alt" align="left" >
+    <td>Tema:</td>
+    <td ><select name="rela_tabla09" id="rela_tabla09" class="obligatorio" style="height:auto; width:300px;">
+       <option value="">Seleccione..</option>
+       
+         
+        
+			{TEMAS}
+        
+      
+   
+     
+   </select></td>
+  </tr>
+  <tr class="alt" align="left" >
+    <td>Editorial</td>
+    <td ><select name="rela_tabla11" id="rela_tabla11" class="obligatorio" style="height:auto; width:300px;">
+      <option value="">Seleccione..</option>
+      
+       
+         
+        
+			{EDITORIALES}
+        
+      
+   
+     
+   
+    </select></td>
+  </tr>
+  <tr class="alt" align="left" >
+   <td width="24%">Fecha entrega:</td>
+   <td width="76%" ><input name="tabla10_fecha_entrada" type="text" id="tabla10_fecha_entrada" value="{tabla10_fecha_entrada}" size="15" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Tomo:</td>
+   <td width="76%" ><input name="tabla10_tomo" type="text" id="tabla10_tomo" value="{tabla10_tomo}" size="20" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+  <tr class="alt" align="left" >
+   <td width="24%">Cantidad:</td>
+   <td width="76%" ><input name="tabla10_cantidad" type="number" id="tabla10_cantidad" value="{tabla10_cantidad}" size="20" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ 
+ </table>
+ <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+ <tr>
+   <td align="right"><input class="button_login" type="button" onClick="javascript:;{funcion_guardar}" value="Aceptar" tabindex="3" name="Submit" title="Guardar"></td>
+   <td align="left"><input class="button_login" type="button" onClick="javascript:;{funcion_cancelar}" value="Cancelar" tabindex="3" name="Submit" title="Cancelar"></td>
+ </tr>  
+ </table>
+</form>
