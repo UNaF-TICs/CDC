@@ -20,16 +20,14 @@ $icono=isset($_SESSION["session_tabla02_imagen"]) ? strval($_SESSION['session_ta
 $tabla02_nombre=utf8_decode($tabla02_nombre);
 $tabla02_orden=utf8_decode($tabla02_orden);
 $tabla02_imagen="";
-//falto esto  $nombre_funcion=$_POST["nombre_funcion"];
 $nombre_funcion=$_POST["nombre_funcion"];
 switch ($nombre_funcion) {
     case "agregar_modulo":
-	/*
-			$result =mysql_query("Select max(id_tabla02) as pid from tabla_02_modulos ",$link_mysql);
-			$num_rows = mysql_num_rows($result);							
+			$rs = $pdo->query("Select max(id_tabla02) as pid from tabla_02_modulos ");//
+			$num_rows = $rs->rowCount();
 			if ($num_rows>0)
 			{
-				$row = mysql_fetch_assoc($result);
+				$row = $rs->fetch();
 				$id_tabla02=$row["pid"]+1;
 			}else{
 				$id_tabla02=1;
@@ -51,7 +49,7 @@ switch ($nombre_funcion) {
 				}else{
 				$_SESSION['session_tabla02_imagen']="";
 				}
-			}*/
+			}
 			$id_res=agregar_modulo($rela_padre,$tabla02_nombre,$tabla02_path_home,$tabla02_imagen,$tabla02_orden,$tabla02_ayuda,$tabla02_tipo,$pdo);
 			$vsplit=explode("-",$id_res);
 			$mensaje=$vsplit[1];
@@ -59,7 +57,7 @@ switch ($nombre_funcion) {
 			break;
 
     case "modificar_modulo":
-			/*if($icono)
+			if($icono)
 			{
 				$nm=split("\.",$icono);
 				$tabla02_imagen="icono_$id_tabla02.".$nm[1];
@@ -75,7 +73,7 @@ switch ($nombre_funcion) {
 				}
 
 				$_SESSION['session_tabla02_imagen']="";
-			}*/
+			}
 			
 			$id_res= modificar_modulo($id_tabla02,$rela_padre,$tabla02_nombre,$tabla02_path_home,$tabla02_imagen,$tabla02_orden,$tabla02_ayuda,$tabla02_tipo,$pdo);
 			$vsplit=split("-",$id_res);

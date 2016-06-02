@@ -2,12 +2,9 @@
 require_once "../../../php/check.php";
 include "../../../lib/link_mysql.php";
 require_once "../../../lib/template.inc";
-//require_once "../../../php/funciones_comunes.php";
 include "../../../php/funciones_comunes.php";
 session_start();
-/*Recibo los parametros para cargar el formulario ABM
-Si son vacios es porque tengo que agregar uno nuevo.
-*/
+
 $t = new Template('../templates/');
 //Archivos comunes
 $t->set_file(array(
@@ -20,6 +17,7 @@ $offset=isset($_POST['offset']) ? intval($_POST['offset']) : '';
 $id_tablamodulo=isset($_POST['id_tablamodulo']) ? intval($_POST['id_tablamodulo']) : NULL;
 $titulo="Listado de libros";
 $t->set_var("titulo",$titulo);
+
 //
 //Otras Funciones
 //$t->set_var("funcion_excel","modulos/libros/php/exportar_excel.php?tipo=xls");
@@ -32,18 +30,7 @@ $id="'listado_libros'";
 $vars="'es_buscar=si&id_tablamodulo=$id_tablamodulo&";	
 $vars.="tabla10_titulo='+ver_busqueda_libros.tabla10_titulo.value";	
 $t->set_var("funcion_busqueda","cargar_post($url,$id,$vars)");
-/*
-// New Paginador
-$totalporpag=25;
-if(!$offset){ 
-	$off=0;$offset=1;
-}
-else{
-    $off=($offset-1);
-}
-$ini=$off*$totalporpag;
-// End New	
-*/
+
 if (isset($_POST['offset'])) {
 	$offset=$_POST["offset"];
 } else {
@@ -102,8 +89,7 @@ else
 	$t->set_var("LISTADO","<tr align='center' class='alt'><td colspan='10'>No se encuentran Registros Cargados. </td></tr>");
 	
 }	
-	// New Paginador
-	$qrT="select count(*) as cantidad from tabla_10_libros"; 
+	$qrT="select * from tabla_10_libros";
 	$rs = $pdo->query($qrT);//
 	$totalregistros = $rs->rowCount();
 	$t->set_var("cantidad",$totalregistros);
@@ -124,7 +110,7 @@ else
 		$pag.="<td></td>";
 	}
 						 
-	// Numeros
+	// Numeros 
 	if($totalpaginas>15)
 	{
 		$faltan=($totalpaginas-$off);

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-05-2016 a las 17:33:18
+-- Tiempo de generación: 02-06-2016 a las 21:19:12
 -- Versión del servidor: 5.6.24
 -- Versión de PHP: 5.6.8
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `tabla_02_modulos` (
   `tabla02_imagen` varchar(250) DEFAULT NULL,
   `tabla02_orden` int(11) DEFAULT NULL,
   `tabla02_ayuda` varchar(250) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=88 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tabla_02_modulos`
@@ -72,6 +72,7 @@ INSERT INTO `tabla_02_modulos` (`id_tabla02`, `tabla02_tipo`, `rela_padre`, `tab
 (18, 1, NULL, 'Soporte', '', '', 3, 'asda'),
 (19, 0, 18, 'Enviar Consulta', 'consultas/php/ver_enviar_consultas.php', 'icono_19.png', 1, ''),
 (27, 0, 17, 'Backup', 'backup/php/ver_backup.php', 'icono_27.png', 5, ''),
+(87, 0, 68, 'xxxx', 'xxx', 'icono_87.png', 1, ''),
 (68, 1, NULL, 'Administracion central', '', '', 3, ''),
 (69, 0, 68, 'Temas', 'temas/php/ver_temas_busqueda.php', '', 2, ''),
 (70, 0, 68, 'Libros', 'libros/php/ver_libros_busqueda.php', '', 3, '');
@@ -139,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `tabla_05_log` (
   `tabla05_hora` varchar(250) NOT NULL,
   `tabla05_mensaje` varchar(250) DEFAULT NULL,
   `tabla05_operacion` varchar(45) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tabla_05_log`
@@ -148,7 +149,16 @@ CREATE TABLE IF NOT EXISTS `tabla_05_log` (
 INSERT INTO `tabla_05_log` (`id_tabla05`, `rela_tabla01`, `rela_tabla02`, `tabla05_accion`, `tabla05_descripcion`, `tabla05_fecha`, `tabla05_hora`, `tabla05_mensaje`, `tabla05_operacion`) VALUES
 (1, 1, 0, 'ABM', 'root', '2016-05-16', '20:38:24', 'Logueado correctamente', 'Logueo'),
 (2, 1, 0, 'ABM', 'root', '2016-05-17', '00:09:23', 'Logueado correctamente', 'Logueo'),
-(3, 1, 0, 'ABM', 'root', '2016-05-17', '00:11:58', 'Logueado correctamente', 'Logueo');
+(3, 1, 0, 'ABM', 'root', '2016-05-17', '00:11:58', 'Logueado correctamente', 'Logueo'),
+(4, 1, 0, 'ABM', 'root', '2016-05-17', '21:19:41', 'Logueado correctamente', 'Logueo'),
+(5, 1, 0, 'ABM', 'root', '2016-05-24', '07:02:44', 'Logueado correctamente', 'Logueo'),
+(6, 1, 0, 'ABM', 'root', '2016-05-24', '07:35:43', 'Logueado correctamente', 'Logueo'),
+(7, 1, 0, 'ABM', 'root', '2016-05-31', '20:22:37', 'Logueado correctamente', 'Logueo'),
+(8, 1, 0, 'ABM', 'root', '2016-05-31', '22:18:42', 'Logueado correctamente', 'Logueo'),
+(9, 1, 0, 'ABM', 'root', '2016-05-31', '22:39:39', 'Logueado correctamente', 'Logueo'),
+(10, 1, 0, 'ABM', 'root', '2016-05-31', '22:54:09', 'Logueado correctamente', 'Logueo'),
+(11, 0, 0, 'ABM', 'usuario: amp (amp)', '2016-06-02', '11:13:54', 'Error Logueo', 'Logueo'),
+(12, 1, 0, 'ABM', 'root', '2016-06-02', '11:14:00', 'Logueado correctamente', 'Logueo');
 
 -- --------------------------------------------------------
 
@@ -212,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `tabla_10_libros` (
   `tabla10_cantidad` int(11) DEFAULT NULL,
   `tabla10_isbn` varchar(45) DEFAULT NULL,
   `tabla10_edicion` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tabla_10_libros`
@@ -220,7 +230,17 @@ CREATE TABLE IF NOT EXISTS `tabla_10_libros` (
 
 INSERT INTO `tabla_10_libros` (`id_tabla10`, `rela_tabla09`, `rela_tabla11`, `rela_tabla08`, `tabla10_titulo`, `tabla10_subtitulo`, `tabla10_descripcion`, `tabla10_fecha_entrada`, `tabla10_tomo`, `tabla10_cantidad`, `tabla10_isbn`, `tabla10_edicion`) VALUES
 (1, 3, 3, NULL, 'sdasda', 'dasda', 'dasdas', '2016-05-14', 'dasdad', 3, NULL, NULL),
-(2, 2, 1, NULL, 'xx', 'xxxx', '312312', '14-05-2016', '1', 2, NULL, NULL);
+(2, 2, 1, NULL, 'xx', 'xxxx', '312312', '2016-05-14', '1', 2, NULL, NULL),
+(3, 2, 3, NULL, 'prueba', 'xx', 'xxx', '17-05-2016', '1', 2, NULL, NULL),
+(4, 1, 1, NULL, 'dasd', 'dasd', 'dasdas', '2016-05-17', '1', 1, NULL, NULL),
+(5, 2, 1, NULL, 'sdasdas', 'dasdas', 'dasdasd', '2016-05-17', 'dasdas', 2, NULL, NULL),
+(6, 3, 1, NULL, 'dasdas', 'dasdas', 'dasd', '2016-05-17', 'a', 1, NULL, NULL),
+(7, 2, 3, NULL, 'sadas', 'dasdas', 'dasdas', '17-05-2016', 'dsa', 1, NULL, NULL),
+(8, 1, 3, NULL, 'dasdas', 'dasdas', 'dasdas', '17-05-2016', 'dasdasd', 1, NULL, NULL),
+(9, 2, 3, NULL, 'dasdasdas', 'dasdas', 'dasdas', '17-05-2016', 'dasda', 1, NULL, NULL),
+(10, 1, 3, NULL, 'dasdasdas', 'sdsadas', 'dasdasd', '17-05-2016', 'dasda', 1, NULL, NULL),
+(11, 2, 3, NULL, 'dasdasd', 'dasdasd', 'dasdasd', '17-05-2016', 'dasda', 5, NULL, NULL),
+(12, 2, 2, NULL, 'dasdas', 'dasdasd', 'dasdasd', '17-05-2016', '2', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -315,7 +335,7 @@ ALTER TABLE `tabla_01_usuarios`
 -- AUTO_INCREMENT de la tabla `tabla_02_modulos`
 --
 ALTER TABLE `tabla_02_modulos`
-  MODIFY `id_tabla02` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=87;
+  MODIFY `id_tabla02` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=88;
 --
 -- AUTO_INCREMENT de la tabla `tabla_03_perfiles`
 --
@@ -330,7 +350,7 @@ ALTER TABLE `tabla_04_det_perfiles`
 -- AUTO_INCREMENT de la tabla `tabla_05_log`
 --
 ALTER TABLE `tabla_05_log`
-  MODIFY `id_tabla05` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id_tabla05` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `tabla_06_det_usuarios_perfiles`
 --
@@ -345,7 +365,7 @@ ALTER TABLE `tabla_09_temas`
 -- AUTO_INCREMENT de la tabla `tabla_10_libros`
 --
 ALTER TABLE `tabla_10_libros`
-  MODIFY `id_tabla10` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_tabla10` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `tabla_11_editoriales`
 --

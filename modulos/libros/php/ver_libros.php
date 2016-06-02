@@ -10,17 +10,11 @@ $t->set_file(array(
 	"ver"		=> "ver_libros.html",
 	"un"		=> "un_libros.html",
 	));
-//Configuración Inicial
-$id_tablamodulo=$_POST["id_tablamodulo"];
-//
-$tabla10_titulo=$_POST["tabla10_titulo"];
 
-$es_buscar=$_POST["es_buscar"];
-if (isset($_POST['offset'])) {
-	$offset=$_POST["offset"];
-} else {
-	$offset = "";  
-} 
+//Configuración Inicial
+$where=""; 
+$es_buscar=isset($_POST['es_buscar']) ? strval($_POST['es_buscar']) : '';
+$id_tablamodulo=isset($_POST['id_tablamodulo']) ? intval($_POST['id_tablamodulo']) : NULL;
 $offset=isset($_POST['offset']) ? intval($_POST['offset']) : NULL;
 $id_tabla10=isset($_POST['id_tabla10']) ? intval($_POST['id_tabla10']) : NULL;
 $tabla10_titulo=isset($_POST['tabla10_titulo']) ? strval($_POST['tabla10_titulo']) : '';
@@ -31,7 +25,7 @@ $tabla10_descripcion=isset($_POST['tabla10_descripcion']) ? strval($_POST['tabla
 $tabla10_fecha_entrada=isset($_POST['tabla10_fecha_entrada']) ? strval($_POST['tabla10_fecha_entrada']) : '';
 $tabla10_tomo=isset($_POST['tabla10_tomo']) ? strval($_POST['tabla10_tomo']) : '';
 $tabla10_cantidad=isset($_POST['tabla10_cantidad']) ? strval($_POST['tabla10_cantidad']) : '';
-
+ 
 
 if ($es_buscar!="")
 {
@@ -47,10 +41,8 @@ if ($es_buscar!="")
 		$where= " where $where";
 	}
 
-
-
 }else{
-	if($_SESSION['where_titulos']!="")
+	if(isset($_SESSION['where_titulos'])) 
 	{
 		$where= " where ".$_SESSION['where_titulos'];
 	}
@@ -71,7 +63,6 @@ $sql="select * from tabla_10_libros
 		$where 
 		order by tabla10_titulo ASC  
 		Limit $totalporpag OFFSET $ini ";
-//echo $sql;
 $rs = $pdo->query($sql);//
 $num_rows = $rs->rowCount();
 if ($num_rows>0)

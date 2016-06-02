@@ -3,7 +3,7 @@ header("Content-type: text/html; charset=utf-8");
         //session_start(); 
 
 
-$scon = "mysql:dbname=sistema_cuderno_campo;host=127.0.0.1";
+$scon = "mysql:dbname=sistema_cuaderno_campo;host=127.0.0.1";
 $suser ='root';
 $spass = '';
 $msg='';
@@ -19,7 +19,7 @@ PDO::ERRMODE_EXCEPTION es el que acabamos de explicar que genera y lanza una exc
 */
 
 try {
-	$pdo = new PDO("mysql:dbname=sistema_cuderno_campo;host=127.0.0.1",$suser,$spass,array(PDO::ATTR_PERSISTENT => true,
+	$pdo = new PDO("mysql:dbname=sistema_cuaderno_campo;host=127.0.0.1",$suser,$spass,array(PDO::ATTR_PERSISTENT => true,
 														PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$msg='conexion_ok';  
