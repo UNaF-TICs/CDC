@@ -1,0 +1,64 @@
+<script>
+	//Valido Solo Caracteres
+	//Valido Solo Números
+	$('#nombre_tour').alpha();
+
+
+</script>
+<meta charset="utf-8"/>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{titulo}</p></th>
+  </tr>
+  <tr class="alt">
+	<td width="71%" ><a title="Agregar" href="javascript:{funcion_agregar};"><img src="media/iconos/add.png" alt="Nuevo" width="16" border="0" class="mimage"><strong> Agregar</strong> </a></td>
+    <td width="24%" align="right" valign="middle"><strong>Maquinarias cargadas: </strong>{cantidad}</td>
+  </tr>
+</table>
+<br>
+<form name="ver_busqueda_maquinaria" id="ver_busqueda_maquinaria">
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+    <tr align="left" >
+      <th>Buscador</th>
+      <th  align="right"><a title="Abrir Buscador" href="javascript:;" onClick="$('#formulario_tours').toggle();"><img src="media/iconos/down.png" alt="Nuevo" width="16" border="0" class="mimage"></a></th>
+    </tr>
+</table>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" id="formulario_tours" style="display:">
+	
+    <tr class="alt" align="left" >
+    <td height="30" colspan="3">Referencia: 
+      <input type="text" name="tabla22_nombre" id="tabla22_nombre"  onChange="{funcion_busqueda}"  tabindex="1"/></td>
+    </tr>
+    <tr class="alt" align="left" >
+      <td width="40%" height="30">    
+      <td width="26%"><input name="buscar" type="button" class="button_login" id="buscar" value="Buscar" onClick="{funcion_busqueda};" />
+        <input name="buscar" type="button" class="button_login" id="buscar" value="Limpiar" onClick="$('#ver_busqueda_maquinaria').reset();{funcion_busqueda};" /></td>
+      <td width="34%" id="info_maquinaria"></td>
+    </tr>
+</table>
+</form>
+<p>&nbsp;</p>
+<div id="listado_maquinaria">
+<table width="100%" border="0" cellpadding="1" cellspacing="1" class="tabla_highlight">
+  <tr>
+    <th align="left">Imagen</th>
+    <th align="left">Nombre</th>
+	<th align="left">Descripción </th>
+	<th align="left">Marca</th>
+	<th align="left">Modelo</th>
+	<th align="left">Fecha Compra</th>
+	<th align="left">Costo Compra</th>
+	<th align="left">Matrícula</th>
+    <th align="center" >Empresa Seguro</th>
+    <th align="center" >RTO</th>
+    <th align="center" >Función</th>
+    <th align="center" >Acciones</th> 
+  </tr>
+{LISTADO}
+</table>
+<table width="100%" border="0" cellpadding="1" cellspacing="1">
+  <tr align="center">
+    <td colspan="3">{paginas} </td>
+  </tr>
+</table>
+</div>
