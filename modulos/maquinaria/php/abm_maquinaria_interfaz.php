@@ -30,19 +30,19 @@ switch ($nombre_funcion) {
     case "agregar_maquinaria":
 		$id_res=agregar_maquinaria($tabla22_descripcion,$tabla22_imagen,$tabla22_nombre,$tabla22_marca,$tabla22_modelo,
 $tabla22_fecha_compra,$tabla22_costo_compra,$tabla22_matricula,$tabla22_empresa_seguro,$tabla22_rto,$tabla22_funcion,$pdo);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
         break;
     case "borrar_maquinaria":		
 		$id_res=borrar_maquinaria($id_tabla22,$pdo);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
 		break;
 	case "modificar_maquinaria":
 		$id_res=modificar_maquinaria($id_tabla22,$tabla22_descripcion,$tabla22_imagen,$tabla22_nombre,$tabla22_marca,$tabla22_modelo,
 $tabla22_fecha_compra,$tabla22_costo_compra,$tabla22_matricula,$tabla22_empresa_seguro,$tabla22_rto,$tabla22_funcion,$pdo);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
 		break;	
 
 
@@ -60,6 +60,6 @@ $datos.="tabla22_matricula<@n:> $tabla22_matricula<@n>";
 $datos.="tabla22_empresa_seguro<@n:> $tabla22_empresa_seguro<@n>";
 $datos.="tabla22_rto<@n:> $tabla22_rto<@n>";
 $datos.="tabla22_funcion<@n:> $tabla22_funcion<@n>";
-//agregar_log("ABM",$nombre_funcion,$vsplit[1],$datos,$modulo_actual,$link_mysql);
+//agregar_log("ABM",$nombre_funcion,$vexplode[1],$datos,$modulo_actual,$link_mysql);
 
 ?>

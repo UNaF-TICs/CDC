@@ -23,22 +23,22 @@ $t->set_file(array(
 
 $JS="";
 //Plugin
-$JS.='<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>';
-$JS.='<script type="text/javascript" src="js/jquery-ui-1.8.5.custom.min.js"></script>';
-$JS.='<script type="text/javascript" src="js/jquery.scrollabletab.js"></script>'; 
-$JS.='<script type="text/javascript" src="js/jquery.layout.js"></script>';
-$JS.='<script type="text/javascript" src="js/ajax.js"></script>';
-$JS.='<script src="js/jquery.validate.js" type="text/javascript"></script>';
+$JS.='<script type="text/javascript" src="js/jquery-1.4.2.min.js" charset="UTF-8"></script>';
+$JS.='<script type="text/javascript" src="js/jquery-ui-1.8.5.custom.min.js" charset="UTF-8"></script>';
+$JS.='<script type="text/javascript" src="js/jquery.scrollabletab.js" charset="UTF-8"></script>'; 
+$JS.='<script type="text/javascript" src="js/jquery.layout.js" charset="UTF-8"></script>';
+$JS.='<script type="text/javascript" src="js/ajax.js" charset="UTF-8"></script>';
+$JS.='<script src="js/jquery.validate.js" type="text/javascript" charset="UTF-8"></script>';
 
-$JS.='<script type="text/javascript" src="js/funciones.js"></script>';
+$JS.='<script type="text/javascript" src="js/funciones.js" charset="UTF-8"></script>';
 
-$JS.='<script type="text/javascript" src="js/config.js"></script>';
-$JS.='<script type="text/javascript" src="js/ui.dialogr.js"></script>'; 
-$JS.='<script type="text/javascript" src="js/jquery.blockUI.js"></script>'; 
-$JS.='<script type="text/javascript" src="js/jquery.alphanumeric.pack.js"></script>'; 
+$JS.='<script type="text/javascript" src="js/config.js" charset="UTF-8"></script>';
+$JS.='<script type="text/javascript" src="js/ui.dialogr.js" charset="UTF-8"></script>'; 
+$JS.='<script type="text/javascript" src="js/jquery.blockUI.js" charset="UTF-8"></script>'; 
+$JS.='<script type="text/javascript" src="js/jquery.alphanumeric.pack.js" charset="UTF-8"></script>'; 
 /*/$JS.='<script type="text/javascript" src="js/jquery.treeTable.js"></script>';*/ 
 //Sistemas
-$JS.='<script type="text/javascript" src="modulos/consultas/scripts/consultas.js"></script>'; 
+$JS.='<script type="text/javascript" src="modulos/consultas/scripts/consultas.js" charset="UTF-8"></script>'; 
 
 
 $t->set_var("JS",$JS);

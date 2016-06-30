@@ -54,7 +54,7 @@ switch ($nombre_funcion) {
 
 			if($icono)
 			{
-				$nm=split("\.",$icono);
+				$nm=explode("\.",$icono);
 				$tabla07_imagen="icono_$id_tabla07.".$nm[1];
 				$destino=strtolower("../../../media/fotos/$tabla07_imagen");
 				if(!@copy($icono, $destino))
@@ -81,20 +81,20 @@ switch ($nombre_funcion) {
 							$tabla07_dni,
 							$tabla07_imagen,
 							$link_mysql);
-		$vsplit=split("-",$id_res);
-		$mensaje=$vsplit[1];
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
 		echo $mensaje ;
 		break;
     case "borrar_personas":		
 		$id_res=borrar_personas($id_tabla07,$link_mysql);
-		$vsplit=split("-",$id_res);
-		$mensaje=$vsplit[1];
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
 		echo $mensaje ;
 		break;
     case "modificar_personas":
 	if($icono)
 			{
-				$nm=split("\.",$icono);
+				$nm=explode("\.",$icono);
 				$tabla07_imagen="icono_$id_tabla07.".$nm[1];
 				$destino=strtolower("../../../media/fotos/$tabla07_imagen");
 				if(!@copy($icono, $destino))
@@ -121,13 +121,13 @@ switch ($nombre_funcion) {
 							    $tabla07_sexo,
 								$tabla07_dni,
 								$link_mysql);
-		$vsplit=split("-",$id_res);
-		$mensaje=$vsplit[1];
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
 		echo $mensaje ;
 		break;
 }
 $datos="";
-$datos.="id_tabla07<@n:>".$vsplit[0]."<@n>";
+$datos.="id_tabla07<@n:>".$vexplode[0]."<@n>";
 $datos.="tabla07_nropersona<@n:> $tabla07_nropersona<@n>";
 $datos.="tabla07_nombre<@n:> $tabla07_nombre<@n>";
 $datos.="tabla07_apellido<@n:> $tabla07_apellido<@n>";
@@ -140,5 +140,5 @@ $datos.="tabla07_sexo<@n:> $tabla07_sexo<@n>";
 $datos.="tabla07_dni<@n:> $tabla07_dni<@n>";
 
 
-//agregar_log("ABM",$nombre_funcion,$vsplit[1],$datos,$modulo_actual,$link_mysql);
+//agregar_log("ABM",$nombre_funcion,$vexplode[1],$datos,$modulo_actual,$link_mysql);
 ?>

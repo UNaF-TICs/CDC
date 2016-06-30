@@ -11,7 +11,7 @@ $cantidad=0;
 foreach ($lineas as $linea_num => $linea) 
 {
 	//echo  $linea."<br><br><br>";
-	$datos=split(";",$linea);
+	$datos=explode(";",$linea);
 	$tabla07_nombre=trim($datos[0]); 	
 			
 	$sql="INSERT INTO tabla_07_categorias (

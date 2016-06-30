@@ -72,7 +72,7 @@ function buscar_post($path,$params)
 
 function formatear_fecha($fecha)
 {
-	$v_fecha = split('-',$fecha);
+	$v_fecha = explode('-',$fecha);
 	$dia=$v_fecha[0];
 	if (strlen($dia)==1)
 		$dia="0".$dia;
@@ -89,7 +89,7 @@ function formatear_fecha($fecha)
 }
 function ver_fecha($fecha)
 {
-	$v_fecha = split('-',$fecha);
+	$v_fecha = explode('-',$fecha);
 	$dia=$v_fecha[2];
 	if (strlen($dia)==1)
 		$dia="0".$dia;
@@ -115,8 +115,8 @@ function invertir_modo($modo_order)
 
 function get_day($fecha)
 {
-	$v_fecha = split('-',$fecha);
-	$resto=split(' ',$v_fecha[2]);
+	$v_fecha = explode('-',$fecha);
+	$resto=explode(' ',$v_fecha[2]);
 	$dia=$resto[0];
 	return $dia;
 
@@ -124,7 +124,7 @@ function get_day($fecha)
 
 function get_month($fecha)
 {
-	$v_fecha = split('-',$fecha);
+	$v_fecha = explode('-',$fecha);
 	$mes=$v_fecha[1];
 	return $mes;
 
@@ -132,7 +132,7 @@ function get_month($fecha)
 
 function get_year($fecha)
 {
-	$v_fecha = split('-',$fecha);
+	$v_fecha = explode('-',$fecha);
 	$ano=$v_fecha[0];
 	return $ano;
 }
@@ -281,13 +281,13 @@ function timestampATexto($timestamp, $formato = 'c') {
 function compara_fechas($fecha1,$fecha2)
 {
       if (preg_match("/[0-9]{1,2}\/[0-9]{1,2}\/([0-9][0-9]){1,2}/",$fecha1))
-          list($dia1,$mes1,$año1)=split("/",$fecha1);
+          list($dia1,$mes1,$año1)=explode("/",$fecha1);
       if (preg_match("/[0-9]{1,2}-[0-9]{1,2}-([0-9][0-9]){1,2}/",$fecha1))
-              list($dia1,$mes1,$año1)=split("-",$fecha1);
+              list($dia1,$mes1,$año1)=explode("-",$fecha1);
         if (preg_match("/[0-9]{1,2}\/[0-9]{1,2}\/([0-9][0-9]){1,2}/",$fecha2))
-              list($dia2,$mes2,$año2)=split("/",$fecha2);
+              list($dia2,$mes2,$año2)=explode("/",$fecha2);
       if (preg_match("/[0-9]{1,2}-[0-9]{1,2}-([0-9][0-9]){1,2}/",$fecha2))
-              list($dia2,$mes2,$año2)=split("-",$fecha2);
+              list($dia2,$mes2,$año2)=explode("-",$fecha2);
         $dif = mktime(0,0,0,$mes1,$dia1,$año1) - mktime(0,0,0, $mes2,$dia2,$año2);
         return ($dif);                         
 }

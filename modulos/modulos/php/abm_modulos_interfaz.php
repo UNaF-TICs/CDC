@@ -35,7 +35,7 @@ switch ($nombre_funcion) {
 
 			if($icono)
 			{
-				$nm=split("\.",$icono);
+				$nm=explode("\.",$icono);
 				$tabla02_imagen="icono_$id_tabla02.".$nm[1];
 				$destino=strtolower("../../../media/iconos/$tabla02_imagen");
 				if(!@copy($icono, $destino))
@@ -51,15 +51,15 @@ switch ($nombre_funcion) {
 				}
 			}
 			$id_res=agregar_modulo($rela_padre,$tabla02_nombre,$tabla02_path_home,$tabla02_imagen,$tabla02_orden,$tabla02_ayuda,$tabla02_tipo,$pdo);
-			$vsplit=explode("-",$id_res);
-			$mensaje=$vsplit[1];
+			$vexplode=explode("-",$id_res);
+			$mensaje=$vexplode[1];
 			echo $mensaje ;
 			break;
 
     case "modificar_modulo":
 			if($icono)
 			{
-				$nm=split("\.",$icono);
+				$nm=explode("\.",$icono);
 				$tabla02_imagen="icono_$id_tabla02.".$nm[1];
 				$destino=strtolower("../../../media/iconos/$tabla02_imagen");
 				if(!@copy($icono, $destino))
@@ -76,22 +76,22 @@ switch ($nombre_funcion) {
 			}
 			
 			$id_res= modificar_modulo($id_tabla02,$rela_padre,$tabla02_nombre,$tabla02_path_home,$tabla02_imagen,$tabla02_orden,$tabla02_ayuda,$tabla02_tipo,$pdo);
-			$vsplit=split("-",$id_res);
-			$mensaje=$vsplit[1];
+			$vexplode=explode("-",$id_res);
+			$mensaje=$vexplode[1];
 			echo $mensaje ;
 			break;
 			
     case "borrar_modulo":		
 
 		$res=borrar_modulo($id_tabla02,$pdo);
-		$vsplit=split("-",$res);
-		if ($vsplit[0] <= 0)
+		$vexplode=explode("-",$res);
+		if ($vexplode[0] <= 0)
 		{
-			echo $vsplit[1];
+			echo $vexplode[1];
 		}
 		else
 		{
-			echo $vsplit[1] ;
+			echo $vexplode[1] ;
 		}
 		break;
 	default:
@@ -106,7 +106,7 @@ $datos.="tabla02_orden<@n:> $tabla02_orden<@n>";
 $datos.="tabla02_path_home<@n:> $tabla02_path_home<@n>";
 $datos.="tabla02_ayuda<@n:> $tabla02_ayuda<@n>";
 
-//agregar_control("ABM",$nombre_funcion,$vsplit[1],$datos);
+//agregar_control("ABM",$nombre_funcion,$vexplode[1],$datos);
 ?>
 
 

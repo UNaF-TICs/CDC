@@ -101,7 +101,7 @@ else
 	$totalregistros = $rs->rowCount();
 	$t->set_var("cantidad",$totalregistros);
 	$totalpaginas=$totalregistros/$totalporpag;
-	$test=split("\.",$totalpaginas);
+	$test=explode("\.",$totalpaginas);
 	$pag=''; 
 	if(isset($test[1]))
 	{

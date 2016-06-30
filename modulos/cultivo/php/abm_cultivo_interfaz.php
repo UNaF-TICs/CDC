@@ -24,18 +24,18 @@ $tabla16_fecha_siembra=formatear_fecha($tabla16_fecha_siembra);
 switch ($nombre_funcion) {
     case "agregar_cultivo":
 		$id_res=agregar_cultivo($tabla16_fecha_cosecha,$rela_tabla15,$rela_tabla65,$tabla16_fecha_siembra,$pdo);
-		$vsplit=split("-",$id_res);
-		phpAlert($vsplit[1]);
+		$vexplode=explode("-",$id_res);
+		phpAlert($vexplode[1]);
         break;
     case "borrar_cultivo":		
 		$id_res=borrar_cultivo($id_tabla16,$pdo);
-		$vsplit=split("-",$id_res);
-		phpAlert($vsplit[1]);
+		$vexplode=explode("-",$id_res);
+		phpAlert($vexplode[1]);
 		break;
 	case "modificar_cultivo":
 		$id_res=modificar_cultivo($id_tabla16,$tabla16_fecha_cosecha,$rela_tabla15,$rela_tabla65,$tabla16_fecha_siembra,$pdo);
-		$vsplit=split("-",$id_res);
-		phpAlert($vsplit[1]);
+		$vexplode=explode("-",$id_res);
+		phpAlert($vexplode[1]);
 		break;	
 
 
@@ -46,6 +46,6 @@ $datos.="rela_tabla15<@n:> $rela_tabla15<@n>";
 $datos.="rela_tabla65<@n:> $rela_tabla65<@n>";
 $datos.="tabla16_fecha_cosecha<@n:> $tabla16_fecha_cosecha<@n>";
 $datos.="tabla16_fecha_siembra<@n:> $tabla16_fecha_siembra<@n>";
-//agregar_log("ABM",$nombre_funcion,$vsplit[1],$datos,$modulo_actual,$link_mysql);
+//agregar_log("ABM",$nombre_funcion,$vexplode[1],$datos,$modulo_actual,$link_mysql);
 
 ?>

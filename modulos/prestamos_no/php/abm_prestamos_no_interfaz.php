@@ -28,19 +28,19 @@ switch ($nombre_funcion) {
     case "agregar_prestamos":
 		$id_res=agregar_prestamos($rela_tabla10,$rela_tabla07,$tabla12_fecha_prestamo,$tabla12_fecha_a_devolver,
 $tabla12_fecha_devolucion,$link_mysql);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
         break;
     case "borrar_prestamos":		
 		$id_res=borrar_prestamos($id_tabla12,$link_mysql);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
 		break;
 	case "modificar_prestamos":
 		$id_res=modificar_prestamos($id_tabla12,$rela_tabla10,$rela_tabla07,$tabla12_fecha_prestamo,$tabla12_fecha_a_devolver,
 $tabla12_fecha_devolucion,$link_mysql);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
 		break;	
 
 
@@ -53,6 +53,6 @@ $datos.="tabla12_fecha_prestamo<@n:> $tabla12_fecha_prestamo<@n>";
 $datos.="tabla12_fecha_a_devolver<@n:> $tabla12_fecha_a_devolver<@n>";
 $datos.="tabla12_fecha_devolucion<@n:> $tabla12_fecha_devolucion<@n>";
 
-//agregar_log("ABM",$nombre_funcion,$vsplit[1],$datos,$modulo_actual,$link_mysql);
+//agregar_log("ABM",$nombre_funcion,$vexplode[1],$datos,$modulo_actual,$link_mysql);
 
 ?>
