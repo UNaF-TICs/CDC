@@ -22,18 +22,18 @@ $nombre_funcion=$_POST["nombre_funcion"];
 switch ($nombre_funcion) {
     case "agregar_editoriales":
 		$id_res= agregar_editoriales($tabla11_nombre,$tabla11_descripcion,$link_mysql);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
         break;
     case "borrar_temas":		
 		$id_res=borrar_temas($id_tabla11,$link_mysql);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
 		break;
 	case "modificar_temas":
 		$id_res=modificar_temas($id_tabla11,$tabla11_nombre,$tabla11_descripcion,$link_mysql);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
 		break;	
 
 
@@ -43,6 +43,6 @@ $datos.="id_tabla11<@n:> $id_tabla11<@n>";
 $datos.="tabla11_nombre<@n:> $tabla11_nombre<@n>";
 $datos.="tabla11_nombre<@n:> $tabla11_nombre<@n>";
 
-//agregar_log("ABM",$nombre_funcion,$vsplit[1],$datos,$modulo_actual,$link_mysql);
+//agregar_log("ABM",$nombre_funcion,$vexplode[1],$datos,$modulo_actual,$link_mysql);
 
 ?>

@@ -27,19 +27,19 @@ switch ($nombre_funcion) {
     case "agregar_libros":
 		$id_res=agregar_libros($tabla10_titulo,$rela_tabla09,$rela_tabla11,$tabla10_subtitulo,$tabla10_descripcion,
 $tabla10_fecha_entrada,$tabla10_tomo,$tabla10_cantidad,$pdo);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
         break;
     case "borrar_libros":		
 		$id_res=borrar_libros($id_tabla10,$pdo);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
 		break;
 	case "modificar_libros":
 		$id_res=modificar_libros($id_tabla10,$tabla10_titulo,$rela_tabla09,$rela_tabla11,$tabla10_subtitulo,$tabla10_descripcion,
 $tabla10_fecha_entrada,$tabla10_tomo,$tabla10_cantidad,$pdo);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
 		break;	
 
 
@@ -54,6 +54,6 @@ $datos.="tabla10_descripcion<@n:> $tabla10_descripcion<@n>";
 $datos.="tabla10_fecha_entrada<@n:> $tabla10_fecha_entrada<@n>";
 $datos.="tabla10_tomo<@n:> $tabla10_tomo<@n>";
 $datos.="tabla10_cantidad<@n:> $tabla10_cantidad<@n>";
-//agregar_log("ABM",$nombre_funcion,$vsplit[1],$datos,$modulo_actual,$link_mysql);
+//agregar_log("ABM",$nombre_funcion,$vexplode[1],$datos,$modulo_actual,$link_mysql);
 
 ?>

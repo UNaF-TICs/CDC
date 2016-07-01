@@ -23,19 +23,19 @@ $nombre_funcion=$_POST["nombre_funcion"];
 switch ($nombre_funcion) {
     case "agregar_usuario":
 		$id_res=agregar_usuario($tabla01_nombre,$tabla01_usuario,$tabla01_contrasena,$tabla01_mail,$tabla01_activo,$rela_tabla16,$tabla01_espreventista,$link_mysql);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
         break;
     case "borrar_usuario":		
 		$id_res=borrar_usuario($id_tabla01,$link_mysql);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
 		break;
 	case "modificar_usuario":
 		$id_res=modificar_usuario($id_tabla01,$tabla01_nombre,$tabla01_usuario,$tabla01_contrasena,
 		$tabla01_mail,$tabla01_activo,$rela_tabla16,$tabla01_espreventista,$link_mysql);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
 		break;	
 
 
@@ -48,6 +48,6 @@ $datos.="tabla01_contrasena<@n:> $tabla01_contrasena<@n>";
 $datos.="tabla01_mail<@n:> $tabla01_mail<@n>";
 $datos.="tabla01_activo<@n:> $tabla01_activo<@n>";
 
-agregar_control("ABM",$nombre_funcion,$vsplit[1],$datos,$link_mysql);
+agregar_control("ABM",$nombre_funcion,$vexplode[1],$datos,$link_mysql);
 
 ?>

@@ -18,20 +18,20 @@ switch ($nombre_funcion) {
     case "agregar_perfil":
 
 		$id_res=agregar_perfil($tabla03_nombre,$link_mysql);
-		$vsplit=split("-",$id_res);
-		$mensaje=$vsplit[1];
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
 		echo $mensaje ;
 		break;
     case "modificar_perfil":
 		$id_res=modificar_perfil($id_tabla03,$tabla03_nombre,$link_mysql);
-		$vsplit=split("-",$id_res);
-		$mensaje=$vsplit[1];
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
 		echo $mensaje ;
 		break;
     case "borrar_perfil":		
 		$id_res=borrar_perfil($id_tabla03,$link_mysql);
-		$vsplit=split("-",$id_res);
-		$mensaje=$vsplit[1];
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
 		echo $mensaje ;
 		break;
 	default:
@@ -42,7 +42,7 @@ $datos="";
 $datos.="id_tabla03<@n:> $id_tabla03<@n>";
 $datos.="tabla03_nombre<@n:> $tabla03_nombre<@n>";
 
-agregar_control("ABM",$nombre_funcion,$vsplit[1],$datos,$link_mysql);
+agregar_control("ABM",$nombre_funcion,$vexplode[1],$datos,$link_mysql);
 ?>
 
 

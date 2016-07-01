@@ -23,18 +23,18 @@ $nombre_funcion=isset($_POST['nombre_funcion']) ? strval($_POST['nombre_funcion'
 switch ($nombre_funcion) {
     case "agregar_variedad":
 		$id_res=agregar_variedad($tabla15_descripcion,$tabla15_nombre,$tabla15_temperatura_maxima,$tabla15_temperatura_minima,$tabla15_temperatura_optima,$pdo);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
         break;
     case "borrar_variedad":		
 		$id_res=borrar_variedad($id_tabla15,$pdo);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
 		break;
 	case "modificar_variedad":
 		$id_res=modificar_variedad($id_tabla15,$tabla15_descripcion,$tabla15_nombre,$tabla15_temperatura_maxima,$tabla15_temperatura_minima,$tabla15_temperatura_optima,$pdo);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		echo $vexplode[1];
 		break;	
 
 
@@ -46,6 +46,6 @@ $datos.="tabla15_nombre<@n:> $tabla15_nombre<@n>";
 $datos.="tabla15_temperatura_maxima<@n:> $tabla15_temperatura_maxima<@n>";
 $datos.="tabla15_temperatura_minima<@n:> $tabla15_temperatura_minima<@n>";
 $datos.="tabla15_temperatura_optima<@n:> $tabla15_temperatura_optima<@n>";
-//agregar_log("ABM",$nombre_funcion,$vsplit[1],$datos,$modulo_actual,$link_mysql);
+//agregar_log("ABM",$nombre_funcion,$vexplode[1],$datos,$modulo_actual,$link_mysql);
 
 ?>

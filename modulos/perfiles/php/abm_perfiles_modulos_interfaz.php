@@ -23,19 +23,19 @@ switch ($nombre_funcion) {
 
 		$id_res=agregar_perfil_modulo($rela_tabla02,$rela_tabla03,$tabla04_alta,
 				$tabla04_baja,$tabla04_modificacion,$tabla04_reporte,$link_mysql);
-		$vsplit=split("<@>",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("<@>",$id_res);
+		echo $vexplode[1];
         break;
     case "modificar_perfil_modulo":
 		$id_res=modificar_perfil_modulo($id_tabla04,$rela_tabla02,$rela_tabla03,$tabla04_alta,
 			$tabla04_baja,$tabla04_modificacion,$tabla04_reporte,$link_mysql);
-		$vsplit=split("<@>",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("<@>",$id_res);
+		echo $vexplode[1];
 		break;
     case "borrar_perfil_modulo":		
 		$id_res=borrar_perfil_modulo($id_tabla04,$link_mysql);
-		$vsplit=split("<@>",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("<@>",$id_res);
+		echo $vexplode[1];
 		break;
 	default:
 		echo "Error en nombre de función " . $nombre_funcion;
@@ -51,7 +51,7 @@ $datos.="tabla04_baja<@n:> $tabla04_baja<@n>";
 $datos.="tabla04_modificacion<@n:> $tabla04_modificacion<@n>";
 $datos.="tabla04_reporte<@n:> $tabla04_reporte<@n>";
 
-agregar_control("ABM",$nombre_funcion,$vsplit[1],$datos,$link_mysql);
+agregar_control("ABM",$nombre_funcion,$vexplode[1],$datos,$link_mysql);
 ?>
 
 
