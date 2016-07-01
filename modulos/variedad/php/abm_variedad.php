@@ -72,7 +72,7 @@ function borrar_variedad($id_tabla15,$pdo)
 					return "1-Registro Eliminado correctamente correctamente";
 				} catch (Exception $e) { //PDOException $e
 				  $pdo->rollBack();
-					return "0-Error: Se ha producido un error. ";
+					return "0-Error: Se ha producido un error. El registro no se puede eleminar porque esta asociado a un cultivo. ";
 				}
 }
 
