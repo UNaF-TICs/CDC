@@ -20,7 +20,7 @@ $t->set_var("titulo",$titulo);
 
 //
 //Otras Funciones
-//$t->set_var("funcion_excel","modulos/libros/php/exportar_excel.php?tipo=xls");
+//$t->set_var("funcion_excel","modulos/desktop/php/exportar_excel.php?tipo=xls");
 //$t->set_var("funcion_doc","modulos/libros/php/exportar_excel.php?tipo=doc");
 //$t->set_var("funcion_pdf","modulos/libros/php/exportar_excel.php");
 //
@@ -47,7 +47,7 @@ else{
 }
 $ini=$off*$totalporpag;
 // End New	
-$sql="select * from tabla_22_maquinaria 
+$sql="select * from tabla_22_tbl_maquinaria 
 		order by tabla22_marca ASC  
 		Limit $totalporpag OFFSET $ini ";
 $rs = $pdo->query($sql);//
@@ -57,9 +57,8 @@ if ($num_rows>0)
 	while ($row = $rs->fetch())
 	{
 		$id_tabla22=$row["id_tabla22"];
-		$t->set_var("tabla22_imagen",$row["tabla22_imagen"]);
-		$t->set_var("tabla22_nombre",$row["tabla22_nombre"]);
-		$t->set_var("tabla22_descripcion",htmlentities($row["tabla22_descripcion"],ENT_QUOTES));
+		$t->set_var("tabla22_nombre",htmlentities($row["tabla22_nombre"],ENT_QUOTES));
+		$t->set_var("tabla22_descripcion",$row["tabla22_descripcion"]);
 		$t->set_var("tabla22_marca",htmlentities($row["tabla22_marca"],ENT_QUOTES));
 		$t->set_var("tabla22_modelo",htmlentities($row["tabla22_modelo"],ENT_QUOTES));
 		$t->set_var("tabla22_fecha_compra",$row["tabla22_fecha_compra"]);
@@ -91,12 +90,12 @@ else
 	$t->set_var("LISTADO","<tr align='center' class='alt'><td colspan='10'>No se encuentran Registros Cargados. </td></tr>");
 	
 }	
-	$qrT="select * from tabla_22_maquinaria";
+	$qrT="select * from tabla_22_tbl_maquinaria";
 	$rs = $pdo->query($qrT);//
 	$totalregistros = $rs->rowCount();
 	$t->set_var("cantidad",$totalregistros);
 	$totalpaginas=$totalregistros/$totalporpag;
-	$test=explode("\.",$totalpaginas);
+	$test=split("\.",$totalpaginas);
 	$pag=''; 
 	if(isset($test[1]))
 	{

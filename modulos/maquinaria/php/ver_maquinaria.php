@@ -17,14 +17,14 @@ $es_buscar=isset($_POST['es_buscar']) ? strval($_POST['es_buscar']) : '';
 $id_tablamodulo=isset($_POST['id_tablamodulo']) ? intval($_POST['id_tablamodulo']) : NULL;
 $offset=isset($_POST['offset']) ? intval($_POST['offset']) : NULL;
 $id_tabla22=isset($_POST['id_tabla22']) ? intval($_POST['id_tabla22']) : NULL;
-$tabla22_imagen=isset($_POST['tabla22_imagen']) ? strval($_POST['tabla22_imagen']) : '';
+//$tabla22_imagen=isset($_POST['tabla22_imagen']) ? strval($_POST['tabla22_imagen']) : '';
 //$tabla22_nombre=$_POST['tabla22_nombre']) ? intval($_POST['tabla22_nombre']) : NULL;
 $tabla22_nombre=isset($_POST['tabla22_nombre']) ? strval($_POST['tabla22_nombre']) : ''; 
-$tabla22_descripcion=isset($_POST['tabla22_descripcion']) ? intval($_POST['tabla22_descripcion']) : NULL;
+$tabla22_descripcion=isset($_POST['tabla22_descripcion']) ? strval($_POST['tabla22_descripcion']) : NULL;
 $tabla22_marca=isset($_POST['tabla22_marca']) ? strval($_POST['tabla22_marca']) : '';
 $tabla22_modelo=isset($_POST['tabla22_modelo']) ? strval($_POST['tabla22_modelo']) : '';
 $tabla22_fecha_compra=isset($_POST['tabla22_fecha_compra']) ? strval($_POST['tabla22_fecha_compra']) : '';
-$tabla22_costo_compra=isset($_POST['tabla22_costo_compra']) ? strval($_POST['tabla22_costo_compra']) : '';
+$tabla22_costo_compra=isset($_POST['tabla22_costo_compra']) ? intval($_POST['tabla22_costo_compra']) : '';
 $tabla22_matricula=isset($_POST['tabla22_matricula']) ? strval($_POST['tabla22_matricula']) : '';
 $tabla22_empresa_seguro=isset($_POST['tabla22_empresa_seguro']) ? strval($_POST['tabla22_empresa_seguro']) : '';
 $tabla22_rto=isset($_POST['tabla22_rto']) ? strval($_POST['tabla22_rto']) : '';
@@ -63,7 +63,7 @@ else{
 }
 $ini=$off*$totalporpag;
 // End New	
-$sql="select * from tabla_22_maquinaria 
+$sql="select * from tabla_22_tbl_maquinaria 
 		$where 
 		order by tabla22_nombre ASC  
 		Limit $totalporpag OFFSET $ini "; 
@@ -74,7 +74,7 @@ if ($num_rows>0)
 	while ($row = $rs->fetch())
 	{
 		$id_tabla22=$row["id_tabla22"];
-		$t->set_var("tabla22_imagen",$row["tabla22_imagen"]);
+		//$t->set_var("tabla22_imagen",$row["tabla22_imagen"]);
 		$t->set_var("tabla22_nombre",htmlentities($row["tabla22_nombre"],ENT_QUOTES));
 		$t->set_var("tabla22_descripcion",$row["tabla22_descripcion"]);
 		$t->set_var("tabla22_marca",htmlentities($row["tabla22_marca"],ENT_QUOTES));
@@ -99,7 +99,7 @@ if ($num_rows>0)
 		$id="'tabs-$id_tablamodulo'";
 		$vars_exito="'offset=$offset&id_tablamodulo=$id_tablamodulo'";
 		$msg="'¿Esta seguro que quiere eliminar el Registro?'";
-		$t->set_var("funcion_borrar","eliminar_mostrar($url,$vars,$url_exito,$id,$vars_exito,$msg);");
+        $t->set_var("funcion_borrar","eliminar_mostrar($url,$vars,$url_exito,$id,$vars_exito,$msg);");
 		
 		$t->parse("LISTADO","un",true);
 	}
@@ -109,13 +109,13 @@ else
 	$t->set_var("LISTADO","<tr align='center' class='alt'><td colspan='10'>No se encuentran Registros Cargados. </td></tr>");
 	
 }		// New Paginador
-	$qrT="select * from tabla_22_maquinaria
+	$qrT="select * from tabla_22_tbl_maquinaria
 	$where " ;
 	$rs = $pdo->query($qrT);//
 	$totalregistros = $rs->rowCount();
 	$t->set_var("cantidad",$totalregistros);
 	$totalpaginas=$totalregistros/$totalporpag;
-	$test=explode("\.",$totalpaginas);
+	$test=split("\.",$totalpaginas);
 	$pag=''; 
 	if(isset($test[1]))
 	{
