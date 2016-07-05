@@ -1,0 +1,72 @@
+
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    
+	<th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{tit}</p></th>
+ 
+    <th colspan="5" align="center"><p align="right"><a title="Cerrar" href="javascript:{funcion_cancelar};"><img src="media/iconos/cerrar.png" width="16"  border="0"></a></p></th>
+  </tr>
+
+</table>
+
+<form name="abm_personal" id="abm_personal">
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+ <tr class="alt" align="left" >
+   <td width="24%">Nombre o Empresa</td>
+   <td width="76%" ><input name="tabla12_nombre_empresa" type="text" id="tabla12_nombre_empresa" value="{tabla12_nombre_empresa}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+
+  <tr class="alt" align="left" >
+    <td>Tipo:</td>
+    <td ><select name="rela_tabla09" id="rela_tabla09" class="obligatorio" style="height:auto; width:300px;">
+       <option value="">Seleccione..</option>
+       
+         
+        
+      {TEMAS}
+        s
+      
+   
+     
+   </select></td>
+  </tr>
+
+ <tr class="alt" align="left" >
+   <td width="24%">DNI o NIF</td>
+   <td width="76%" ><input name="tabla12_dni_nif" type="text" id="tabla12_dni_nif" value="{tabla12_dni_nif}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Numero de Carne</td>
+   <td width="76%" ><input name="tabla12_num_carne" type="text" id="tabla12_num_carne" value="{tabla12_num_carne}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+
+
+ <tr class="alt" align="left" >
+   <td width="24%">E-mail:</td>
+   <td width="76%" ><input name="tabla12_email" type="text" id="tabla12_email" value="{tabla12_email}" size="20" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+
+  <tr class="alt" align="left" >
+   <td width="24%">Telefono:</td>
+   <td width="76%" ><input name="tabla12_telefono" type="text" id="tabla12_telefono" value="{tabla12_telefono}" size="20" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+
+ <tr class="alt" align="left" >
+   <td width="24%">Direccion:</td>
+   <td width="76%" ><input name="tabla12_direccion" type="text" id="tabla12_direccion" value="{tabla12_direccion}" size="20" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+
+ <tr class="alt" align="left" >
+   <td width="24%">Comentario:</td>
+   <td width="76%" ><input name="tabla12_comentario" type="text" id="tabla12_comentario" value="{tabla12_comentario}" size="20" class="obligatorio" ></td>
+ </tr>
+ 
+ </table>
+ <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+ <tr>
+   <td align="right"><input class="button_login" type="button" onClick="javascript:;{funcion_guardar}" value="Aceptar" tabindex="3" name="Submit" title="Guardar"></td>
+   <td align="left"><input class="button_login" type="button" onClick="javascript:;{funcion_cancelar}" value="Cancelar" tabindex="3" name="Submit" title="Cancelar"></td>
+ </tr>  
+ </table>
+</form>

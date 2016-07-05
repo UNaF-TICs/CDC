@@ -3,12 +3,12 @@ function actualizar_archivo($archivo,$label_inicio,$label_fin,$contenido_label)
 {
 	$archivo_import=$archivo;
 	$lineas = file($archivo_import);
-	
+
 	//true - copio
 	//false - no hago nada
 	$copio=true;
-	
-	foreach ($lineas as $linea_num => $linea) 
+
+	foreach ($lineas as $linea_num => $linea)
 	{
 
 		if (strncmp($linea,$label_inicio,strlen($label_inicio))==0)
@@ -18,19 +18,19 @@ function actualizar_archivo($archivo,$label_inicio,$label_fin,$contenido_label)
 			$copio=false;
 			echo "ENCONTRE <br>";
 			$contenido.= $contenido_label;
-	
+
 		}
-		
+
 		if (strncmp($linea,$label_fin,strlen($label_fin))==0)
 		{
 			//todo lo que hay aca dentro es del dialplan
 			$copio=true;
 			echo "ENCONTRE FIN <br>";
 			continue;
-		}	
-	
+		}
+
 		if ($copio)
-		{	
+		{
 			$contenido.=$linea;
 		}
 
@@ -39,11 +39,11 @@ function actualizar_archivo($archivo,$label_inicio,$label_fin,$contenido_label)
 }
 
 function elimina_acentos($cadena){
-$tofind = "ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ";
+$tofind = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $replac = "AAAAAAaaaaaaOOOOOOooooooEEEEeeeeCcIIIIiiiiUUUUuuuuyNn";
 return(strtr($cadena,$tofind,$replac));
 }
-	
+
 function postHttps($url,$params) {
 $ch = curl_init ($url);
 curl_setopt ($ch, CURLOPT_HEADER, 0);
@@ -52,15 +52,15 @@ curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 $result = curl_exec ($ch);
 curl_close ($ch);
 return $result;
-} 
+}
 
 function buscar_post($path,$params)
 {
 	$url='http://localhost/portal/'.$path;
 	$resultado=postHttps($url,$params);
-	
+
 	return $resultado;
-	
+
 }
 
 function formatear_fecha($fecha)
@@ -75,7 +75,7 @@ function formatear_fecha($fecha)
 		$mes="0".$mes;
 
 	$ano=$v_fecha[2];
-	
+
 	$ret_fecha=$ano ."-" . $mes . "-" .$dia;
 	return $ret_fecha;
 
@@ -92,7 +92,7 @@ function ver_fecha($fecha)
 		$mes="0".$mes;
 
 	$ano=$v_fecha[0];
-	
+
 	$ret_fecha= $dia."-" . $mes . "-" .$ano;
 	return $ret_fecha;
 
@@ -204,14 +204,14 @@ function array_to_json( $array ){
 function mesatexto($num){
     /**
      * Creamos un array con los meses disponibles.
-     * Agregamos un valor cualquiera al comienzo del array para que los números coincidan
-     * con el valor tradicional del mes. El valor "Error" resultará útil
+     * Agregamos un valor cualquiera al comienzo del array para que los nï¿½meros coincidan
+     * con el valor tradicional del mes. El valor "Error" resultarï¿½ ï¿½til
      **/
     $meses = array('Error', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
         'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
- 
+
     /**
-     * Si el número ingresado está entre 1 y 12 asignar la parte entera.
+     * Si el nï¿½mero ingresado estï¿½ entre 1 y 12 asignar la parte entera.
      * De lo contrario asignar "0"
      **/
     $num_limpio = $num >= 1 && $num <= 12 ? intval($num) : 0;
@@ -221,13 +221,13 @@ function mesatexto($num){
 
 
 function fechaATexto($fecha, $formato = 'c') {
- 
+
     // Validamos que la cadena satisfaga el formato deseado y almacenamos las partes
     if (ereg("([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})", $fecha, $partes)) {
         // $partes[0] contiene la cadena original
-        // $partes[1] contiene el año
-        // $partes[2] contiene el número de mes
-        // $partes[3] contiene el número del día
+        // $partes[1] contiene el aï¿½o
+        // $partes[2] contiene el nï¿½mero de mes
+        // $partes[3] contiene el nï¿½mero del dï¿½a
         $mes = ' de ' . mesatexto($partes[2]) . ' de ';
         if ($formato == 'u') {
             $mes = strtoupper($mes);
@@ -235,13 +235,13 @@ function fechaATexto($fecha, $formato = 'c') {
             $mes = strtolower($mes);
         }
         return $partes[3] . $mes . $partes[1];
- 
+
     } else {
-        // Si hubo problemas en la validación, devolvemos false
+        // Si hubo problemas en la validaciï¿½n, devolvemos false
         return false;
     }
 }
- 
+
 /**
  * timestampATexto()
  *
@@ -251,17 +251,17 @@ function fechaATexto($fecha, $formato = 'c') {
  * @param   string formato (puede tomar los valores 'l', 'u', 'c')
  * @return  string  fecha_en_formato_texto
  */
- 
+
 function timestampATexto($timestamp, $formato = 'c') {
- 
+
     // Buscamos el espacio dentro de la cadena o salimos
     if (strpos($timestamp, " ") === false){
         return false;
     }
- 
+
     // Dividimos la cadena en el espacio separador
     $timestamp = explode(" ", $timestamp);
- 
+
     // Como la primera parte es una fecha, simplemente llamamos a fechaATexto()
     if (fechaATexto($timestamp[0])) {
         $conjuncion = ' a las ';
@@ -274,15 +274,15 @@ function timestampATexto($timestamp, $formato = 'c') {
 function compara_fechas($fecha1,$fecha2)
 {
       if (preg_match("/[0-9]{1,2}\/[0-9]{1,2}\/([0-9][0-9]){1,2}/",$fecha1))
-          list($dia1,$mes1,$año1)=split("/",$fecha1);
+          list($dia1,$mes1,$aï¿½o1)=split("/",$fecha1);
       if (preg_match("/[0-9]{1,2}-[0-9]{1,2}-([0-9][0-9]){1,2}/",$fecha1))
-              list($dia1,$mes1,$año1)=split("-",$fecha1);
+              list($dia1,$mes1,$aï¿½o1)=split("-",$fecha1);
         if (preg_match("/[0-9]{1,2}\/[0-9]{1,2}\/([0-9][0-9]){1,2}/",$fecha2))
-              list($dia2,$mes2,$año2)=split("/",$fecha2);
+              list($dia2,$mes2,$aï¿½o2)=split("/",$fecha2);
       if (preg_match("/[0-9]{1,2}-[0-9]{1,2}-([0-9][0-9]){1,2}/",$fecha2))
-              list($dia2,$mes2,$año2)=split("-",$fecha2);
-        $dif = mktime(0,0,0,$mes1,$dia1,$año1) - mktime(0,0,0, $mes2,$dia2,$año2);
-        return ($dif);                         
+              list($dia2,$mes2,$aï¿½o2)=split("-",$fecha2);
+        $dif = mktime(0,0,0,$mes1,$dia1,$aï¿½o1) - mktime(0,0,0, $mes2,$dia2,$aï¿½o2);
+        return ($dif);
 }
 
 function redondear_dos_decimal($valor) {
@@ -296,5 +296,8 @@ function ceiling($number, $significance = 1)
 	return ( is_numeric($number) && is_numeric($significance) ) ? (ceil($number/$significance)*$significance) : false;
 }
 
+function phpConsoleLog($msg) {
+	echo '<script type="text/javascript">console.log("'.$msg.'")</script>';
+}
 
 ?>

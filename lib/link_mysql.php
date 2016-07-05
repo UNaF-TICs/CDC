@@ -9,13 +9,13 @@ $spass = '';
 $msg='';
  
 /*
-Los posibles valores que se le podr韆 asignar a ATTR_ERRMODE son:
+Los posibles valores que se le podr铆a asignar a ATTR_ERRMODE son:
 
-PDO::ERRMODE_SILENT es el valor por defecto y como he mencionado antes no lanza ning鷑 tipo de error ni excepci髇, 
-	es tarea del programador comprobar si ha ocurrido alg鷑 error despu閟 de cada operaci髇 con la base de datos.
-PDO::ERRMODE_WARNING genera un error E_WARNING de PHP si ocurre alg鷑 error. Este error es el mismo que se muestra 
-	usando la API de mysql mostrando por pantalla una descripci髇 del error que ha ocurrido.
-PDO::ERRMODE_EXCEPTION es el que acabamos de explicar que genera y lanza una excepci髇 si ocurre alg鷑 tipo de error.
+PDO::ERRMODE_SILENT es el valor por defecto y como he mencionado antes no lanza ning煤n tipo de error ni excepci贸n, 
+	es tarea del programador comprobar si ha ocurrido alg煤n error despu茅s de cada operaci贸n con la base de datos.
+PDO::ERRMODE_WARNING genera un error E_WARNING de PHP si ocurre alg煤n error. Este error es el mismo que se muestra 
+	usando la API de mysql mostrando por pantalla una descripci贸n del error que ha ocurrido.
+PDO::ERRMODE_EXCEPTION es el que acabamos de explicar que genera y lanza una excepci贸n si ocurre alg煤n tipo de error.
 */
 
 try {

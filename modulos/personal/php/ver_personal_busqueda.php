@@ -8,27 +8,27 @@ session_start();
 $t = new Template('../templates/');
 //Archivos comunes
 $t->set_file(array(
-	"ver"				=> "ver_maquinaria_busqueda.html",
-	"un"				=> "un_maquinaria.html",
+	"ver"				=> "ver_personal_busqueda.html",
+	"un"				=> "un_personal.html",
 	"una_opcion"		=> "una_opcion.html",
 ));
  
 $offset=isset($_POST['offset']) ? intval($_POST['offset']) : '';
 $id_tablamodulo=isset($_POST['id_tablamodulo']) ? intval($_POST['id_tablamodulo']) : NULL;
-$titulo="Listado de maquinaria";
-$t->set_var("titulo",$titulo);
+$nombre_empresa="Listado de Personales";
+$t->set_var("nombre_empresa",$nombre_empresa);
 
 //
 //Otras Funciones
-//$t->set_var("funcion_excel","modulos/desktop/php/exportar_excel.php?tipo=xls");
+//$t->set_var("funcion_excel","modulos/libros/php/exportar_excel.php?tipo=xls");
 //$t->set_var("funcion_doc","modulos/libros/php/exportar_excel.php?tipo=doc");
 //$t->set_var("funcion_pdf","modulos/libros/php/exportar_excel.php");
 //
 
-$url="'modulos/maquinaria/php/ver_maquinaria.php'";
-$id="'listado_maquinaria'";
+$url="'modulos/personal/php/ver_personal.php'";
+$id="'listado_personal'";
 $vars="'es_buscar=si&id_tablamodulo=$id_tablamodulo&";	
-$vars.="tabla22_nombre='+ver_busqueda_maquinaria.tabla22_nombre.value";	
+$vars.="tabla12_nombre_empresa='+ver_busqueda_personal.tabla12_nombre_empresa.value";	
 $t->set_var("funcion_busqueda","cargar_post($url,$id,$vars)");
 
 if (isset($_POST['offset'])) {
@@ -47,39 +47,38 @@ else{
 }
 $ini=$off*$totalporpag;
 // End New	
-$sql="select * from tabla_22_maquinaria 
-		order by tabla22_marca ASC  
+$sql="select * from tabla_12_personal 
+		order by tabla12_nombre_empresa ASC  
 		Limit $totalporpag OFFSET $ini ";
-$rs = $pdo->query($sql);//
+$rs = $pdo->query($sql);
 $num_rows = $rs->rowCount();
 if ($num_rows>0)
 {
 	while ($row = $rs->fetch())
 	{
-		$id_tabla22=$row["id_tabla22"];
-		$t->set_var("tabla22_nombre",htmlentities($row["tabla22_nombre"],ENT_QUOTES));
-		$t->set_var("tabla22_descripcion",$row["tabla22_descripcion"]);
-		$t->set_var("tabla22_marca",htmlentities($row["tabla22_marca"],ENT_QUOTES));
-		$t->set_var("tabla22_modelo",htmlentities($row["tabla22_modelo"],ENT_QUOTES));
-		$t->set_var("tabla22_fecha_compra",$row["tabla22_fecha_compra"]);
-		$t->set_var("tabla22_costo_compra",$row["tabla22_costo_compra"]);
-		$t->set_var("tabla22_matricula",$row["tabla22_matricula"]);
-        $t->set_var("tabla22_empresa_seguro",$row["tabla22_empresa_seguro"]);
-        $t->set_var("tabla22_rto",$row["tabla22_rto"]);
-        $t->set_var("tabla22_funcion",$row["tabla22_funcion"]);
+		$id_tabla12=$row["id_tabla12"];
+		$t->set_var("tabla12_nombre_empresa",htmlentities($row["tabla12_nombre_empresa"],ENT_QUOTES));
+		$t->set_var("rela_tabla09",$row["rela_tabla09"]);
+		$t->set_var("tabla12_dni_nif",htmlentities($row["tabla12_dni_nif"],ENT_QUOTES));
+		$t->set_var("tabla12_num_carne",htmlentities($row["tabla12_num_carne"],ENT_QUOTES));
+		$t->set_var("tabla12_email",$row["tabla12_email"]);
+		$t->set_var("tabla12_telefono",$row["tabla12_telefono"]);
+		$t->set_var("tabla12_direccion",$row["tabla12_direccion"]);
+		$t->set_var("tabla12_comentario",$row["tabla12_comentario"]);
+
 		
-		$url="'modulos/maquinaria/php/ver_maquinaria_abm.php'";
+		$url="'modulos/personal/php/ver_personal_abm.php'";
 		$id="'tabs-$id_tablamodulo'";
-		$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo&id_tabla22=$id_tabla22'";
+		$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo&id_tabla12=$id_tabla12'";
 		$t->set_var("funcion_editar","cargar_post($url,$id,$vars)");	
 		
-		$url="'modulos/maquinaria/php/abm_maquinaria_interfaz.php'";
-		$vars="'nombre_funcion=borrar_maquinaria&";
-		$vars.="id_tabla22=$id_tabla22'";
-		$url_exito="'modulos/maquinaria/php/ver_maquinaria_busqueda.php'";
+		$url="'modulos/personal/php/abm_personal_interfaz.php'";
+		$vars="'nombre_funcion=borrar_personal&";
+		$vars.="id_tabla12=$id_tabla12'";
+		$url_exito="'modulos/personal/php/ver_personal_busqueda.php'";
 		$id="'tabs-$id_tablamodulo'";
 		$vars_exito="'offset=$offset&id_tablamodulo=$id_tablamodulo'";
-		$msg="'¿Esta seguro que quiere eliminar el Registro?'";
+		$msg="'Esta seguro que quiere eliminar el Registro?'";
 		$t->set_var("funcion_borrar","eliminar_mostrar($url,$vars,$url_exito,$id,$vars_exito,$msg);");
 		
 		$t->parse("LISTADO","un",true);
@@ -90,7 +89,7 @@ else
 	$t->set_var("LISTADO","<tr align='center' class='alt'><td colspan='10'>No se encuentran Registros Cargados. </td></tr>");
 	
 }	
-	$qrT="select * from tabla_22_maquinaria";
+	$qrT="select * from tabla_12_personal";
 	$rs = $pdo->query($qrT);//
 	$totalregistros = $rs->rowCount();
 	$t->set_var("cantidad",$totalregistros);
@@ -104,7 +103,7 @@ else
 	// << Anterior
 	if($offset>1)
 	{
-		$pag.="<td><a href=\"javascript:cargar_post('modulos/maquinaria/php/ver_maquinaria.php','listado_maquinaria','offset=$off&id_tablamodulo=$id_tablamodulo');\"><< Anterior</a> | </td>";
+		$pag.="<td><a href=\"javascript:cargar_post('modulos/personal/php/ver_personal.php','listado_personal','offset=$off&id_tablamodulo=$id_tablamodulo');\"><< Anterior</a> | </td>";
 	}
 	else
 	{
@@ -146,7 +145,7 @@ else
 		}
 		else
 		{
-			$pag.="<a href=\"javascript:cargar_post('modulos/maquinaria/php/ver_maquinaria.php','listado_maquinaria','offset=$i&id_tablamodulo=$id_tablamodulo');\">$i</a>&nbsp;";
+			$pag.="<a href=\"javascript:cargar_post('modulos/personal/php/ver_personal.php','listado_personal','offset=$i&id_tablamodulo=$id_tablamodulo');\">$i</a>&nbsp;";
 		}				 	 
 	}
 	$pag.="</td>";
@@ -154,14 +153,14 @@ else
 	if($offset<$totalpaginas)
 	{
 		$ofs=$offset+1;
-		$pag.="<td> | <a href=\"javascript:cargar_post('modulos/maquinaria/php/ver_maquinaria.php','listado_maquinaria','offset=$ofs&id_tablamodulo=$id_tablamodulo');\">Siguiente >></a></td>";
+		$pag.="<td> | <a href=\"javascript:cargar_post('modulos/personal/php/ver_personal.php','listado_personal','offset=$ofs&id_tablamodulo=$id_tablamodulo');\">Siguiente >></a></td>";
 	}else{
 		$pag.="<td></td>";
 	}
 	$t->set_var("paginas","<table align=center><tr>".$pag."</tr></table>");
 		//End Paginador
 	
-	$url="'modulos/maquinaria/php/ver_maquinaria_abm.php'";
+	$url="'modulos/personal/php/ver_personal_abm.php'";
 	$id="'tabs-$id_tablamodulo'";
 	$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo'";
 	$t->set_var("funcion_agregar","cargar_post($url,$id,$vars);");

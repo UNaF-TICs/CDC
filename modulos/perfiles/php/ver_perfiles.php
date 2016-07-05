@@ -13,9 +13,7 @@ $t->set_file(array(
 $titulo="Listado de Perfiles";
 $t->set_var("titulo",$titulo);
 $id_tablamodulo=$_POST["id_tablamodulo"];
-
-$offset=isset($_POST['offset']) ? intval($_POST['offset']) : NULL;
-
+$offset=$_POST["offset"];
 $habilitado = array('0' => 'No','1' => 'Si'); 
 // New Paginador
 $totalporpag=5;
@@ -33,11 +31,12 @@ $sql="select * from tabla_03_perfiles
 		order by tabla03_nombre ASC
 		Limit $totalporpag OFFSET $ini  ";
 //echo $sql;
-$rs = $pdo->query($sql);//
-$num_rows = $rs->rowCount();
+$result = mysql_query($sql,$link_mysql);
+$num_rows = mysql_num_rows($result);
 if ($num_rows>0)
 {
-	while ($row = $rs->fetch())
+
+	while ($row = mysql_fetch_assoc($result))
 	{
 		$id_tabla03=$row["id_tabla03"];
 		$t->set_var("tabla03_nombre",$row["tabla03_nombre"]);
@@ -71,8 +70,8 @@ if ($num_rows>0)
 	// New Paginador
 	$qrT="select * from tabla_03_perfiles 
 		order by tabla03_nombre ASC" ;
-	$rs = $pdo->query($qrT);//
-	$totalregistros = $rs->rowCount();
+	$result = mysql_query($qrT,$link_mysql);
+	$totalregistros = mysql_num_rows($result);
 	$t->set_var("cantidad",$totalregistros);
 	$totalpaginas=$totalregistros/$totalporpag;
 	$test=split("\.",$totalpaginas);
@@ -80,7 +79,6 @@ if ($num_rows>0)
 	{
 		$totalpaginas=$test[0]+1;
 	}
-	$pag='';
 	// << Anterior
 	if($offset>1)
 	{
