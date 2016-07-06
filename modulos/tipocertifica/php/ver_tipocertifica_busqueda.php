@@ -47,7 +47,7 @@ else{
 }
 $ini=$off*$totalporpag;
 // End New
-$sql="select * from tabla_67_tipocertifica
+$sql="select * from tabla_67_tbl_tipocertifica
 		order by tabla67_descrip ASC
 		Limit $totalporpag OFFSET $ini ";
 $rs = $pdo->query($sql);//
@@ -81,7 +81,7 @@ else
 	$t->set_var("LISTADO","<tr align='center' class='alt'><td colspan='10'>No se encuentran Registros Cargados. </td></tr>");
 
 }
-	$qrT="select * from tabla_67_tipocertifica";
+	$qrT="select * from tabla_67_tbl_tipocertifica";
 	$rs = $pdo->query($qrT);//
 	$totalregistros = $rs->rowCount();
 	$t->set_var("cantidad",$totalregistros);

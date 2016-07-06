@@ -19,7 +19,7 @@ $rela_tabla11='';
 
 if ($id_tabla67!="")
 {
-	$sql="select * from tabla_67_tipocertifica
+	$sql="select * from tabla_67_tbl_tipocertifica
 	where id_tabla67=$id_tabla67";
 	$rs = $pdo->query($sql);//
 	$num_rows = $rs->rowCount();

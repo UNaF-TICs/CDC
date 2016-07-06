@@ -6,7 +6,7 @@ function nuevo_ajax(){
         }catch(e){
                 try{
                         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-						
+
                 }catch(E){
                         xmlhttp = false;
                 }
@@ -27,9 +27,9 @@ function cargar_post(url,id,vars){
 		   $('#'+id).html(data);
 	   },
 	   error: function(data){
-		   $('#'+id).html('Error al cargar la página');
+		   $('#'+id).html('Error al cargar la pÃ¡gina');
 	   }
-	 });	
+	 });
 }
 
 function cargar_get(url,id){
@@ -41,9 +41,9 @@ function cargar_get(url,id){
 			   $('#'+id).html(data);
 		   },
 		   error: function(data){
-			   $('#'+id).html('Error al cargar la página');
-		   }	   
-		 });	
+			   $('#'+id).html('Error al cargar la pÃ¡gina');
+		   }
+		 });
 }
 
 function cargar_post2(url,id,vars,callback){
@@ -56,9 +56,9 @@ function cargar_post2(url,id,vars,callback){
 			   callback();
 		   },
 		   error: function(data){
-			   $('#'+id).html('Error al cargar la página');
+			   $('#'+id).html('Error al cargar la pÃ¡gina');
 		   }
-		 });		
+		 });
 }
 
 function guardar_mostrar(url,vars,url_exito,id,vars_exito){
@@ -67,33 +67,33 @@ function guardar_mostrar(url,vars,url_exito,id,vars_exito){
 	   url: url,
 	   data: vars,
 	   success: function(data){
-		   
+
 				var respuesta_mostrar=data.replace(/(^\s*)|(\s*$)/g,"");
 				var respuesta=respuesta_mostrar.substring(0,5);
 				if (respuesta=='Error')
 				{
-				$.blockUI({ 
-					theme:     true, 
-					title:    'Procesando Información', 
+				$.blockUI({
+					theme:     true,
+					title:    'Procesando Informaciï¿½n',
 					message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
-				}); 
-				setTimeout($.unblockUI, 2000); 
+				});
+				setTimeout($.unblockUI, 2000);
 				}
 				else
 				{
-					$.blockUI({ 
-						theme:     true, 
-						title:    'Procesando Información', 
+					$.blockUI({
+						theme:     true,
+						title:    'Procesando Informaciï¿½n',
 						message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
-					}); 
-					setTimeout($.unblockUI, 1500); 
+					});
+					setTimeout($.unblockUI, 1500);
 					cargar_post(url_exito,id,vars_exito);
-				}   
+				}
 	   },
 	   error: function(data){
-		   $('#'+id).html('Error al cargar la página');
+		   $('#'+id).html('Error al cargar la pÃ¡gina');
 	   }
-	 });	
+	 });
 }
 
 function guardar_mostrar_callback(url,vars,url_exito,id,vars_exito,callback){
@@ -107,33 +107,33 @@ function guardar_mostrar_callback(url,vars,url_exito,id,vars_exito,callback){
 			var respuesta=respuesta_mostrar.substring(0,5);
 			if (respuesta=='Error')
 			{
-					$.blockUI({ 
-						theme:     true, 
-						title:    'Procesando Información', 
+					$.blockUI({
+						theme:     true,
+						title:    'Procesando Informaciï¿½n',
 						message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
-					}); 
-					setTimeout($.unblockUI, 2000); 
+					});
+					setTimeout($.unblockUI, 2000);
 			}
 			else
 			{
-					$.blockUI({ 
-						theme:     true, 
-						title:    'Procesando Información', 
+					$.blockUI({
+						theme:     true,
+						title:    'Procesando Informaciï¿½n',
 						message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
-					}); 
-					setTimeout($.unblockUI, 1500); 
+					});
+					setTimeout($.unblockUI, 1500);
 					cargar_post2(url_exito,id,vars_exito,callback);
 			}
 	   },
 	   error: function(data){
-		   $('#'+id).html('Error al cargar la página');
+		   $('#'+id).html('Error al cargar la pÃ¡gina');
 		   $.unblockUI();
 	   }
-	 });	
+	 });
 
 }
 function eliminar_mostrar(url,vars,url_exito,id,vars_exito,msj){
-	
+
 	$("#dialog-confirm").text("").append( "<p>" + msj + "</p>" );
 	$( "#dialog-confirm" ).dialog({
 	modal: true,
@@ -147,55 +147,55 @@ function eliminar_mostrar(url,vars,url_exito,id,vars_exito,msj){
 		   url: url,
 		   data: vars,
 		   success: function(data){
-	
+
 				var respuesta_mostrar=data.replace(/(^\s*)|(\s*$)/g,"");
 				var respuesta=respuesta_mostrar.substring(0,5);
-				
+
 				if (respuesta=='Error')
 				{
-					$.blockUI({ 
-						theme:     true, 
-						title:    'Procesando Información', 
+					$.blockUI({
+						theme:     true,
+						title:    'Procesando Informaciï¿½n',
 						message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
-					}); 
-					setTimeout($.unblockUI, 2000); 
+					});
+					setTimeout($.unblockUI, 2000);
 				}
 				else
 				{
-					$.blockUI({ 
-						theme:     true, 
-						title:    'Procesando Información', 
+					$.blockUI({
+						theme:     true,
+						title:    'Procesando Informaciï¿½n',
 						message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
-					}); 
-					setTimeout($.unblockUI, 1500); 
+					});
+					setTimeout($.unblockUI, 1500);
 					cargar_post(url_exito,id,vars_exito);
 				}
-	
+
 			},
 		   error: function(data){
-			   $('#'+id).html('Error al cargar la página');
+			   $('#'+id).html('Error al cargar la pÃ¡gina');
 		   }
-		 });	
+		 });
 					//$( this ).dialog( "close" );
 			},
 			"Cancelar": function() {
 					//var eliminar=0;
 				$( this ).dialog( "close" );
-				
+
 			}
 		}
 	});
 }
 
 function eliminar_mostrar_callback(url,vars,url_exito,id,vars_exito,msj,callback){
-	
 
-	
-	
-	
+
+
+
+
 
 	var answer = confirm (msj);
-	
+
 	if (answer)
 	{
 		$.ajax({
@@ -206,32 +206,32 @@ function eliminar_mostrar_callback(url,vars,url_exito,id,vars_exito,msj,callback
 
 				var respuesta_mostrar=data.replace(/(^\s*)|(\s*$)/g,"");
 				var respuesta=respuesta_mostrar.substring(0,5);
-				
+
 				if (respuesta=='Error')
 				{
-					$.blockUI({ 
-						theme:     true, 
-						title:    'Procesando Información', 
+					$.blockUI({
+						theme:     true,
+						title:    'Procesando Informaciï¿½n',
 						message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
-					}); 
-					setTimeout($.unblockUI, 2000); 
+					});
+					setTimeout($.unblockUI, 2000);
 				}
 				else
 				{
-					$.blockUI({ 
-						theme:     true, 
-						title:    'Procesando Información', 
+					$.blockUI({
+						theme:     true,
+						title:    'Procesando Informaciï¿½n',
 						message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
-					}); 
-					setTimeout($.unblockUI, 1500); 
+					});
+					setTimeout($.unblockUI, 1500);
 					cargar_post2(url_exito,id,vars_exito,callback);
-					
+
 				}
 			},
 		   error: function(data){
-			   $('#'+id).html('Error al cargar la página');
+			   $('#'+id).html('Error al cargar la pÃ¡gina');
 		   }
-		 });	
+		 });
 
 	}
 }
@@ -243,13 +243,13 @@ function ejecutar_get(url){
 		   success: function(){
 			  // $('#'+id).html(data);
 			  location.reload();
-		   }	   
-		 });	
+		   }
+		 });
 }
 
 function ejecutar_post(url,vars){
 
-        var ajax=nuevo_ajax(); 
+        var ajax=nuevo_ajax();
         ajax.open("POST", url,true);
         ajax.onreadystatechange=function(){
                 if(ajax.readyState==1){
@@ -257,9 +257,9 @@ function ejecutar_post(url,vars){
                         if(ajax.status==200){
 	                        alert('ok:' + ajax.responseText);
 						}else if(ajax.status==404){
-							alert('Error: La página no existe');
+							alert('Error: La pï¿½gina no existe');
     					}else{
-                            alert("Error:".ajax.status); 
+                            alert("Error:".ajax.status);
                         }
                 }
         }
@@ -282,35 +282,35 @@ function cargar_inicial(tipo){
 
 function validar_login()
 {
-	    var ajax=nuevo_ajax(); 
+	    var ajax=nuevo_ajax();
 		usu = $( "#user" ).val();
 		cla = $( "#pass" ).val();
         ajax.open("POST", "modulos/login/php/valida.php",true);
 		var vars="usu="+ usu + "&cla=" + cla;
         ajax.onreadystatechange=function(){
                 if(ajax.readyState==1){
-					
-                }else 
+
+                }else
 				if(ajax.readyState==4){
                         if(ajax.status==200){
-							
+
 							$mensaje=ajax.responseText.replace(/(^\s*)|(\s*$)/g,"");
 							if ($mensaje=='Error Logueo')
 							{
-									updateTips( 'Usuario o contraseña inválidos.');
+									updateTips( 'Usuario o contraseï¿½a invï¿½lidos.');
 							}
 							else
 							{
-								
+
  								location.reload();
 								login=1;
 
 							}
 
 						}else if(ajax.status==404){
-							alert('Error: La página no existe');
+							alert('Error: La pï¿½gina no existe');
     					}else{
-                            alert("Error:".ajax.status); 
+                            alert("Error:".ajax.status);
                         }
                 }
         }
@@ -319,11 +319,11 @@ function validar_login()
       	ajax.setRequestHeader("Connection", "close");
 		ajax.send(vars);
 
-	
+
 }
 function logout()
 {
-	
+
 		$( "#dialog-message" ).dialog({
 			modal: true,
 			//draggable: false,
@@ -338,7 +338,7 @@ function logout()
 					//login=0;
 					//ejecutar_get('php/logout.php');
 					$( this ).dialog( "close" );
-				
+
 				}
 			}
 		});
@@ -346,7 +346,7 @@ function logout()
 }
 function sin_acceso(msj)
 {
-	
+
 	$("#dialog-confirm").text("").append( "<p>" + msj + "</p>" );
 	$( "#dialog-confirm" ).dialog({
 	modal: true,

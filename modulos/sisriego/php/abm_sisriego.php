@@ -3,7 +3,7 @@
 function agregar_sisriego($tabla66_descrip,$pdo)
 {
 
-	$sql="INSERT INTO tabla_66_sisriego
+	$sql="INSERT INTO tabla_66_tbl_sisriego
 		(
 			tabla66_descrip
 		)
@@ -33,7 +33,7 @@ function modificar_sisriego($id_tabla66,$tabla66_descrip,$pdo)
 	}
 
 
-	$sql="UPDATE tabla_66_sisriego  SET
+	$sql="UPDATE tabla_66_tbl_sisriego  SET
 			tabla66_descrip='$tabla66_descrip'
 			where id_tabla66=$id_tabla66";
 	   	try {
@@ -51,7 +51,7 @@ function modificar_sisriego($id_tabla66,$tabla66_descrip,$pdo)
 
 function borrar_sisriego($id_tabla66,$pdo)
 {
-	$sql2="DELETE FROM tabla_66_sisriego WHERE
+	$sql2="DELETE FROM tabla_66_tbl_sisriego WHERE
 	id_tabla66=$id_tabla66";
 	try {
 	$pdo->beginTransaction();

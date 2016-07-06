@@ -1,13 +1,5 @@
 <?php
-
-
-function phpConsoleLog($msg) {
-   echo '<script type="text/javascript">alert("' . $msg . '")</script>';
-}
-
-
-function actualizar_archivo($archivo,$label_inicio,$label_fin,$contenido_label)
-{
+function actualizar_archivo($archivo,$label_inicio,$label_fin,$contenido_label) {
 	$archivo_import=$archivo;
 	$lineas = file($archivo_import);
 	
@@ -15,29 +7,24 @@ function actualizar_archivo($archivo,$label_inicio,$label_fin,$contenido_label)
 	//false - no hago nada
 	$copio=true;
 	
-	foreach ($lineas as $linea_num => $linea) 
-	{
+	foreach ($lineas as $linea_num => $linea) {
 
-		if (strncmp($linea,$label_inicio,strlen($label_inicio))==0)
-		{
+		if (strncmp($linea,$label_inicio,strlen($label_inicio))==0) {
 			//dejo de guardar en la variable temporal
 			//todo lo que hay aca dentro es del dialplan
 			$copio=false;
 			echo "ENCONTRE <br>";
 			$contenido.= $contenido_label;
-	
 		}
 		
-		if (strncmp($linea,$label_fin,strlen($label_fin))==0)
-		{
+		if (strncmp($linea,$label_fin,strlen($label_fin))==0) {
 			//todo lo que hay aca dentro es del dialplan
 			$copio=true;
 			echo "ENCONTRE FIN <br>";
 			continue;
-		}	
-	
-		if ($copio)
-		{	
+		}
+
+		if ($copio) {
 			$contenido.=$linea;
 		}
 
@@ -46,32 +33,29 @@ function actualizar_archivo($archivo,$label_inicio,$label_fin,$contenido_label)
 }
 
 function elimina_acentos($cadena){
-$tofind = "ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ";
-$replac = "AAAAAAaaaaaaOOOOOOooooooEEEEeeeeCcIIIIiiiiUUUUuuuuyNn";
-return(strtr($cadena,$tofind,$replac));
+	$tofind = "ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ";
+	$replac = "AAAAAAaaaaaaOOOOOOooooooEEEEeeeeCcIIIIiiiiUUUUuuuuyNn";
+	return(strtr($cadena,$tofind,$replac));
 }
-	
-function postHttps($url,$params) {
-$ch = curl_init ($url);
-curl_setopt ($ch, CURLOPT_HEADER, 0);
-curl_setopt ($ch, CURLOPT_POSTFIELDS, $params);
-curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-$result = curl_exec ($ch);
-curl_close ($ch);
-return $result;
-} 
 
-function buscar_post($path,$params)
-{
+function postHttps($url,$params) {
+	$ch = curl_init ($url);
+	curl_setopt ($ch, CURLOPT_HEADER, 0);
+	curl_setopt ($ch, CURLOPT_POSTFIELDS, $params);
+	curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+	$result = curl_exec ($ch);
+	curl_close ($ch);
+	return $result;
+}
+
+function buscar_post($path,$params) {
 	$url='http://localhost/portal/'.$path;
 	$resultado=postHttps($url,$params);
-	
+
 	return $resultado;
-	
 }
 
-function formatear_fecha($fecha)
-{
+function formatear_fecha($fecha) {
 	$v_fecha = explode('-',$fecha);
 	$dia=$v_fecha[0];
 	if (strlen($dia)==1)
@@ -82,13 +66,12 @@ function formatear_fecha($fecha)
 		$mes="0".$mes;
 
 	$ano=$v_fecha[2];
-	
+
 	$ret_fecha=$ano ."-" . $mes . "-" .$dia;
 	return $ret_fecha;
-
 }
-function ver_fecha($fecha)
-{
+
+function ver_fecha($fecha) {
 	$v_fecha = explode('-',$fecha);
 	$dia=$v_fecha[2];
 	if (strlen($dia)==1)
@@ -99,114 +82,107 @@ function ver_fecha($fecha)
 		$mes="0".$mes;
 
 	$ano=$v_fecha[0];
-	
+
 	$ret_fecha= $dia."-" . $mes . "-" .$ano;
 	return $ret_fecha;
-
 }
 
-function invertir_modo($modo_order)
-{
+function invertir_modo($modo_order) {
 	if ($modo_order=="DESC")
 		return "ASC";
 	else
 		return "DESC";
 }
 
-function get_day($fecha)
-{
+function get_day($fecha) {
 	$v_fecha = explode('-',$fecha);
 	$resto=explode(' ',$v_fecha[2]);
 	$dia=$resto[0];
 	return $dia;
-
 }
 
-function get_month($fecha)
-{
+function get_month($fecha) {
 	$v_fecha = explode('-',$fecha);
 	$mes=$v_fecha[1];
 	return $mes;
 
 }
 
-function get_year($fecha)
-{
+function get_year($fecha) {
 	$v_fecha = explode('-',$fecha);
 	$ano=$v_fecha[0];
 	return $ano;
 }
-function restaFechas($dFecIni, $dFecFin)
-{
-    $dFecIni = str_replace("-","",$dFecIni);
+function restaFechas($dFecIni, $dFecFin) {
+	$dFecIni = str_replace("-","",$dFecIni);
    // $dFecIni = str_replace("/","",$dFecIni);
-    $dFecFin = str_replace("-","",$dFecFin);
+	$dFecFin = str_replace("-","",$dFecFin);
    // $dFecFin = str_replace("/","",$dFecFin);
 
-    ereg( "([0-9]{1,2})([0-9]{1,2})([0-9]{2,4})", $dFecIni, $aFecIni);
-    ereg( "([0-9]{1,2})([0-9]{1,2})([0-9]{2,4})", $dFecFin, $aFecFin);
+	ereg( "([0-9]{1,2})([0-9]{1,2})([0-9]{2,4})", $dFecIni, $aFecIni);
+	ereg( "([0-9]{1,2})([0-9]{1,2})([0-9]{2,4})", $dFecFin, $aFecFin);
 
-    $date1 = mktime(0,0,0,$aFecIni[2], $aFecIni[1], $aFecIni[3]);
-    $date2 = mktime(0,0,0,$aFecFin[2], $aFecFin[1], $aFecFin[3]);
+	$date1 = mktime(0,0,0,$aFecIni[2], $aFecIni[1], $aFecIni[3]);
+	$date2 = mktime(0,0,0,$aFecFin[2], $aFecFin[1], $aFecFin[3]);
 
-    return round(($date2 - $date1) / (60 * 60 * 24));
+	return round(($date2 - $date1) / (60 * 60 * 24));
 }
 function array_to_json( $array ){
 
-    if( !is_array( $array ) ){
-        return false;
-    }
+	if( !is_array( $array ) ){
+		return false;
+	}
 
-    $associative = count( array_diff( array_keys($array), array_keys( array_keys( $array )) ));
-    if( $associative ){
+	$associative = count( array_diff( array_keys($array), array_keys( array_keys( $array )) ));
+	if( $associative ){
 
-        $construct = array();
-        foreach( $array as $key => $value ){
+		$construct = array();
+		foreach( $array as $key => $value ){
 
-            // We first copy each key/value pair into a staging array,
-            // formatting each key and value properly as we go.
+			// We first copy each key/value pair into a staging array,
+			// formatting each key and value properly as we go.
 
-            // Format the key:
-            if( is_numeric($key) ){
-                $key = "key_$key";
-            }
-            $key = "\"".addslashes($key)."\"";
+			// Format the key:
+			if( is_numeric($key) ){
+				$key = "key_$key";
+			}
+			$key = "\"".addslashes($key)."\"";
 
-            // Format the value:
-            if( is_array( $value )){
-                $value = array_to_json( $value );
-            } else if( !is_numeric( $value ) || is_string( $value ) ){
-                $value = "\"".addslashes($value)."\"";
-            }
+			// Format the value:
+			if( is_array( $value )){
+				$value = array_to_json( $value );
+			} else if( !is_numeric( $value ) || is_string( $value ) ){
+				$value = "\"".addslashes($value)."\"";
+			}
 
-            // Add to staging array:
-            $construct[] = "$key: $value";
-        }
+			// Add to staging array:
+			$construct[] = "$key: $value";
+		}
 
-        // Then we collapse the staging array into the JSON form:
-        $result = "{ " . implode( ", ", $construct ) . " }";
+		// Then we collapse the staging array into the JSON form:
+		$result = "{ " . implode( ", ", $construct ) . " }";
 
-    } else { // If the array is a vector (not associative):
+	} else { // If the array is a vector (not associative):
 
-        $construct = array();
-        foreach( $array as $value ){
+		$construct = array();
+		foreach( $array as $value ){
 
-            // Format the value:
-            if( is_array( $value )){
-                $value = array_to_json( $value );
-            } else if( !is_numeric( $value ) || is_string( $value ) ){
-                $value = "'".addslashes($value)."'";
-            }
+			// Format the value:
+			if( is_array( $value )){
+				$value = array_to_json( $value );
+			} else if( !is_numeric( $value ) || is_string( $value ) ){
+				$value = "'".addslashes($value)."'";
+			}
 
-            // Add to staging array:
-            $construct[] = $value;
-        }
+			// Add to staging array:
+			$construct[] = $value;
+		}
 
-        // Then we collapse the staging array into the JSON form:
-        $result = "[ " . implode( ", ", $construct ) . " ]";
-    }
+		// Then we collapse the staging array into the JSON form:
+		$result = "[ " . implode( ", ", $construct ) . " ]";
+	}
 
-    return $result;
+	return $result;
 }
 function mesatexto($num){
     /**
@@ -224,8 +200,6 @@ function mesatexto($num){
     $num_limpio = $num >= 1 && $num <= 12 ? intval($num) : 0;
     return $meses[$num_limpio];
 }
-
-
 
 function fechaATexto($fecha, $formato = 'c') {
  
@@ -248,7 +222,7 @@ function fechaATexto($fecha, $formato = 'c') {
         return false;
     }
 }
- 
+
 /**
  * timestampATexto()
  *
@@ -258,50 +232,55 @@ function fechaATexto($fecha, $formato = 'c') {
  * @param   string formato (puede tomar los valores 'l', 'u', 'c')
  * @return  string  fecha_en_formato_texto
  */
- 
+
 function timestampATexto($timestamp, $formato = 'c') {
- 
-    // Buscamos el espacio dentro de la cadena o salimos
-    if (strpos($timestamp, " ") === false){
-        return false;
-    }
- 
-    // Dividimos la cadena en el espacio separador
-    $timestamp = explode(" ", $timestamp);
- 
-    // Como la primera parte es una fecha, simplemente llamamos a fechaATexto()
-    if (fechaATexto($timestamp[0])) {
-        $conjuncion = ' a las ';
-        if ($formato == 'u') {
-            $conjuncion = strtoupper($conjuncion);
-        }
-        return fechaATexto($timestamp[0], $formato) . $conjuncion;
-    }
+
+	// Buscamos el espacio dentro de la cadena o salimos
+	if (strpos($timestamp, " ") === false){
+		return false;
+	}
+
+	// Dividimos la cadena en el espacio separador
+	$timestamp = explode(" ", $timestamp);
+
+	// Como la primera parte es una fecha, simplemente llamamos a fechaATexto()
+	if (fechaATexto($timestamp[0])) {
+		$conjuncion = ' a las ';
+		if ($formato == 'u') {
+			$conjuncion = strtoupper($conjuncion);
+		}
+		return fechaATexto($timestamp[0], $formato) . $conjuncion;
+	}
 }
-function compara_fechas($fecha1,$fecha2)
-{
-      if (preg_match("/[0-9]{1,2}\/[0-9]{1,2}\/([0-9][0-9]){1,2}/",$fecha1))
-          list($dia1,$mes1,$año1)=explode("/",$fecha1);
-      if (preg_match("/[0-9]{1,2}-[0-9]{1,2}-([0-9][0-9]){1,2}/",$fecha1))
-              list($dia1,$mes1,$año1)=explode("-",$fecha1);
-        if (preg_match("/[0-9]{1,2}\/[0-9]{1,2}\/([0-9][0-9]){1,2}/",$fecha2))
-              list($dia2,$mes2,$año2)=explode("/",$fecha2);
-      if (preg_match("/[0-9]{1,2}-[0-9]{1,2}-([0-9][0-9]){1,2}/",$fecha2))
-              list($dia2,$mes2,$año2)=explode("-",$fecha2);
-        $dif = mktime(0,0,0,$mes1,$dia1,$año1) - mktime(0,0,0, $mes2,$dia2,$año2);
-        return ($dif);                         
+function compara_fechas($fecha1,$fecha2) {
+	if (preg_match("/[0-9]{1,2}\/[0-9]{1,2}\/([0-9][0-9]){1,2}/",$fecha1))
+		list($dia1,$mes1,$año1)=explode("/",$fecha1);
+	if (preg_match("/[0-9]{1,2}-[0-9]{1,2}-([0-9][0-9]){1,2}/",$fecha1))
+		list($dia1,$mes1,$año1)=explode("-",$fecha1);
+	if (preg_match("/[0-9]{1,2}\/[0-9]{1,2}\/([0-9][0-9]){1,2}/",$fecha2))
+		list($dia2,$mes2,$año2)=explode("/",$fecha2);
+	if (preg_match("/[0-9]{1,2}-[0-9]{1,2}-([0-9][0-9]){1,2}/",$fecha2))
+		list($dia2,$mes2,$año2)=explode("-",$fecha2);
+	$dif = mktime(0,0,0,$mes1,$dia1,$año1) - mktime(0,0,0, $mes2,$dia2,$año2);
+	return ($dif);
 }
 
 function redondear_dos_decimal($valor) {
-$float_redondeado=round($valor * 100) / 100;
-//echo $float_redondeado;
-$float_redondeado=ceiling($float_redondeado, 0.05);
-return $float_redondeado;
+	$float_redondeado=round($valor * 100) / 100;
+	//echo $float_redondeado;
+	$float_redondeado=ceiling($float_redondeado, 0.05);
+	return $float_redondeado;
 }
-function ceiling($number, $significance = 1)
-{
+
+function ceiling($number, $significance = 1) {
 	return ( is_numeric($number) && is_numeric($significance) ) ? (ceil($number/$significance)*$significance) : false;
 }
 
+function phpAlert($msg) {
+    echo '<script type="text/javascript">alert("' . $msg . '")</script>';
+}
 
+function phpConsoleLog($msg) {
+	echo '<script type="text/javascript">console.log("' . $msg . '")</script>';
+}
 ?>

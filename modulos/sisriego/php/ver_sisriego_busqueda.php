@@ -47,7 +47,7 @@ else{
 }
 $ini=$off*$totalporpag;
 // End New
-$sql="select * from tabla_66_sisriego
+$sql="select * from tabla_66_tbl_sisriego
 		order by tabla66_descrip ASC
 		Limit $totalporpag OFFSET $ini ";
 $rs = $pdo->query($sql);//
@@ -81,7 +81,7 @@ else
 	$t->set_var("LISTADO","<tr align='center' class='alt'><td colspan='10'>No se encuentran Registros Cargados. </td></tr>");
 
 }
-	$qrT="select * from tabla_66_sisriego";
+	$qrT="select * from tabla_66_tbl_sisriego";
 	$rs = $pdo->query($qrT);//
 	$totalregistros = $rs->rowCount();
 	$t->set_var("cantidad",$totalregistros);

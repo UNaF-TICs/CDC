@@ -1,0 +1,51 @@
+ <!-- <script>
+		$( "#tabla64_fecha_entrada,#tabla64_fecha_entrada" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+</script> -->
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+	<th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{tit}</p></th>
+	<th colspan="5" align="center"><p align="right"><a title="Cerrar" href="javascript:{funcion_cancelar};"><img src="media/iconos/cerrar.png" width="16"  border="0"></a></p></th>
+  </tr>
+</table>
+
+<form name="abm_predio" id="abm_predio">
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+ <tr class="alt" align="left" >
+   <td width="24%">Predio</td>
+   <td width="76%" ><input name="tabla64_nombrepredio" type="text" id="tabla64_nombrepredio" value="{tabla64_nombrepredio}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Límites</td>
+   <td width="76%" ><input name="tabla64_limites" type="text" id="tabla64_limites" value="{tabla64_limites}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+  <tr class="alt" align="left" >
+	<td>Ubicación geográfica</td>
+	<td ><select name="rela_tabla09" id="rela_tabla09" class="obligatorio" style="height:auto; width:300px;">
+		<option value="">Seleccione..</option>
+		{UBICGEOGS}
+	</select></td>
+  </tr>
+  <tr class="alt" align="left" >
+	<td>Finca</td>
+	<td ><select name="rela_tabla63" id="rela_tabla63" class="obligatorio" style="height:auto; width:300px;">
+		<option value="">Seleccione..</option>
+		{FINCAS}
+	</select></td>
+  </tr>
+  <tr class="alt" align="left" >
+	<td width="24%">Área total</td>
+	<td width="76%" ><input name="tabla64_areatotal" type="number" id="tabla64_areatotal" value="{tabla64_areatotal}" size="20" class="obligatorio" placeholder="Obligatorio"  step="0.01" min="0"  ></td>
+ </tr>
+
+ </table>
+ <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+ <tr>
+	<td align="right"><input class="button_login" type="button" onClick="javascript:;{funcion_guardar}" value="Aceptar" tabindex="3" name="Submit" title="Guardar"></td>
+	<td align="left"><input class="button_login" type="button" onClick="javascript:;{funcion_cancelar}" value="Cancelar" tabindex="3" name="Submit" title="Cancelar"></td>
+ </tr>
+ </table>
+</form>

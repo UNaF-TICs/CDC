@@ -19,7 +19,7 @@ $rela_tabla11='';
 
 if ($id_tabla66!="")
 {
-	$sql="select * from tabla_66_sisriego
+	$sql="select * from tabla_66_tbl_sisriego
 	where id_tabla66=$id_tabla66";
 	$rs = $pdo->query($sql);//
 	$num_rows = $rs->rowCount();

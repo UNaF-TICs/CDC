@@ -3,7 +3,7 @@
 function agregar_tipocertifica($tabla67_descrip,$pdo)
 {
 
-	$sql="INSERT INTO tabla_67_tipocertifica
+	$sql="INSERT INTO tabla_67_tbl_tipocertifica
 		(
 			tabla67_descrip
 		)
@@ -33,7 +33,7 @@ function modificar_tipocertifica($id_tabla67,$tabla67_descrip,$pdo)
 	}
 
 
-	$sql="UPDATE tabla_67_tipocertifica  SET
+	$sql="UPDATE tabla_67_tbl_tipocertifica  SET
 			tabla67_descrip='$tabla67_descrip'
 			where id_tabla67=$id_tabla67";
 	   	try {
@@ -51,7 +51,7 @@ function modificar_tipocertifica($id_tabla67,$tabla67_descrip,$pdo)
 
 function borrar_tipocertifica($id_tabla67,$pdo)
 {
-	$sql2="DELETE FROM tabla_67_tipocertifica WHERE
+	$sql2="DELETE FROM tabla_67_tbl_tipocertifica WHERE
 	id_tabla67=$id_tabla67";
 	try {
 	$pdo->beginTransaction();
