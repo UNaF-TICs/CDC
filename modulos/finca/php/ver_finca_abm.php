@@ -59,6 +59,9 @@ if ($id_tabla63!="") {
 
 	$url="'modulos/finca/php/abm_finca_interfaz.php'";
 	$vars="'nombre_funcion=agregar_finca&";
+	// Ver si no hay que quitar los siguientes 2 renglones
+	$vars.="rela_tabla70_finca='+abm_finca.rela_tabla70_finca.value+'&";
+	$vars.="rela_tabla70_titular='+abm_finca.rela_tabla70_titular.value+'&";
 	$vars.="rela_tabla67='+abm_finca.rela_tabla67.value+'&";
 	$vars.="tabla63_entidadcertificadora='+abm_finca.tabla63_entidadcertificadora.value+'&";
 	$vars.="tabla63_areatotal='+abm_finca.tabla63_areatotal.value+'&";

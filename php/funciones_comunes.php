@@ -2,7 +2,7 @@
 function actualizar_archivo($archivo,$label_inicio,$label_fin,$contenido_label) {
 	$archivo_import=$archivo;
 	$lineas = file($archivo_import);
-	
+
 	//true - copio
 	//false - no hago nada
 	$copio=true;
@@ -16,7 +16,7 @@ function actualizar_archivo($archivo,$label_inicio,$label_fin,$contenido_label) 
 			echo "ENCONTRE <br>";
 			$contenido.= $contenido_label;
 		}
-		
+
 		if (strncmp($linea,$label_fin,strlen($label_fin))==0) {
 			//todo lo que hay aca dentro es del dialplan
 			$copio=true;

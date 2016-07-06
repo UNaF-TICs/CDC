@@ -22,7 +22,6 @@ function agregar_finca($rela_tabla70_finca,$rela_tabla70_titular,$rela_tabla67,$
 			$tabla63_areatotal
 		)";
 
-	phpAlert($sql);
 	try {
 		$pdo->beginTransaction();
 		$pdo->exec($sql);
