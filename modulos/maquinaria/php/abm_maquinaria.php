@@ -2,43 +2,49 @@
 
 function agregar_maquinaria($tabla22_nombre,$tabla22_descripcion,$tabla22_marca,$tabla22_modelo,$tabla22_fecha_compra,$tabla22_costo_compra,$tabla22_matricula,$tabla22_empresa_seguro,$tabla22_rto,$tabla22_funcion,$pdo)
 {
-
-	$sql="INSERT INTO tabla_22_tbl_maquinaria
-		(
-			tabla22_nombre,
-			tabla22_descripcion,
-			tabla22_marca,
-			tabla22_modelo,
-			tabla22_fecha_compra,
-			tabla22_costo_compra,
-			tabla22_matricula,
-            tabla22_empresa_seguro,
-            tabla22_rto,
-            tabla22_funcion
-		)
-		VALUES
-		(
-			'$tabla22_nombre',
-			'$tabla22_descripcion',
-			'$tabla22_marca',
-			'$tabla22_modelo',
-			STR_TO_DATE('$tabla22_fecha_compra','%d-%m-%Y'),
-			$tabla22_costo_compra,
-			'$tabla22_matricula',
-            '$tabla22_empresa_seguro',
-            '$tabla22_rto',
-            '$tabla22_funcion'
-		)";
-		try {
-		$pdo->beginTransaction();
-		$pdo->exec($sql);
-		$new_id_tabla02 = $pdo->lastInsertId();
-		$pdo->commit();
-			return "1-Registro agregado correctamente.";
-		} catch (PDOException $e) { //PDOException $e
-		  $pdo->rollBack();
-			return "0-Error: Se ha producido un error. ".$e->getMessage();
+    
+        if ($tabla22_nombre=="" || $tabla22_fecha_compra=="" || $tabla22_costo_compra=="")
+        {
+            return "0-Error: Debe completar los campos obligatorios.";	
         }
+
+ 
+        $sql="INSERT INTO tabla_22_tbl_maquinaria
+            (
+                tabla22_nombre,
+                tabla22_descripcion,
+                tabla22_marca,
+                tabla22_modelo,
+                tabla22_fecha_compra,
+                tabla22_costo_compra,
+                tabla22_matricula,
+                tabla22_empresa_seguro,
+                tabla22_rto,
+                tabla22_funcion
+            )
+            VALUES
+            (
+                '$tabla22_nombre',
+                '$tabla22_descripcion',
+                '$tabla22_marca',
+                '$tabla22_modelo',
+                STR_TO_DATE('$tabla22_fecha_compra','%d-%m-%Y'),
+                $tabla22_costo_compra,
+                '$tabla22_matricula',
+                '$tabla22_empresa_seguro',
+                '$tabla22_rto',
+                '$tabla22_funcion'
+            )";
+            try { 
+			$pdo->beginTransaction();
+			$pdo->exec($sql);
+			$new_id_tabla22 = $pdo->lastInsertId();
+			$pdo->commit();
+				return "1-M&oacute;dulo agregado correctamente correctamente";
+			} catch (Exception $e) { //PDOException $e
+			  $pdo->rollBack();
+				return "0-Error: Se ha producido un error. ";
+			}
 }
 
 
@@ -46,7 +52,7 @@ function modificar_maquinaria($id_tabla22,$tabla22_nombre,$tabla22_descripcion,$
 {
 	if ($tabla22_nombre=="")
 	{
-		return "0-Error: Complete campo obligatorio.";
+		return "0-Error: Debe completar los campos obligatorios.";
 	}
 
 
@@ -65,7 +71,7 @@ function modificar_maquinaria($id_tabla22,$tabla22_nombre,$tabla22_descripcion,$
 	   	try {
 			$pdo->beginTransaction();
 			$pdo->exec($sql);
-			$new_id_tabla02 = $pdo->lastInsertId();
+			$new_id_tabla22 = $pdo->lastInsertId();
 			$pdo->commit();
 				return "1-Registro Modificado correctamente.";
 			} catch (Exception $e) { //PDOException $e

@@ -26,36 +26,29 @@ $modulo_actual="maquinaria"; // Poner Nombre del Modulo Actual
     $tabla22_funcion=isset($_POST['tabla22_funcion']) ? strval($_POST['tabla22_funcion']) : '';
     $tabla22_descripcion=utf8_decode($tabla22_descripcion);
     $nombre_funcion=isset($_POST['nombre_funcion']) ? strval($_POST['nombre_funcion']) : '';
-
-switch ($nombre_funcion) {
-    case "agregar_maquinaria":
-  		$id_res=agregar_maquinaria($tabla22_nombre,$tabla22_descripcion,$tabla22_marca,$tabla22_modelo,$tabla22_fecha_compra,$tabla22_costo_compra,$tabla22_matricula,$tabla22_empresa_seguro,$tabla22_rto,$tabla22_funcion,$pdo);
-  		$vsplit=split("-",$id_res);
-      if ($vsplit[1]==1) {
-        echo $vsplit[1];
-      } else {
-          phpConsoleLog($vsplit[1]);
-      }
-
-      break;
+    
+switch ($nombre_funcion) 
+{
+     case "agregar_maquinaria":
+        $id_res=agregar_maquinaria($tabla22_nombre,$tabla22_descripcion,$tabla22_marca,$tabla22_modelo,$tabla22_fecha_compra,$tabla22_costo_compra,$tabla22_matricula,$tabla22_empresa_seguro,$tabla22_rto,$tabla22_funcion,$pdo);
+			$vexplode=explode("-",$id_res);
+			$mensaje=$vexplode[1];
+			echo $mensaje ;
+			break;
     case "borrar_maquinaria":
   		$id_res=borrar_maquinaria($id_tabla22,$pdo);
-  		$vsplit=split("-",$id_res);
-      if ($vsplit[1]==1) {
-        echo $vsplit[1];
-      } else {
-          phpConsoleLog($vsplit[1]);
-      }
+  		$vsplit=explode("-",$id_res);
+        if ($vsplit[1]==1) {
+            echo $vsplit[1];
+        } 
   		break;
   	case "modificar_maquinaria":
   		$id_res=modificar_maquinaria($id_tabla22,$tabla22_nombre,$tabla22_descripcion,$tabla22_marca,$tabla22_modelo,$tabla22_fecha_compra,$tabla22_costo_compra,$tabla22_matricula,$tabla22_empresa_seguro,$tabla22_rto,$tabla22_funcion,$pdo);
-  		$vsplit=split("-",$id_res);
-      if ($vsplit[1]==1) {
-        echo $vsplit[1];
-      } else {
-          phpConsoleLog($vsplit[1]);
-      }
-  		break;
+  		$vsplit=explode("-",$id_res);
+        if ($vsplit[1]==1) {
+            echo $vsplit[1];
+        } 
+  		break;    
 }
 
 

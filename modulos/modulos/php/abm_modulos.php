@@ -52,7 +52,6 @@ function agregar_modulo($rela_padre,$tabla02_nombre,$tabla02_path_home,$tabla02_
 				$tabla02_tipo,
 				'$tabla02_ayuda'
 			)";
-	}
 	  	try { 
 			$pdo->beginTransaction();
 			$pdo->exec($sql);

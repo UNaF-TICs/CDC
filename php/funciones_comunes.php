@@ -1,7 +1,7 @@
 <?php
 
 
-function phpAlert($msg) {
+function phpConsoleLog($msg) {
    echo '<script type="text/javascript">alert("' . $msg . '")</script>';
 }
 
@@ -46,7 +46,7 @@ function actualizar_archivo($archivo,$label_inicio,$label_fin,$contenido_label)
 }
 
 function elimina_acentos($cadena){
-$tofind = "ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ";
+$tofind = "Ã€ÃÃ‚ÃƒÃ„Ã…Ã Ã¡Ã¢Ã£Ã¤Ã¥Ã’Ã“Ã”Ã•Ã–Ã˜Ã²Ã³Ã´ÃµÃ¶Ã¸ÃˆÃ‰ÃŠÃ‹Ã¨Ã©ÃªÃ«Ã‡Ã§ÃŒÃÃŽÃÃ¬Ã­Ã®Ã¯Ã™ÃšÃ›ÃœÃ¹ÃºÃ»Ã¼Ã¿Ã‘Ã±";
 $replac = "AAAAAAaaaaaaOOOOOOooooooEEEEeeeeCcIIIIiiiiUUUUuuuuyNn";
 return(strtr($cadena,$tofind,$replac));
 }
@@ -211,14 +211,14 @@ function array_to_json( $array ){
 function mesatexto($num){
     /**
      * Creamos un array con los meses disponibles.
-     * Agregamos un valor cualquiera al comienzo del array para que los números coincidan
-     * con el valor tradicional del mes. El valor "Error" resultará útil
+     * Agregamos un valor cualquiera al comienzo del array para que los nÃºmeros coincidan
+     * con el valor tradicional del mes. El valor "Error" resultarÃ¡ Ãºtil
      **/
     $meses = array('Error', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
         'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
  
     /**
-     * Si el número ingresado está entre 1 y 12 asignar la parte entera.
+     * Si el nÃºmero ingresado estÃ¡ entre 1 y 12 asignar la parte entera.
      * De lo contrario asignar "0"
      **/
     $num_limpio = $num >= 1 && $num <= 12 ? intval($num) : 0;
@@ -232,9 +232,9 @@ function fechaATexto($fecha, $formato = 'c') {
     // Validamos que la cadena satisfaga el formato deseado y almacenamos las partes
     if (ereg("([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})", $fecha, $partes)) {
         // $partes[0] contiene la cadena original
-        // $partes[1] contiene el año
-        // $partes[2] contiene el número de mes
-        // $partes[3] contiene el número del día
+        // $partes[1] contiene el aÃ±o
+        // $partes[2] contiene el nÃºmero de mes
+        // $partes[3] contiene el nÃºmero del dÃ­a
         $mes = ' de ' . mesatexto($partes[2]) . ' de ';
         if ($formato == 'u') {
             $mes = strtoupper($mes);
@@ -244,7 +244,7 @@ function fechaATexto($fecha, $formato = 'c') {
         return $partes[3] . $mes . $partes[1];
  
     } else {
-        // Si hubo problemas en la validación, devolvemos false
+        // Si hubo problemas en la validaciÃ³n, devolvemos false
         return false;
     }
 }
@@ -281,14 +281,14 @@ function timestampATexto($timestamp, $formato = 'c') {
 function compara_fechas($fecha1,$fecha2)
 {
       if (preg_match("/[0-9]{1,2}\/[0-9]{1,2}\/([0-9][0-9]){1,2}/",$fecha1))
-          list($dia1,$mes1,$año1)=explode("/",$fecha1);
+          list($dia1,$mes1,$aÃ±o1)=explode("/",$fecha1);
       if (preg_match("/[0-9]{1,2}-[0-9]{1,2}-([0-9][0-9]){1,2}/",$fecha1))
-              list($dia1,$mes1,$año1)=explode("-",$fecha1);
+              list($dia1,$mes1,$aÃ±o1)=explode("-",$fecha1);
         if (preg_match("/[0-9]{1,2}\/[0-9]{1,2}\/([0-9][0-9]){1,2}/",$fecha2))
-              list($dia2,$mes2,$año2)=explode("/",$fecha2);
+              list($dia2,$mes2,$aÃ±o2)=explode("/",$fecha2);
       if (preg_match("/[0-9]{1,2}-[0-9]{1,2}-([0-9][0-9]){1,2}/",$fecha2))
-              list($dia2,$mes2,$año2)=explode("-",$fecha2);
-        $dif = mktime(0,0,0,$mes1,$dia1,$año1) - mktime(0,0,0, $mes2,$dia2,$año2);
+              list($dia2,$mes2,$aÃ±o2)=explode("-",$fecha2);
+        $dif = mktime(0,0,0,$mes1,$dia1,$aÃ±o1) - mktime(0,0,0, $mes2,$dia2,$aÃ±o2);
         return ($dif);                         
 }
 
