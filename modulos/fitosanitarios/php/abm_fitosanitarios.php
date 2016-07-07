@@ -20,7 +20,7 @@ $Fitosanitario_Fecha_caducidad,$Rela_tabla19,$Rela_tabla20,$pdo)
 			'$Fitosanitario_Nombre',
 			'$Fitosanitario_Fabricante',
 			 $Cantidad_Agua,
-			 $Fitosanitario_Fecha_caducidad,
+			 STR_TO_DATE('$Fitosanitario_Fecha_caducidad','%d-%m-%Y'),
 			 $Rela_tabla19,
 			 $Rela_tabla20,
 			 $Rela_tabla21,

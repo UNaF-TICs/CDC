@@ -47,9 +47,7 @@ else{
 }
 $ini=$off*$totalporpag;
 // End New	
-$sql="select * from tabla_18_cab_fitosanitario 
-		order by Fitosanitario_Nombre ASC  
-		Limit $totalporpag OFFSET $ini ";
+$sql="select * from tabla_18_cab_fitosanitario, tabla_19_tbl_tipo_dosis, tabla_20_tbl_tipo_preparado, tabla_21_tbl_tipo_funcion, tabla_33_tbl_plaga where Rela_tabla19 = id_tabla19 And Rela_tabla20 = id_tabla20 And Rela_tabla21 = id_tabla21 And Rela_tabla33 = id_tabla33 Limit $totalporpag OFFSET $ini ";
 $rs = $pdo->query($sql);//
 $num_rows = $rs->rowCount();
 if ($num_rows>0)
@@ -57,14 +55,14 @@ if ($num_rows>0)
 	while ($row = $rs->fetch())
 	{
 		$id_tabla18=$row["id_tabla18"];
-		$t->set_var("Rela_tabla21",$row["Rela_tabla21"]);
-		$t->set_var("Rela_tabla33",$row["Rela_tabla33"]);
+		$t->set_var("Rela_tabla21",$row["tabla21_funcion"]);
+		$t->set_var("Rela_tabla33",$row["tabla33_descripcion"]);
 		$t->set_var("Fitosanitario_Nombre",htmlentities($row["Fitosanitario_Nombre"],ENT_QUOTES));
 		$t->set_var("Fitosanitario_Fabricante",htmlentities($row["Fitosanitario_Fabricante"],ENT_QUOTES));
 		$t->set_var("Cantidad_Agua",htmlentities($row["Cantidad_Agua"],ENT_QUOTES));
 		$t->set_var("Fitosanitario_Fecha_caducidad",$row["Fitosanitario_Fecha_caducidad"]);
-		$t->set_var("Rela_tabla19",$row["Rela_tabla19"]);
-		$t->set_var("Rela_tabla20",$row["Rela_tabla20"]);
+		$t->set_var("Rela_tabla19",$row["Tipo_Dosis"]);
+		$t->set_var("Rela_tabla20",$row["tabla20_descripcion"]);
 
 		
 		$url="'modulos/fitosanitarios/php/ver_fitosanitarios_abm.php'";

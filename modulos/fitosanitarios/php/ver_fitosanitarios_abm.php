@@ -4,6 +4,8 @@ include "../../../lib/link_mysql.php";
 include "../../../lib/template.inc";
 include "../../../php/funciones_comunes.php";
 
+
+
 $t = new Template('../templates/');
 //Archivos comunes
 $t->set_file(array(
