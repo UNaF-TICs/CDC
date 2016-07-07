@@ -3,7 +3,7 @@
 function agregar_tipotrabajo($tabla14_Descripcion,$pdo)
 {
 	
-	$sql="INSERT INTO tabla_14_tipo_trabajo  
+	$sql="INSERT INTO tabla_14_det_tipo_trabajo  
 		(
 			tabla14_Descripcion
 		) 
@@ -32,7 +32,7 @@ function modificar_tipotrabajo($id_Tabla14,$tabla14_Descripcion,$pdo)
 	}
 	
 
-	$sql="UPDATE tabla_14_tipo_trabajo  SET 
+	$sql="UPDATE tabla_14_det_tipo_trabajo  SET 
 			tabla14_Descripcion='$tabla14_Descripcion'
 			where id_Tabla14=$id_Tabla14";
 	   	try { 
@@ -50,7 +50,7 @@ function modificar_tipotrabajo($id_Tabla14,$tabla14_Descripcion,$pdo)
 
 function borrar_tipotrabajo($id_Tabla14,$pdo)
 {
-				$sql2="DELETE FROM tabla_14_tipo_trabajo WHERE
+				$sql2="DELETE FROM tabla_14_det_tipo_trabajo WHERE
 				id_Tabla14=$id_Tabla14";
 				try { 
 				$pdo->beginTransaction();

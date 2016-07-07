@@ -19,7 +19,7 @@ $Rela_Tabla14='';
 
 if ($id_tabla13!="")
 {
-	$sql="SELECT * FROM tabla_13_trabajo
+	$sql="SELECT * FROM tabla_13_cab_trabajo
 	where id_tabla13=$id_tabla13";
 	$rs = $pdo->query($sql);//
 	$num_rows = $rs->rowCount();
@@ -68,7 +68,7 @@ else
 }
 
 //TEMAS
-	$sql="SELECT * FROM  tabla_14_tipo_trabajo  order by tabla14_Descripcion ASC";
+	$sql="SELECT * FROM  tabla_14_det_tipo_trabajo  order by tabla14_Descripcion ASC";
 	$rs = $pdo->query($sql);//
 	$num_rows = $rs->rowCount();
 	if ($num_rows>0)

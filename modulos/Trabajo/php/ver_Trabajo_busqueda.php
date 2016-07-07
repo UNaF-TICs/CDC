@@ -47,7 +47,7 @@ else{
 }
 $ini=$off*$totalporpag;
 // End New	
-$sql="SELECT * from tabla_13_trabajo inner join tabla_14_tipo_trabajo on id_tabla14 = Rela_tabla14
+$sql="SELECT * from tabla_13_cab_trabajo inner join tabla_14_det_tipo_trabajo on id_tabla14 = Rela_tabla14
 		order by tabla14_Descripcion ASC  
 		Limit $totalporpag OFFSET $ini ";
 $rs = $pdo->query($sql);//
@@ -84,7 +84,7 @@ else
 	$t->set_var("LISTADO","<tr align='center' class='alt'><td colspan='10'>No se encuentran Registros Cargados. </td></tr>");
 	
 }	
-	$qrT="SELECT * from tabla_13_trabajo";
+	$qrT="SELECT * from tabla_13_cab_trabajo";
 	$rs = $pdo->query($qrT);//
 	$totalregistros = $rs->rowCount();
 	$t->set_var("cantidad",$totalregistros);

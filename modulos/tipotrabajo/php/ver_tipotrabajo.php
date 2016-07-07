@@ -54,7 +54,7 @@ else{
 }
 $ini=$off*$totalporpag;
 // End New	
-$sql="SELECT * from tabla_14_tipo_trabajo 
+$sql="SELECT * from tabla_14_det_tipo_trabajo 
 		$where 
 		order by tabla14_Descripcion ASC  
 		Limit $totalporpag OFFSET $ini ";
@@ -89,7 +89,7 @@ else
 	$t->set_var("LISTADO","<tr align='center' class='alt'><td colspan='10'>No se encuentran Registros Cargados. </td></tr>");
 	
 }		// New Paginador
-	$qrT="SELECT * from tabla_14_tipo_trabajo
+	$qrT="SELECT * from tabla_14_det_tipo_trabajo
 	$where " ;
 	$rs = $pdo->query($qrT);//
 	$totalregistros = $rs->rowCount();
