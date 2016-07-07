@@ -1,4 +1,6 @@
- 
+ <?php
+ include_once "../../../lib/link_mysql.php";
+ ?>
  <script type="text/javascript">
 $('input, select').keypress(enter2tab);
 $(document).ready(function() {
@@ -11,12 +13,6 @@ $(document).ready(function() {
     //
     $('#tabla09_código').numeric({allow:"-"});
 });
-</script>
-<script type="text/javascript">
-function funcion_guardar()
-{
-this.document.location.href = "modulos/arbol_ubicacion_geografica/php/abm_arbol_ubicacion_geografica_interfaz.php";
-}
 </script>
 <script type="text/javascript">
 function codigopostal(){
@@ -56,8 +52,25 @@ function codigopostal(){
      <td align="left">Padre :</td>
      <td height="30" valign="top"><select name="rela_padre" id="rela_padre" class="obligatorio">
        <option value="0" selected>Ninguno</option>
+<?php
+     $sql="select * from ubicacion 
+    order by DESCRIPCION ASC  
+    Limit $totalporpag OFFSET $ini ";
+$rs = $pdo->query($sql);//
+$num_rows = $rs->rowCount();
+echo $sql;
+echo $rs;
+if ($num_rows>0)
+{
+  while ($row = $rs->fetch())
+  {
 
-       { PADRES }
+    $id=$row["ID"];
+    $descripcion=$row["DESCRIPCION"]);
+    $t->set_var("ID",$id);
+        $t->set_var("$descripcion",$descripcion);
+?> <option value='<?php echo $id; ?>' ><?php echo $descripcion ?></option>";
+    ?>
 
      </select></td>
  </tr>

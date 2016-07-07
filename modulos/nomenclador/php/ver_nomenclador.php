@@ -4,11 +4,11 @@ include "../../../lib/link_mysql.php";
 include "../../../lib/template.inc";
 //include "../../../php/funciones_comunes.php";
 require_once "../../../php/funciones_comunes.php";
-$t = new Template('../templates/');
+$t = new Template('../templates');
 //Archivos comunes
 $t->set_file(array(
-	"ver"		=> "ver_arbol_ubicacion_geografica.html",
-	"un"		=> "un_arbol_ubicacion_geografica.html",
+	"ver"		=> "ver_nomenclador.html",
+	"un"		=> "un_nomenclador.html",
 	));
 
 //Configuración Inicial
@@ -56,9 +56,9 @@ else{
 }
 $ini=$off*$totalporpag;
 // End New	
-$sql="select * from tabla_09_arb_ubicacion_geografica 
+$sql="select * from tabla_11_cab_nomenclador 
 		$where 
-		order by rela_padre ASC  
+		order by tabla11_descripcion ASC  
 		Limit $totalporpag OFFSET $ini ";
 $rs = $pdo->query($sql);//
 $num_rows = $rs->rowCount();
@@ -73,15 +73,15 @@ if ($num_rows>0)
 		$t->set_var("tabla09_codigo",$row["tabla09_codigo"]);
 
 
-		$url="'modulos/arbol_ubicacion_geografica/html/ver_arbol_ubicacion_geografica_abm.html'";
+		$url="'modulos/nomenclador/templates/nomenclador_abm.html'";
 		$id="'tabs-$id_tablamodulo'";
 		$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo&$id_tabla09=$$id_tabla09'";
 		$t->set_var("funcion_editar","cargar_post($url,$id,$vars)");	
 		
-		$url="'modulos/arbol_ubicacion_geografica/php/abm_arbol_ubicacion_geografica_interfaz.php'";
+		$url="'modulos/nomenclador/php/abm_nomenclador_interfaz.php'";
 		$vars="'nombre_funcion=borrar_arbol_ubicacion_geografica&";
 		$vars.="id_tabla09=$id_tabla09'";
-		$url_exito="'modulos/arbol_ubicacion_geografica/php/ver_arbol_ubicacion_geografica_busqueda.php'";
+		$url_exito="'modulos/nomenclador/php/ver_nomenclador_busqueda.php'";
 		$id="'tabs-$id_tablamodulo'";
 		$vars_exito="'offset=$offset&id_tablamodulo=$id_tablamodulo'";
 		$msg="'Esta seguro que quiere eliminar el Registro?'";
@@ -110,7 +110,7 @@ else
 	// << Anterior
 	if($offset>1)
 	{
-		$pag.="<td><a href=\"javascript:cargar_post('modulos/arbol_ubicacion_geografica/php/ver_arbol_ubicacion_geografica.php','listado_libros','offset=$off&id_tablamodulo=$id_tablamodulo');\"><< Anterior</a> | </td>";
+		$pag.="<td><a href=\"javascript:cargar_post('modulos/nomenclador/php/ver_nomenclador.php','listado_libros','offset=$off&id_tablamodulo=$id_tablamodulo');\"><< Anterior</a> | </td>";
 	}
 	else
 	{
@@ -152,7 +152,7 @@ else
 		}
 		else
 		{
-			$pag.="<a href=\"javascript:cargar_post('modulos/arbol_ubicacion_geografica/php/ver_arbol_ubicacion_geografica.php','listado_libros','offset=$i&id_tablamodulo=$id_tablamodulo');\">$i</a>&nbsp;";
+			$pag.="<a href=\"javascript:cargar_post('modulos/nomenclador/php/ver_nomenclador.php','listado_libros','offset=$i&id_tablamodulo=$id_tablamodulo');\">$i</a>&nbsp;";
 		}				 	 
 	}
 	$pag.="</td>";
@@ -160,14 +160,14 @@ else
 	if($offset<$totalpaginas)
 	{
 		$ofs=$offset+1;
-		$pag.="<td> | <a href=\"javascript:cargar_post('modulos/arbol_ubicacion_geografica/php/ver_arbol_ubicacion_geografica.php','listado_libros','offset=$ofs&id_tablamodulo=$id_tablamodulo');\">Siguiente >></a></td>";
+		$pag.="<td> | <a href=\"javascript:cargar_post('modulos/nomenclador/php/ver_nomenclador.php','listado_libros','offset=$ofs&id_tablamodulo=$id_tablamodulo');\">Siguiente >></a></td>";
 	}else{
 		$pag.="<td></td>";
 	}
 	$t->set_var("paginas","<table align=center><tr>".$pag."</tr></table>");
 		//End Paginador
 		
-	$url="'modulos/arbol_ubicacion_geografica/templates/ver_arbol_ubicacion_geografica_abm.html'";
+	$url="'modulos/nomenclador/templates/ver_nomenclador_abm.html'";
 	$id="'tabs-$id_tablamodulo'";
 	$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo'";
 	$t->set_var("funcion_agregar","cargar_post($url,$id,$vars);");

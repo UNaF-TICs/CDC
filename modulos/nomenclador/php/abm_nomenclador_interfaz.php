@@ -9,7 +9,7 @@ include_once "abm_arbol_ubicacion_geografica.php";
 include_once "../../control/php/abm_control.php";
 
 //Campo Obligatorio
-$modulo_actual="arbol_ubicacion_geografica"; // Poner Nombre del Modulo Actual
+$modulo_actual="nomenclador"; // Poner Nombre del Modulo Actual
 //Para el Control
 
 $id_tabla09=isset($_POST['id_tabla09']) ? intval($_POST['id_tabla09']) : NULL;

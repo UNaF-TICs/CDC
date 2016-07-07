@@ -5,11 +5,11 @@ require_once "../../../lib/template.inc";
 include "../../../php/funciones_comunes.php";
 session_start();
 
-$t = new Template('../templates/');
+$t = new Template('../templates');
 //Archivos comunes
 $t->set_file(array(
-	"ver"				=> "ver_arbol_ubicacion_geografica_busqueda.html",
-	"un"				=> "un_arbol_ubicacion_geografica.html",
+	"ver"				=> "ver_nomenclador.html",
+	"un"				=> "un_nomenclador.html",
 	"una_opcion"		=> "una_opcion.html",
 ));
  
@@ -25,10 +25,10 @@ $t->set_var("titulo",$titulo);
 //$t->set_var("funcion_pdf","modulos/libros/php/exportar_excel.php");
 //
 
-$url="'modulos/arbol_ubicacion_geografica/php/ver_arbol_ubicacion_geografica.php'";
+$url="'modulos/nomenclador/php/ver_nomenclador.php'";
 $id="'listado_libros'";
 $vars="'es_buscar=si&id_tablamodulo=$id_tablamodulo&";	
-$vars.="tabla09_descripcion='+ver_busqueda_libros.tabla09_descripcion.value";	
+$vars.="tabla11_descripcion='+ver_busqueda_nomenclador.tabla11_descripcion.value";	
 $t->set_var("funcion_busqueda","cargar_post($url,$id,$vars)");
 
 if (isset($_POST['offset'])) {
@@ -50,8 +50,8 @@ $ini=$off*$totalporpag;
 //$sql="select * from tabla_09_arb_ubicacion_geografica 
 		//order by tabla09_descripcion ASC  
 		//Limit $totalporpag OFFSET $ini ";
-$sql="select * from ubicacion 
-		order by DESCRIPCION ASC  
+$sql="select * from tabla_11_cab_nomenclador
+		order by tabla11_descripcion ASC  
 		Limit $totalporpag OFFSET $ini ";
 $rs = $pdo->query($sql);//
 $num_rows = $rs->rowCount();
@@ -65,22 +65,20 @@ if ($num_rows>0)
 		$t->set_var("tabla09_descripcion",$row["tabla09_descripcion"]);
 		$t->set_var("tabla09_codigo",$row["tabla09_codigo"]);*/
 
-		$id_tabla09=$row["ID"];
-		$t->set_var("rela_tabla10",$row["TIPO"]);
-		$t->set_var("tabla09_descripcion",$row["DESCRIPCION"]);
-		$t->set_var("tabla09_codigo",$row["CODIGO"]);
+		$id_tabla11=$row["id_tabla11"];
+		$t->set_var("tabla11_descripcion",$row["tabla11_descripcion"]);
 
 		 
 		
-		$url="'modulos/arbol_ubicacion_geografica/php/ver_arbol_ubicacion_geografica_abm.php'";
+		$url="'modulos/nomenclador/php/ver_nomenclador_abm.php'";
 		$id="'tabs-$id_tablamodulo'";
-		$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo&id_tabla09=$id_tabla09'";
+		$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo&id_tabla11=$id_tabla11'";
 		$t->set_var("funcion_editar","cargar_post($url,$id,$vars)");	
 		
-		$url="'modulos/arbol_ubicacion_geografica/php/abm_arbol_ubicacion_geografica_interfaz.php'";
-		$vars="'nombre_funcion=borrar_arbol_ubicacion_geografica&";
-		$vars.="id_tabla09=$id_tabla09'";
-		$url_exito="'modulos/arbol_ubicacion_geografica/php/ver_arbol_ubicacion_geografica_busqueda.php'";
+		$url="'modulos/nomenclador/php/abm_arbol_nomenclador_interfaz.php'";
+		$vars="'nombre_funcion=borrar_nomenclador&";
+		$vars.="id_tabla11=$id_tabla11'";
+		$url_exito="'modulos/nomenclador/php/ver_nomenclador_busqueda.php'";
 		$id="'tabs-$id_tablamodulo'";
 		$vars_exito="'offset=$offset&id_tablamodulo=$id_tablamodulo'";
 		$msg="'Esta seguro que quiere eliminar el Registro?'";
@@ -94,7 +92,7 @@ else
 	$t->set_var("LISTADO","<tr align='center' class='alt'><td colspan='10'>No se encuentran Registros Cargados. </td></tr>");
 	
 }	
-	$qrT="select * from tabla_09_arb_ubicacion_geografica";
+	$qrT="select * from tabla_11_cab_nomenclador";
 	$rs = $pdo->query($qrT);//
 	$totalregistros = $rs->rowCount();
 	$t->set_var("cantidad",$totalregistros);
@@ -108,7 +106,7 @@ else
 	// << Anterior
 	if($offset>1)
 	{
-		$pag.="<td><a href=\"javascript:cargar_post('modulos/libros/php/ver_libros.php','listado_libros','offset=$off&id_tablamodulo=$id_tablamodulo');\"><< Anterior</a> | </td>";
+		$pag.="<td><a href=\"javascript:cargar_post('modulos/libros/php/ver_nomenclador.php','listado_libros','offset=$off&id_tablamodulo=$id_tablamodulo');\"><< Anterior</a> | </td>";
 	}
 	else
 	{
@@ -150,7 +148,7 @@ else
 		}
 		else
 		{
-			$pag.="<a href=\"javascript:cargar_post('modulos/libros/php/ver_libros.php','listado_libros','offset=$i&id_tablamodulo=$id_tablamodulo');\">$i</a>&nbsp;";
+			$pag.="<a href=\"javascript:cargar_post('modulos/nomenclador/php/ver_nomenclador.php','listado_libros','offset=$i&id_tablamodulo=$id_tablamodulo');\">$i</a>&nbsp;";
 		}				 	 
 	}
 	$pag.="</td>";
@@ -158,14 +156,14 @@ else
 	if($offset<$totalpaginas)
 	{
 		$ofs=$offset+1;
-		$pag.="<td> | <a href=\"javascript:cargar_post('modulos/libros/php/ver_libros.php','listado_libros','offset=$ofs&id_tablamodulo=$id_tablamodulo');\">Siguiente >></a></td>";
+		$pag.="<td> | <a href=\"javascript:cargar_post('modulos/nomenclador/php/ver_nomenclador.php','listado_libros','offset=$ofs&id_tablamodulo=$id_tablamodulo');\">Siguiente >></a></td>";
 	}else{
 		$pag.="<td></td>";
 	}
 	$t->set_var("paginas","<table align=center><tr>".$pag."</tr></table>");
 		//End Paginador
 	
-	$url="'modulos/arbol_ubicacion_geografica/templates/ver_arbol_ubicacion_geografica_abm.html'";
+	$url="'modulos/nomenclador/templates/ver_nomenclador_abm.html'";
 	$id="'tabs-$id_tablamodulo'";
 	$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo'";
 	$t->set_var("funcion_agregar","cargar_post($url,$id,$vars);");

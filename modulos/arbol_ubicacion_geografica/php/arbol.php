@@ -1,16 +1,10 @@
 <html>
 <head>
-    <!-- Include the required JavaScript libraries: -->
-    <script src='dynatree-master/jquery/jquery.js' type="text/javascript"></script>
-    <script src='dynatree-master/jquery/jquery-ui.custom.js' type="text/javascript"></script>
-    <script src='dynatree-master/jquery/jquery.cookie.js' type="text/javascript"></script>
-
-    <link rel='stylesheet' type='text/css' href='dynatree-master/src/skin/ui.dynatree.css'>
-    <script src='dynatree-master/src/jquery.dynatree.js' type="text/javascript"></script>
+    <!-- Include the required JavaScript libraries: --> 
 
     <!-- Add code to initialize the tree when the document is loaded: -->
     <script type="text/javascript">
-    $(function(){
+    function clickear(){
         // Attach the dynatree widget to an existing <div id="tree"> element
         // and pass the tree options as an argument to the dynatree() function:
         $("#arbol").dynatree({
@@ -34,7 +28,7 @@
                 }
             ]
         });
-    });
+    };
     </script>
 </head>
 <body>

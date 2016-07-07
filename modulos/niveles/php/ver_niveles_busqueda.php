@@ -50,7 +50,8 @@ $ini=$off*$totalporpag;
 //$sql="select * from tabla_09_arb_ubicacion_geografica 
 		//order by tabla09_descripcion ASC  
 		//Limit $totalporpag OFFSET $ini ";
-$sql="select * from tabla_10_arb_niveles_arbol  
+$sql="select * from niveles
+		order by DESCRIPCION ASC  
 		Limit $totalporpag OFFSET $ini ";
 $rs = $pdo->query($sql);//
 $num_rows = $rs->rowCount();
@@ -64,10 +65,10 @@ if ($num_rows>0)
 		$t->set_var("tabla09_descripcion",$row["tabla09_descripcion"]);
 		$t->set_var("tabla09_codigo",$row["tabla09_codigo"]);*/
 
-		$id_tabla10=$row["id_tabla10"];
-		$t->set_var("tabla10_descripcion",$row["tabla10_descripcion"]);
-		$t->set_var("rela_tabla11",$row["rela_tabla11"]);
-		$t->set_var("tabla10_nivel",$row["tabla10_nivel"]);
+		$id_tabla10=$row["ID"];
+		$t->set_var("tabla10_descripcion",$row["DESCRIPCION"]);
+		$t->set_var("rela_tabla11",$row["TIPO"]);
+		$t->set_var("tabla10_nivel",$row["NIVEL"]);
 
 		 
 		
@@ -164,7 +165,7 @@ else
 	$t->set_var("paginas","<table align=center><tr>".$pag."</tr></table>");
 		//End Paginador
 	
-	$url="'modulos/arbol_ubicacion_geografica/templates/ver_arbol_ubicacion_geografica_abm.html'";
+	$url="'modulos/niveles/templates/ver_niveles_abm.html'";
 	$id="'tabs-$id_tablamodulo'";
 	$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo'";
 	$t->set_var("funcion_agregar","cargar_post($url,$id,$vars);");

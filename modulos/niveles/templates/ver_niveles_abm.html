@@ -41,31 +41,20 @@ function codigopostal(){
 </table>
 <form name="abm" id="abm" method="post" enctype="multipart/form-data" action="modulos/arbol_ubicacion_geografica/php/abm_ubicacion_geografica_interfaz.php" target="iframeUpload">
 <table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
-   <tr class="alt" align="left"  >
-   <td valign="top">
-     Tipo </td>
-   <td align="left"><select name="rela_tabla10" id="rela_tabla10" class="obligatorio" onchange="codigopostal()">
-     <option value="" selected>Seleccionar... </option>
-     <option value="1">País </option>
-     <option value="2">Provincia </option>
-     <option value="3">Departamento </option>
-     <option value="4">Localidad </option>
-   </select></td>
- </tr>
   <tr align="left" class="alt">
      <td align="left">Padre :</td>
      <td height="30" valign="top"><select name="rela_padre" id="rela_padre" class="obligatorio">
        <option value="0" selected>Ninguno</option>
-
-       { PADRES }
-
+        <option value="1">País </option>
+     <option value="2">Provincia </option>
+     <option value="3">Departamento </option>
      </select></td>
  </tr>
  <tr class="alt" align="left" >
-   <td>Nombre de Ubicación:</td>
+   <td>Descripción:</td>
    <td height="30"><input name="tabla09_descripcion" type="text" id="tabla09_descripcion" class="obligatorio" placeholder='Obligatorio' size="50"></td>
  </tr>
- <tr class='alt' align='left' >   <td>Código Postal:</td>   <td><input name='tabla09_código' style='width:200px; text-transform:uppercase;'' type='text' class='obligatorio' id='tabla09_código'  size='48'  tabindex="3" >     </td>   </tr>
+ <tr class='alt' align='left' >   <td>Orden:</td>   <td><input name='tabla09_código' style='width:200px; text-transform:uppercase;'' type='text' class='obligatorio' id='tabla09_código'  size='48'  tabindex="3" >     </td>   </tr>
  
  
    <td align="right"><input class="button_login" type="button" onClick="javascript:;{funcion_guardar}" value="Aceptar" tabindex="3" name="Submit" title="Guardar"></td>
