@@ -1,0 +1,94 @@
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    
+	<th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{tit}</p></th>
+ 
+    <th colspan="5" align="center"><p align="right"><a title="Cerrar" href="javascript:{funcion_cancelar};"><img src="media/iconos/cerrar.png" width="16"  border="0"></a></p></th>
+  </tr>
+
+</table>
+
+<form name="abm_semillas" id="abm_semillas">
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+ <tr class="alt" align="left" >
+   <td width="24%">Nombre:</td>
+   <td width="76%" ><input name="tabla25_nombre" type="text" id="tabla25_nombre" value="{tabla25_nombre}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Dosis por defecto:</td>
+   <td width="76%" ><input name="tabla25_dosis" type="text" id="tabla25_dosis" value="{tabla25_dosis}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+    <td>Cultivo/variedad:</td>
+    <td ><select name="rela_tabla15" id="rela_tabla15" class="obligatorio" style="height:auto; width:300px;">
+       <option value="">Seleccione..</option> 
+
+    {VARIEDAD}
+
+    </select></td>
+
+ </tr>
+  <tr class="alt" align="left" >
+    <td>Tipo de fruto:</td>
+    <td ><select name="rela_tabla26" id="rela_tabla26" class="obligatorio" style="height:auto; width:300px;">
+       <option value="">Seleccione..</option>
+       
+         
+			{TIPO_FRUTO}
+        
+    
+   </select></td>
+  </tr>
+  <tr class="alt" align="left" >
+    <td>Tiempo de germinacion</td>
+    <td ><select name="rela_tabla27" id="rela_tabla27" class="obligatorio" style="height:auto; width:300px;">
+      <option value="">Seleccione..</option>
+       
+        
+			{TIPO_GERMINACION}
+        
+     
+    </select></td>
+  </tr>
+  <tr class="alt" align="left" >
+    <td>Temperatura y humedad</td>
+    <td ><select name="rela_tabla28" id="rela_tabla28" class="obligatorio" style="height:auto; width:300px;">
+      <option value="">Seleccione..</option> 
+
+     {TEMPERATURA_HUMEDAD}
+
+
+      </select></td>
+      
+ </tr>
+ <tr class="alt" align="left" >
+    <td>Unidad de medicion</td>
+    <td ><select name="rela_tabla74" id="rela_tabla74" class="obligatorio" style="height:auto; width:300px;">
+      <option value="">Seleccione..</option>
+
+
+      {UNIDAD_MEDICION}
+
+      </select></td>
+      
+ </tr>
+  <tr class="alt" align="left" >
+    <td>Unidades de dosis</td>
+    <td ><select name="rela_tabla76" id="rela_tabla76" class="obligatorio" style="height:auto; width:300px;">
+      <option value="">Seleccione..</option>
+
+       {UNIDAD_DOSIS}
+      
+      </select></td>
+      
+ </tr>
+ 
+ </table>
+ <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+ <tr>
+   <td align="right"><input class="button_login" type="button" onClick="javascript:;{funcion_guardar}" value="Aceptar" tabindex="3" name="Submit" title="Guardar"></td>
+   <td align="left"><input class="button_login" type="button" onClick="javascript:;{funcion_cancelar}" value="Cancelar" tabindex="3" name="Submit" title="Cancelar"></td>
+ </tr>  
+ </table>
+</form>
