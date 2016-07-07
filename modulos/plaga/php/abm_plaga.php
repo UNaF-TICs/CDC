@@ -26,7 +26,7 @@ function agregar_plaga($tabla33_descripcion,$pdo)
 }
 
 
-function modificar_trabajo($id_tabla33,$tabla33_descripcion,$pdo)
+function modificar_plaga($id_tabla33,$tabla33_descripcion,$pdo)
 {
 	if ($tabla33_descripcion=="")
 	{
@@ -50,7 +50,7 @@ function modificar_trabajo($id_tabla33,$tabla33_descripcion,$pdo)
 }
 
 
-function borrar_trabajo($id_tabla33,$pdo)
+function borrar_plaga($id_tabla33,$pdo)
 {
 				$sql2="DELETE FROM tabla_33_tbl_plaga WHERE
 				id_tabla33=$id_tabla33";

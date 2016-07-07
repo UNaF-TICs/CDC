@@ -36,8 +36,8 @@ if ($id_tabla33!="")
 	$url="'modulos/plaga/php/abm_plaga_interfaz.php'";
 	$vars="'nombre_funcion=modificar_plaga&";
 	$vars.="id_tabla33=$id_tabla33&";
-	$vars.="Rela_Tabla14='+abm_plagas.Rela_Tabla14.value+'&";
-	$vars.="tabla33_descripcion='+abm_plagas.tabla33_descripcion.value";
+	$vars.="Rela_Tabla14='+abm_plaga.Rela_Tabla14.value+'&";
+	$vars.="tabla33_descripcion='+abm_plaga.tabla33_descripcion.value";
 	
 	
 	
@@ -55,7 +55,7 @@ else
 	
 	$url="'modulos/plaga/php/abm_plaga_interfaz.php'";
 	$vars="'nombre_funcion=agregar_plaga&";
-	$vars.="tabla33_descripcion='+abm_plagas.tabla33_descripcion.value";
+	$vars.="tabla33_descripcion='+abm_plaga.tabla33_descripcion.value";
 	
 				
 	$url_exito="'modulos/plaga/php/ver_plaga_busqueda.php'";
@@ -65,7 +65,7 @@ else
 }
 
 
-*/
+
 $t->set_var("funcion_guardar","guardar_mostrar($url,$vars,$url_exito,$id,$vars_exito);");
 		
 

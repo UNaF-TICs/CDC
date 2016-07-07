@@ -7,8 +7,8 @@ require_once "../../../php/funciones_comunes.php";
 $t = new Template('../templates/');
 //Archivos comunes
 $t->set_file(array(
-	"ver"		=> "ver_plaga.html",
-	"un"		=> "un_plaga.html",
+	"ver"		=> "ver_semillas.html",
+	"un"		=> "un_semillas.html",
 	));
 
 //Configuración Inicial
@@ -16,30 +16,35 @@ $where="";
 $es_buscar=isset($_POST['es_buscar']) ? strval($_POST['es_buscar']) : '';
 $id_tablamodulo=isset($_POST['id_tablamodulo']) ? intval($_POST['id_tablamodulo']) : NULL;
 $offset=isset($_POST['offset']) ? intval($_POST['offset']) : NULL;
-$id_tabla33=isset($_POST['id_tabla33']) ? intval($_POST['id_tabla33']) : NULL;
-$tabla33_descripcion=isset($_POST['tabla33_descripcion']) ? strval($_POST['tabla33_descripcion']) : '';
-
-
+$id_tabla25=isset($_POST['id_tabla25']) ? intval($_POST['id_tabla25']) : NULL;
+$tabla25_nombre=isset($_POST['tabla25_nombre']) ? strval($_POST['tabla25_nombre']) : '';
+$rela_tabla26=isset($_POST['rela_tabla26']) ? intval($_POST['rela_tabla26']) : NULL;
+$rela_tabla27=isset($_POST['rela_tabla27']) ? intval($_POST['rela_tabla27']) : NULL;
+$rela_tabla15=isset($_POST['rela_tabla15']) ? strval($_POST['rela_tabla15']) : '';
+$tabla25_dosis=isset($_POST['tabla25_dosis']) ? strval($_POST['tabla25_dosis']) : '';
+$rela_tabla28=isset($_POST['rela_tabla28']) ? strval($_POST['rela_tabla28']) : '';
+$rela_tabla74=isset($_POST['rela_tabla74']) ? strval($_POST['rela_tabla74']) : '';
+$rela_tabla76=isset($_POST['rela_tabla76']) ? strval($_POST['rela_tabla76']) : '';
  
 
 if ($es_buscar!="")
 {
 	$where="1=1";
-	if ($tabla33_descripcion!="")
+	if ($tabla25_nombre!="")
 	{
-		$where.=" and tabla33_descripcion LIKE '%$tabla33_descripcion%'";
+		$where.=" and tabla25_nombre LIKE '%$tabla25_nombre%'";
 	}
 
-	$_SESSION['where_Descripcion']=$where;
+	$_SESSION['where_titulos']=$where;
 	if ($where!="")
 	{
 		$where= " where $where";
 	}
 
 }else{
-	if(isset($_SESSION['where_Descripcion'])) 
+	if(isset($_SESSION['where_titulos'])) 
 	{
-		$where= " where ".$_SESSION['where_Descripcion'];
+		$where= " where ".$_SESSION['where_titulos'];
 	}
 }
 
@@ -54,9 +59,9 @@ else{
 }
 $ini=$off*$totalporpag;
 // End New	
-$sql="SELECT * from tabla_33_tbl_plaga
+$sql="select * from tabla_25_cab_semilla 
 		$where 
-		order by tabla33_descripcion ASC  
+		order by tabla25_nombre ASC  
 		Limit $totalporpag OFFSET $ini ";
 $rs = $pdo->query($sql);//
 $num_rows = $rs->rowCount();
@@ -64,18 +69,26 @@ if ($num_rows>0)
 {
 	while ($row = $rs->fetch())
 	{
-		$id_tabla33=$row["id_tabla33"];
-		$t->set_var("tabla33_descripcion",htmlentities($row["tabla33_descripcion"],ENT_QUOTES));
-		
-		$url="'modulos/plaga/php/ver_plaga_abm.php'";
+		$id_tabla25=$row["id_tabla25"];
+		$t->set_var("rela_tabla26",$row["rela_tabla26"]);
+		$t->set_var("rela_tabla27",$row["rela_tabla27"]);
+		$t->set_var("tabla25_nombre",htmlentities($row["tabla25_nombre"],ENT_QUOTES));
+		$t->set_var("rela_tabla15",htmlentities($row["rela_tabla15"],ENT_QUOTES));
+		$t->set_var("tabla25_dosis",htmlentities($row["tabla25_dosis"],ENT_QUOTES));
+		$t->set_var("rela_tabla28",$row["rela_tabla28"]);
+		$t->set_var("rela_tabla74",$row["rela_tabla74"]);
+		$t->set_var("rela_tabla76",$row["rela_tabla76"]);
+
+
+		$url="'modulos/semillas/php/ver_semillas_abm.php'";
 		$id="'tabs-$id_tablamodulo'";
-		$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo&id_tabla33=$id_tabla33'";
+		$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo&id_tabla25=$id_tabla25'";
 		$t->set_var("funcion_editar","cargar_post($url,$id,$vars)");	
 		
-		$url="'modulos/plaga/php/abm_plaga_interfaz.php'";
-		$vars="'nombre_funcion=borrar_plaga&";
-		$vars.="'id_tabla33=$id_tabla33'";
-		$url_exito="'modulos/plaga/php/ver_plaga_busqueda.php'";
+		$url="'modulos/semillas/php/abm_semillas_interfaz.php'";
+		$vars="'nombre_funcion=borrar_semillas&";
+		$vars.="id_tabla25=$id_tabla25'";
+		$url_exito="'modulos/semillas/php/ver_semillas_busqueda.php'";
 		$id="'tabs-$id_tablamodulo'";
 		$vars_exito="'offset=$offset&id_tablamodulo=$id_tablamodulo'";
 		$msg="'Esta seguro que quiere eliminar el Registro?'";
@@ -89,7 +102,7 @@ else
 	$t->set_var("LISTADO","<tr align='center' class='alt'><td colspan='10'>No se encuentran Registros Cargados. </td></tr>");
 	
 }		// New Paginador
-	$qrT="SELECT * from tabla_33_tbl_plaga
+	$qrT="select * from tabla_25_cab_semilla
 	$where " ;
 	$rs = $pdo->query($qrT);//
 	$totalregistros = $rs->rowCount();
@@ -104,7 +117,7 @@ else
 	// << Anterior
 	if($offset>1)
 	{
-		$pag.="<td><a href=\"javascript:cargar_post('modulos/plaga/php/ver_plaga.php','Listado_plaga','offset=$off&id_tablamodulo=$id_tablamodulo');\"><< Anterior</a> | </td>";
+		$pag.="<td><a href=\"javascript:cargar_post('modulos/semillas/php/ver_semillas.php','listado_semillas','offset=$off&id_tablamodulo=$id_tablamodulo');\"><< Anterior</a> | </td>";
 	}
 	else
 	{
@@ -146,7 +159,7 @@ else
 		}
 		else
 		{
-			$pag.="<a href=\"javascript:cargar_post('modulos/plaga/php/ver_plaga.php','Listado_plaga','offset=$i&id_tablamodulo=$id_tablamodulo');\">$i</a>&nbsp;";
+			$pag.="<a href=\"javascript:cargar_post('modulos/semillas/php/ver_semillas.php','listado_semillas','offset=$i&id_tablamodulo=$id_tablamodulo');\">$i</a>&nbsp;";
 		}				 	 
 	}
 	$pag.="</td>";
@@ -154,14 +167,14 @@ else
 	if($offset<$totalpaginas)
 	{
 		$ofs=$offset+1;
-		$pag.="<td> | <a href=\"javascript:cargar_post('modulos/plaga/php/ver_plaga.php','Listado_plaga','offset=$ofs&id_tablamodulo=$id_tablamodulo');\">Siguiente >></a></td>";
+		$pag.="<td> | <a href=\"javascript:cargar_post('modulos/semillas/php/ver_semillas.php','listado_semillas','offset=$ofs&id_tablamodulo=$id_tablamodulo');\">Siguiente >></a></td>";
 	}else{
 		$pag.="<td></td>";
 	}
 	$t->set_var("paginas","<table align=center><tr>".$pag."</tr></table>");
 		//End Paginador
 		
-	$url="'modulos/plaga/php/ver_plaga_abm.php'";
+	$url="'modulos/semillas/php/ver_semillas_abm.php'";
 	$id="'tabs-$id_tablamodulo'";
 	$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo'";
 	$t->set_var("funcion_agregar","cargar_post($url,$id,$vars);");
