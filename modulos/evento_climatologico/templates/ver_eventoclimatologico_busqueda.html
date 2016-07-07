@@ -1,0 +1,62 @@
+<script>
+	//Valido Solo Caracteres
+	//Valido Solo Números
+	$('#nombre_tour').alpha();
+
+
+</script>
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{titulo}</p></th>
+  </tr>
+  <tr class="alt">
+	<td width="71%" ><a title="Agregar" href="javascript:{funcion_agregar};"><img src="media/iconos/add.png" alt="Nuevo" width="16" border="0" class="mimage"><strong> Agregar</strong> </a></td>
+    <td width="24%" align="right" valign="middle"><strong>evento climatologico cargados: </strong>{cantidad}</td>
+  </tr>
+</table>
+<br>
+<form name="ver_busqueda_eventoclimatologico" id="ver_busqueda_eventoclimatologico">
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+    <tr align="left" >
+      <th>Buscador</th>
+      <th  align="right"><a title="Abrir Buscador" href="javascript:;" onClick="$('#formulario_tours').toggle();"><img src="media/iconos/down.png" alt="Nuevo" width="16" border="0" class="mimage"></a></th>
+    </tr>
+</table>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" id="formulario_tours" style="display:">
+	
+    <tr class="alt" align="left" >
+    <td height="30" colspan="3">Fecha inicio: 
+      <input type="text" name="tabla99_fecha_inicio" id="tabla99_fecha_inicio"  onChange="{funcion_busqueda}"  tabindex="1"/></td>
+    </tr>
+    <tr class="alt" align="left" >
+      <td width="40%" height="30">    
+      <td width="26%"><input name="buscar" type="button" class="button_login" id="buscar" value="Buscar" onClick="{funcion_busqueda};" />
+        <input name="buscar" type="button" class="button_login" id="buscar" value="Limpiar" onClick="$('#ver_busqueda_eventoclimatologico').reset();{funcion_busqueda};" /></td>
+      <td width="34%" id="info_eventoclimatologico"></td>
+    </tr>
+</table>
+</form>
+<p>&nbsp;</p>
+<div id="listado_eventoclimatologico">
+<table width="100%" border="0" cellpadding="1" cellspacing="1" class="tabla_highlight">
+  <tr>
+    <th  align="left">Observacion</th>
+	<th align="left">Fecha Inicio </th>
+	<th align="left">Fecha Fin </th>
+	<th align="left">Cultivo </th>
+	<th align="left">Usuario </th>
+	<th align="left">Unidad de medicion </th>
+	<th align="left">Tipo de Personal </th>
+	<th align="left">Cantidad </th>
+  <th align="left">Tipo de evento </th>
+    <th align="center">Acciones </th>
+  </tr>
+{LISTADO}
+</table>
+<table width="100%" border="0" cellpadding="1" cellspacing="1">
+  <tr align="center">
+    <td colspan="3">{paginas} </td>
+  </tr>
+</table>
+</div>
