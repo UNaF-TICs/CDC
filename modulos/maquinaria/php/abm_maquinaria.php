@@ -40,7 +40,7 @@ function agregar_maquinaria($tabla22_nombre,$tabla22_descripcion,$tabla22_marca,
 			$pdo->exec($sql);
 			$new_id_tabla22 = $pdo->lastInsertId();
 			$pdo->commit();
-				return "1-M&oacute;dulo agregado correctamente correctamente";
+				return "1-Maquinaria agregada correctamente correctamente";
 			} catch (Exception $e) { //PDOException $e
 			  $pdo->rollBack();
 				return "0-Error: Se ha producido un error. ";
