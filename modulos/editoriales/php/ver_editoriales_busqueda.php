@@ -111,7 +111,7 @@ else
 	$totalregistros = mysql_num_rows($result);
 	$t->set_var("cantidad",$totalregistros);
 	$totalpaginas=$totalregistros/$totalporpag;
-	$test=split("\.",$totalpaginas);
+	$test=explode("\.",$totalpaginas);
 	if($test[1])
 	{
 		$totalpaginas=$test[0]+1;

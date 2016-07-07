@@ -1,6 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<!DOCTYPE html>
+<html lang = "es">
+<head>	
+	<meta charset="utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="media/favicon.png">
 	<title>{titulo}</title>
 	{CSS}
@@ -16,7 +17,7 @@
 	$('#popup').dialogr({modal: true,title : 'Modificar Usuario', overlay:{  opacity: 0.6,  background: 'black'}});
 	$('#popup').dialogr('open');
 	 cargar_post('modulos/usuarios/php/ver_usuario_central_abm.php','popup','id_tablamodulo=tabs-useredit&id_tabla01=$id_tabla01');"> {tabla01_nombre} </a></strong></p>
- <p id="cerrar_sistema" style="display:{estilo_body}"><a href="#" class="demo2" style="float:right; margin-right: 10px; margin-top:-5px; margin-bottom:5px; "><strong>Cerrar Sesi&oacute;n</strong></a></p>
+ <p id="cerrar_sistema" style="display:{estilo_body}"><a href="#" class="demo2" style="float:right; margin-right: 10px; margin-top:-5px; margin-bottom:5px; "><strong>Cerrar Sesión</strong></a></p>
  <div id="contenedor_layout" style="display:{estilo_body}">
 
 <div class="ui-layout-west">
@@ -32,7 +33,7 @@
 			<div id="tabs-0" style="height:300px">
 			  <p align="center"><strong>Bienvenido al {titulo}</strong></p>
 			  <p>&nbsp;</p>
-			<p align="center"> <img src="media/Sin título.png" alt="" width="254" height="197"> </p>
+			<p align="center"> <img src="media/bienvenida.png" alt="" width="254" height="197"> </p>
 			 <p>&nbsp;</p>
 			<!-- <div id="datepicker"></div>  -->
 			
@@ -48,7 +49,7 @@
 	<fieldset>
 		<label for="name"><strong>Nombre de Usuario:</strong></label>
 		<input type="text" name="user" id="user" class="text ui-widget-content ui-corner-all" />
-		<label for="name"><strong>Contrase&ntilde;a:</strong></label>
+		<label for="name"><strong>Contraseña:</strong></label>
 		<input type="password" name="pass" id="pass" value="" class="text ui-widget-content ui-corner-all"/>
 		
 	</fieldset>
@@ -59,7 +60,7 @@
 	<br>
 	<p>
 		<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
-		Esta seguro que desea Cerrar Sesión
+		Esta seguro que desea Cerrar Sesio&accute;n
 	</p>
 </div>
 <div id="dialog-confirm" title="Eliminar Registro">

@@ -19,7 +19,7 @@ function ReadMap($enc)
 	{
 		if($l[0]=='!')
 		{
-			$e=preg_split('/[ \\t]+/',rtrim($l));
+			$e=preg_explode('/[ \\t]+/',rtrim($l));
 			$cc=hexdec(substr($e[0],1));
 			$gn=$e[2];
 			$cc2gn[$cc]=$gn;

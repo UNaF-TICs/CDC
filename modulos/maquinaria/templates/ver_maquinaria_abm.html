@@ -1,0 +1,69 @@
+ <script>
+				$( "#tabla22_fecha_compra,#tabla22_fecha_compra" ).datepicker({
+					changeMonth: true,
+					changeYear: true
+				});
+</script>
+<meta charset="utf-8"/>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+
+	<th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{tit}</p></th>
+
+    <th colspan="5" align="center"><p align="right"><a title="Cerrar" href="javascript:{funcion_cancelar};"><img src="media/iconos/cerrar.png" width="16"  border="0"></a></p></th>
+  </tr>
+
+</table>
+
+<form name="abm_maquinaria" id="abm_maquinaria" >
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+
+<tr class="alt" align="left" >
+   <td width="24%">Nombre:</td>
+   <td width="76%" ><input name="tabla22_nombre" type="text" id="tabla22_nombre" value="{tabla22_nombre}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Descripción:</td>
+   <td width="76%" ><input name="tabla22_descripcion" type="text" id="tabla22_descripcion" value="{tabla22_descripcion}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Marca:</td>
+   <td width="76%" ><input name="tabla22_marca" type="text" id="tabla22_marca" value="{tabla22_marca}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" aligtabla22_modelo="left" >
+   <td width="24%">Modelo:</td>
+   <td width="76%" ><input name="tabla22_modelo" type="text" id="tabla22_modelo" value="{tabla22_modelo}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Fecha Compra:</td>
+   <td width="76%" ><input name="tabla22_fecha_compra" type="Date" id="tabla22_fecha_compra" value="{tabla22_fecha_compra}" size="15" class="obligatorio" placeholder="Obligatorio"   /></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Costo Compra:</td>
+   <td width="76%" ><input name="tabla22_costo_compra" type="text" id="tabla22_costo_compra" value="{tabla22_costo_compra}" size="20" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Matricula:</td>
+   <td width="76%" ><input name="tabla22_matricula" type="text" id="tabla22_matricula" value="{tabla22_matricula}" size="20" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Empresa Seguro:</td>
+   <td width="76%" ><input name="tabla22_empresa_seguro" type="text" id="tabla22_empresa_seguro" value="{tabla22_empresa_seguro}" size="20" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">RTO:</td>
+   <td width="76%" ><input name="tabla22_rto" type="text" id="tabla22_rto" value="{tabla22_rto}" size="20" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Función:</td>
+   <td width="76%" ><input name="tabla22_funcion" type="text" id="tabla22_funcion" value="{tabla22_funcion}" size="20" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+
+ </table>
+ <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+ <tr>
+   <td align="right"><input class="button_login" type="button" onClick="javascript:{funcion_guardar};" value="Guardar" tabindex="3" name="Submit" title="Guardar"></td>
+   <td align="left"><input class="button_login" type="button" onClick="javascript:{funcion_cancelar};" value="Cancelar" tabindex="3" name="Submit" title="Cancelar"></td>
+ </tr>
+ </table>
+</form>
