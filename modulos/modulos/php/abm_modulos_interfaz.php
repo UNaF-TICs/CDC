@@ -1,6 +1,6 @@
 <?php
 /*
-Librería: Funciones ABM y de recuperación de datos de noticias.
+Librerï¿½a: Funciones ABM y de recuperaciï¿½n de datos de noticias.
 */
 session_start();
 require_once "../../../php/check.php";
@@ -8,7 +8,7 @@ include_once "../../../lib/link_mysql.php";
 include_once "abm_modulos.php";
 include_once "../../control/php/abm_control.php";
 
-							
+
 $id_tabla02=isset($_POST['id_tabla02']) ? intval($_POST['id_tabla02']) : NULL;
 $rela_padre=isset($_POST['rela_padre']) ? intval($_POST['rela_padre']) : NULL;
 $tabla02_nombre=isset($_POST['tabla02_nombre']) ? strval($_POST['tabla02_nombre']) : '';
@@ -17,8 +17,8 @@ $tabla02_ayuda=isset($_POST['tabla02_ayuda']) ? strval($_POST['tabla02_ayuda']) 
 $tabla02_orden=isset($_POST['rela_padre']) ? intval($_POST['tabla02_orden']) : NULL;
 $tabla02_tipo=isset($_POST['tabla02_tipo']) ? intval($_POST['tabla02_tipo']) : NULL;
 $icono=isset($_SESSION["session_tabla02_imagen"]) ? strval($_SESSION['session_tabla02_imagen']) : '';
-$tabla02_nombre=utf8_decode($tabla02_nombre);
-$tabla02_orden=utf8_decode($tabla02_orden);
+$tabla02_nombre=$tabla02_nombre;
+$tabla02_orden=$tabla02_orden;
 $tabla02_imagen="";
 $nombre_funcion=$_POST["nombre_funcion"];
 switch ($nombre_funcion) {
@@ -47,14 +47,14 @@ switch ($nombre_funcion) {
 
 				$_SESSION['session_tabla02_imagen']="";
 			}
-			
+
 			$id_res= modificar_modulo($id_tabla02,$rela_padre,$tabla02_nombre,$tabla02_path_home,$tabla02_imagen,$tabla02_orden,$tabla02_ayuda,$tabla02_tipo,$pdo);
 			$vexplode=explode("-",$id_res);
 			$mensaje=$vexplode[1];
 			echo $mensaje ;
 			break;
-			
-    case "borrar_modulo":		
+
+    case "borrar_modulo":
 
 		$res=borrar_modulo($id_tabla02,$pdo);
 		$vexplode=explode("-",$res);
@@ -68,7 +68,7 @@ switch ($nombre_funcion) {
 		}
 		break;
 	default:
-		echo "Error en nombre de función " . $nombre_funcion;
+		echo "Error en nombre de funciï¿½n " . $nombre_funcion;
 }
 
 $datos="";
@@ -81,5 +81,3 @@ $datos.="tabla02_ayuda<@n:> $tabla02_ayuda<@n>";
 
 //agregar_control("ABM",$nombre_funcion,$vexplode[1],$datos);
 ?>
-
-

@@ -3,7 +3,7 @@
 function agregar_trabajo($Rela_Tabla14,$Tabla13_Descripcion,$pdo)
 {
 	
-	$sql2="INSERT INTO tabla_13_trabajo  
+	$sql2="INSERT INTO tabla_13_cab_trabajo  
 		(
 			Rela_Tabla14,
 			Tabla13_Descripcion
@@ -34,7 +34,7 @@ function modificar_trabajo($id_tabla13,$Rela_Tabla14,$Tabla13_Descripcion,$pdo)
 	}
 	
 
-	$sql="UPDATE tabla_13_trabajo  SET 
+	$sql="UPDATE tabla_13_cab_trabajo  SET 
 			Rela_Tabla14=$Rela_Tabla14,
 			Tabla13_Descripcion='$Tabla13_Descripcion'
 			where id_tabla13=$id_tabla13";
@@ -53,7 +53,7 @@ function modificar_trabajo($id_tabla13,$Rela_Tabla14,$Tabla13_Descripcion,$pdo)
 
 function borrar_trabajo($id_tabla13,$pdo)
 {
-				$sql2="DELETE FROM tabla_13_trabajo WHERE
+				$sql2="DELETE FROM tabla_13_cab_trabajo WHERE
 				id_tabla13=$id_tabla13";
 				try { 
 				$pdo->beginTransaction();

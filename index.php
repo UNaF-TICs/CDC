@@ -40,6 +40,11 @@ $JS.='<script type="text/javascript" src="js/jquery.alphanumeric.pack.js" charse
 //Sistemas
 $JS.='<script type="text/javascript" src="modulos/consultas/scripts/consultas.js" charset="UTF-8"></script>'; 
 
+$JS.='<script src="dynatree-master/jquery/jquery.js" type="text/javascript"></script>';
+$JS.='<script src="dynatree-master/jquery/jquery-ui.custom.js" type="text/javascript"></script>';
+$JS.='<script src="dynatree-master/jquery/jquery.cookie.js" type="text/javascript"></script>';
+$JS.='<script src="dynatree-master/src/jquery.dynatree.js" type="text/javascript"></script>';
+
 
 $t->set_var("JS",$JS);
 
@@ -51,6 +56,7 @@ $CSS.='<link rel="stylesheet" type="text/css" href="css/jquery.ui.datepicker.css
 $CSS.='<link rel="stylesheet" type="text/css" href="css/jquery.dialogr.css"/>';
 $CSS.='<link rel="stylesheet" type="text/css" href="css/style.css" >';
 /*CSS.='<link rel="stylesheet" type="text/css" href="css/jquery.treeTable.css" >';*/
+$CSS.='<link rel="stylesheet" type="text/css" href="dynatree-master/src/skin/ui.dynatree.css">';
 
 $t->set_var("CSS",$CSS);
 

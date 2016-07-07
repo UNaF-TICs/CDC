@@ -1,0 +1,116 @@
+ <script>
+				$( "#Fitosanitario_Fecha_caducidad,#Fitosanitario_Fecha_caducidad" ).datepicker({
+					changeMonth: true,
+					changeYear: true	
+				});
+</script>
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    
+	<th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{tit}</p></th>
+ 
+    <th colspan="5" align="center"><p align="right"><a title="Cerrar" href="javascript:{funcion_cancelar};"><img src="media/iconos/cerrar.png" width="16"  border="0"></a></p></th>
+  </tr>
+
+</table>
+
+<form name="abm_fitosanitarios" id="abm_fitosanitarios">
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+ <tr class="alt" align="left" >
+   <td width="24%">Nombre de Fitosanitario:</td>
+   <td width="76%" ><input name="Fitosanitario_Nombre" type="text" id="Fitosanitario_Nombre" value="{Fitosanitario_Nombre}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Fabricante:</td>
+   <td width="76%" ><input name="Fitosanitario_Fabricante" type="text" id="Fitosanitario_Fabricante" value="{Fitosanitario_Fabricante}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ <tr class="alt" align="left" >
+   <td width="24%">Cantidad de agua :</td>
+   <td width="76%" ><input name="Cantidad_Agua" type="text" id="Cantidad_Agua" value="{Cantidad_Agua}" size="50" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+  <tr class="alt" align="left" >
+    <td>Funcion:</td>
+    <td ><select name="Rela_tabla21" id="Rela_tabla21" class="obligatorio" style="height:auto; width:300px;">
+       <option value="">Seleccione..</option>
+       
+         
+        
+			{FUNCION}
+        
+      
+   
+     
+   </select></td>
+  </tr>
+  <tr class="alt" align="left" >
+    <td>Plaga</td>
+    <td ><select name="Rela_tabla33" id="Rela_tabla33" class="obligatorio" style="height:auto; width:300px;">
+      <option value="">Seleccione..</option>
+      
+       
+         
+        
+			{PLAGAS}
+        
+      
+   
+     
+   
+    </select></td>
+
+
+  </tr>
+
+
+  <tr class="alt" align="left" >
+    <td>Preparado</td>
+    <td ><select name="Rela_tabla20" id="Rela_tabla20" class="obligatorio" style="height:auto; width:300px;">
+      <option value="">Seleccione..</option>
+      
+       
+         
+        
+      {PREPARADO}
+        
+      
+   
+     
+   
+    </select></td>
+
+    </tr>
+
+    <tr class="alt" align="left" >
+    <td>Dosis</td>
+    <td ><select name="Rela_tabla19" id="Rela_tabla19" class="obligatorio" style="height:auto; width:300px;">
+      <option value="">Seleccione..</option>
+      
+       
+         
+        
+      {DOSIS}
+        
+      
+   
+     
+   
+    </select></td>
+
+    </tr>
+
+
+  <tr class="alt" align="left" >
+   <td width="24%">Fecha de caducidad:</td>
+   <td width="76%" ><input name="Fitosanitario_Fecha_caducidad" type="text" id="Fitosanitario_Fecha_caducidad" value="{Fitosanitario_Fecha_caducidad}" size="15" class="obligatorio" placeholder="Obligatorio"   ></td>
+ </tr>
+ 
+ 
+ </table>
+ <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+ <tr>
+   <td align="right"><input class="button_login" type="button" onClick="javascript:;{funcion_guardar}" value="Aceptar" tabindex="3" name="Submit" title="Guardar"></td>
+   <td align="left"><input class="button_login" type="button" onClick="javascript:;{funcion_cancelar}" value="Cancelar" tabindex="3" name="Submit" title="Cancelar"></td>
+ </tr>  
+ </table>
+</form>

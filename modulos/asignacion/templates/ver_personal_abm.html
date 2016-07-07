@@ -1,0 +1,75 @@
+
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    
+	<th colspan="5" align="center"><p style="font-weight: bold; color:#000000;text-shadow: 0.1em 0.1em #CCCCCC;">{tit}</p></th>
+ 
+    <th colspan="5" align="center"><p align="right"><a title="Cerrar" href="javascript:{funcion_cancelar};"><img src="media/iconos/cerrar.png" width="16"  border="0"></a></p></th>
+  </tr>
+
+</table>
+
+<form name="abm_personal" id="abm_personal">
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+
+
+
+
+
+  <tr class="alt" align="left" >
+    <td> Finca:</td>
+    <td >      <select name="rela_tabla63" id="rela_tabla63" class="obligatorio" style="height:auto; width:300px;">
+        <option value="">Seleccione..</option>
+        
+           
+      {FINCA}
+        
+  
+   
+      </select></td>
+  </tr>
+
+
+  <tr class="alt" align="left" >
+    <td>Persona</td>
+    <td ><select name="rela_tabla70" id="rela_tabla70" class="obligatorio" style="height:auto; width:300px;">
+       <option value="">Seleccione..</option>
+       
+         
+        
+      {PERSONA}
+        
+      
+   
+     
+   </select> <a href="modulo/personal/php/ver_personal_abm.php"> Agregar Nueva Persona </a> </td>
+  </tr>
+
+  <tr class="alt" align="left" >
+    <td>Tipo Personal:</td>
+    <td ><select name="rela_tabla72" id="rela_tabla72" class="obligatorio" style="height:auto; width:300px;">
+      <option value="">Seleccione..</option>
+      
+       
+         
+        
+      {TIPO}
+        
+      
+   
+     
+   
+    </select></td>
+  </tr>
+
+ 
+ 
+ </table>
+ <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+ <tr>
+   <td align="right"><input class="button_login" type="button" onClick="javascript:;{funcion_guardar}" value="Aceptar" tabindex="3" name="Submit" title="Guardar"></td>
+   <td align="left"><input class="button_login" type="button" onClick="javascript:;{funcion_cancelar}" value="Cancelar" tabindex="3" name="Submit" title="Cancelar"></td>
+ </tr>  
+ </table>
+</form>

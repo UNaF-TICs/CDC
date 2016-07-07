@@ -18,7 +18,7 @@ $offset=$_POST["offset"];
 
 if ($id_Tabla14!="")
 {
-	$sql="SELECT * FROM tabla_14_tipo_trabajo  
+	$sql="SELECT * FROM tabla_14_det_tipo_trabajo  
 	where id_Tabla14=$id_Tabla14";
 	$rs = $pdo->query($sql);//
 	$num_rows = $rs->rowCount();
@@ -63,7 +63,7 @@ else
 }
 
 /*TEMAS
-	$sql="SELECT * from  tabla_14_tipo_trabajo  order by tabla14_Descripcion ASC";
+	$sql="SELECT * from  tabla_14_det_tipo_trabajo  order by tabla14_Descripcion ASC";
 	$rs = $pdo->query($sql);//
 	$num_rows = $rs->rowCount();
 	if ($num_rows>0)

@@ -1,0 +1,30 @@
+<HTML>
+<head>
+<link rel="stylesheet" type="text/css" href="js/datetimepicker-master/jquery.datetimepicker.css"/ >
+<script src="js/datetimepicker-master/jquery.js"></script>
+<script src="js/datetimepicker-master/build/jquery.datetimepicker.full.min.js"></script>
+
+
+<script type="text/javascript">
+jQuery(function(){
+jQuery('#datetimepicker_mask').datetimepicker({
+  mask:'9999/19/39 29:59',
+});
+jQuery('#datetimepicker').datetimepicker();
+jQuery('#datetimepicker').datetimepicker({value:'2015/04/15 05:06'});
+
+jQuery('#datetimepicker_dark').datetimepicker({
+  	inline:true,
+  	theme:'dark'
+});
+});
+// ]]>
+</script>
+
+</head>
+<body>
+
+
+<input id="datetimepicker_dark" type="text" >
+
+</body>
