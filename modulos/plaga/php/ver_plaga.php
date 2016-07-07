@@ -89,7 +89,7 @@ else
 	$t->set_var("LISTADO","<tr align='center' class='alt'><td colspan='10'>No se encuentran Registros Cargados. </td></tr>");
 	
 }		// New Paginador
-	$qrT="SELECT * from tabla_33_tbl_plaga
+	$qrT="select * from tabla_33_tbl_plaga
 	$where " ;
 	$rs = $pdo->query($qrT);//
 	$totalregistros = $rs->rowCount();
