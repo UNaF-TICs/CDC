@@ -2,6 +2,9 @@
 
 function agregar_tipocertifica($tabla67_descrip,$pdo)
 {
+	if ($tabla67_descrip=="") {
+		return "0-Error: Debe completar los campos obligatorios.";
+	}
 
 	$sql="INSERT INTO tabla_67_tbl_tipocertifica
 		(
@@ -27,11 +30,9 @@ function agregar_tipocertifica($tabla67_descrip,$pdo)
 
 function modificar_tipocertifica($id_tabla67,$tabla67_descrip,$pdo)
 {
-	if ($tabla67_descrip=="")
-	{
-		return "0-Error: Complete campo obligatorio";
+	if ($tabla67_descrip=="") {
+		return "0-Error: Debe completar los campos obligatorios.";
 	}
-
 
 	$sql="UPDATE tabla_67_tbl_tipocertifica  SET
 			tabla67_descrip='$tabla67_descrip'

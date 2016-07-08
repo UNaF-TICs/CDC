@@ -25,30 +25,21 @@ $nombre_funcion=isset($_POST['nombre_funcion']) ? strval($_POST['nombre_funcion'
 switch ($nombre_funcion) {
 	case "agregar_predio":
 		$id_res=agregar_predio($tabla64_nombrepredio,$rela_tabla09,$rela_tabla63,$tabla64_limites,$tabla64_areatotal,$pdo);
-		$vsplit=split("-",$id_res);
-		if ($vsplit[0] == 1) {
-			echo $vsplit[1];
-		} else {
-			phpConsoleLog($vsplit[1]);
-		}
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
+		echo $mensaje ;
 		break;
 	case "borrar_predio":
 		$id_res=borrar_predio($id_tabla64,$pdo);
-		$vsplit=split("-",$id_res);
-		if ($vsplit[0] == 1) {
-			echo $vsplit[1];
-		} else {
-			phpConsoleLog($vsplit[1]);
-		}
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
+		echo $mensaje ;
 		break;
 	case "modificar_predio":
 		$id_res=modificar_predio($id_tabla64,$tabla64_nombrepredio,$rela_tabla09,$rela_tabla63,$tabla64_limites,$tabla64_areatotal,$pdo);
-		$vsplit=split("-",$id_res);
-		if ($vsplit[0] == 1) {
-			echo $vsplit[1];
-		} else {
-			phpConsoleLog($vsplit[1]);
-		}
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
+		echo $mensaje ;
 		break;
 	default:
 		phpConsoleLog("No encuentra ".$nombre_funcion);

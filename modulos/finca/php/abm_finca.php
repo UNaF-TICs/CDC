@@ -3,6 +3,10 @@
 function agregar_finca($rela_tabla70_finca,$rela_tabla70_titular,$rela_tabla67,$tabla63_tiporepresentante,$tabla63_entidadcertificadora,$tabla63_areatotal,$pdo)
 {
 
+	if ($rela_tabla70_finca=="" || $rela_tabla70_titular=="") {
+		return "0-Error: Debe completar los campos obligatorios.";
+	}
+
 	$sql="INSERT INTO tabla_63_tbl_finca
 		(
 			rela_tabla67,
@@ -25,7 +29,7 @@ function agregar_finca($rela_tabla70_finca,$rela_tabla70_titular,$rela_tabla67,$
 	try {
 		$pdo->beginTransaction();
 		$pdo->exec($sql);
-		$new_id_tabla02 = $pdo->lastInsertId();
+		$new_id_tabla63 = $pdo->lastInsertId();
 		$pdo->commit();
 		return "1-Registro agregado correctamente.";
 	} catch (Exception $e) { //PDOException $e
@@ -37,10 +41,9 @@ function agregar_finca($rela_tabla70_finca,$rela_tabla70_titular,$rela_tabla67,$
 
 function modificar_finca($id_tabla63,$rela_tabla70_finca,$rela_tabla70_titular,$rela_tabla67,$tabla63_tiporepresentante,$tabla63_entidadcertificadora,$tabla63_areatotal,$pdo)
 {
-	// if ($tabla10_titulo=="")
-	// {
-	// 	return "0-Error: Complete campo obligatorio";
-	// }
+	if ($rela_tabla70_finca=="" || $rela_tabla70_titular=="") {
+		return "0-Error: Debe completar los campos obligatorios.";
+	}
 
 	$sql="UPDATE tabla_63_tbl_finca  SET
 			rela_tabla70_finca=$rela_tabla70_finca,
@@ -53,7 +56,7 @@ function modificar_finca($id_tabla63,$rela_tabla70_finca,$rela_tabla70_titular,$
    	try {
 		$pdo->beginTransaction();
 		$pdo->exec($sql);
-		$new_id_tabla02 = $pdo->lastInsertId();
+		$new_id_tabla63 = $pdo->lastInsertId();
 		$pdo->commit();
 		return "1-Registro Modificado correctamente.";
 	} catch (Exception $e) { //PDOException $e
@@ -69,7 +72,7 @@ function borrar_finca($id_tabla63,$pdo)
 	try {
 		$pdo->beginTransaction();
 		$pdo->exec($sql2);
-		$new_id_tabla02 = $pdo->lastInsertId();
+		$new_id_tabla63 = $pdo->lastInsertId();
 		$pdo->commit();
 		return "1-Registro Eliminado correctamente.";
 	} catch (Exception $e) { //PDOException $e

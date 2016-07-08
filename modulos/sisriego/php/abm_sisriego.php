@@ -2,6 +2,9 @@
 
 function agregar_sisriego($tabla66_descrip,$pdo)
 {
+	if ($tabla66_descrip=="") {
+		return "0-Error: Debe completar los campos obligatorios.";
+	}
 
 	$sql="INSERT INTO tabla_66_tbl_sisriego
 		(
@@ -27,11 +30,9 @@ function agregar_sisriego($tabla66_descrip,$pdo)
 
 function modificar_sisriego($id_tabla66,$tabla66_descrip,$pdo)
 {
-	if ($tabla66_descrip=="")
-	{
-		return "0-Error: Complete campo obligatorio";
+	if ($tabla66_descrip=="") {
+		return "0-Error: Debe completar los campos obligatorios.";
 	}
-
 
 	$sql="UPDATE tabla_66_tbl_sisriego  SET
 			tabla66_descrip='$tabla66_descrip'

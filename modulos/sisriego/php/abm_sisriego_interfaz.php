@@ -16,23 +16,24 @@ $tabla66_descrip=isset($_POST['tabla66_descrip']) ? strval($_POST['tabla66_descr
 $nombre_funcion=isset($_POST['nombre_funcion']) ? strval($_POST['nombre_funcion']) : '';
 
 switch ($nombre_funcion) {
-    case "agregar_sisriego":
+	case "agregar_sisriego":
 		$id_res=agregar_sisriego($tabla66_descrip, $pdo);
-		$vsplit=split("-", $id_res);
-		echo $vsplit[1];
-        break;
-    case "borrar_sisriego":
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
+		echo $mensaje ;
+		break;
+	case "borrar_sisriego":
 		$id_res=borrar_sisriego($id_tabla66, $pdo);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
+		echo $mensaje ;
 		break;
 	case "modificar_sisriego":
 		$id_res=modificar_sisriego($id_tabla66, $tabla66_descrip, $pdo);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
+		echo $mensaje ;
 		break;
-
-
 }
 $datos="";
 $datos.="id_tabla66<@n:> $id_tabla66<@n>";

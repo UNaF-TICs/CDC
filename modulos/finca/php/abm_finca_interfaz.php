@@ -3,8 +3,8 @@
 Finca: Funciones ABM y de recuperación de datos de fincas.
 */
 require_once "../../../php/check.php";
-require_once "../../../php/funciones_comunes.php";
 include_once "../../../lib/link_mysql.php";
+require_once "../../../php/funciones_comunes.php";
 include_once "abm_finca.php";
 include_once "../../control/php/abm_control.php";
 
@@ -25,31 +25,22 @@ $nombre_funcion=isset($_POST['nombre_funcion']) ? strval($_POST['nombre_funcion'
 
 switch ($nombre_funcion) {
 	case "agregar_finca":
-		$id_res=agregar_finca($rela_tabla70_finca,$rela_tabla70_titular,$rela_tabla67,$tabla63_tiporepresentante,$tabla63_entidadcertificadora,$tabla63_areatotal,$pdo);
-		$vsplit=split("-",$id_res);
-		if ($vsplit[0] == 1) {
-			echo $vsplit[1];
-		} else {
-			phpConsoleLog($vsplit[1]);
-		}
+		$id_res=agregar_finca($rela_tabla70_fincaa,$rela_tabla70_titular,$rela_tabla67,$tabla63_tiporepresentante,$tabla63_entidadcertificadora,$tabla63_areatotal,$pdo);
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
+		echo $mensaje ;
 		break;
 	case "borrar_finca":
 		$id_res=borrar_finca($id_tabla63,$pdo);
-		$vsplit=split("-",$id_res);
-		if ($vsplit[0] == 1) {
-			echo $vsplit[1];
-		} else {
-			phpConsoleLog($vsplit[1]);
-		}
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
+		echo $mensaje ;
 		break;
 	case "modificar_finca":
 		$id_res=modificar_finca($id_tabla63,$rela_tabla70_finca,$rela_tabla70_titular,$rela_tabla67,$tabla63_tiporepresentante,$tabla63_entidadcertificadora,$tabla63_areatotal,$pdo);
-		$vsplit=split("-",$id_res);
-		if ($vsplit[0] == 1) {
-			echo $vsplit[1];
-		} else {
-			phpConsoleLog($vsplit[1]);
-		}
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
+		echo $mensaje ;
 		break;
 	default:
 		phpConsoleLog("No encuentra ".$nombre_funcion);

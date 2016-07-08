@@ -3,6 +3,10 @@
 function agregar_predio($tabla64_nombrepredio,$rela_tabla09,$rela_tabla63,$tabla64_limites,$tabla64_areatotal,$pdo)
 {
 
+	if ($tabla64_nombrepredio=="" || $rela_tabla09=="" || $rela_tabla63=="") {
+		return "0-Error: Debe completar los campos obligatorios.";
+	}
+
 	$sql="INSERT INTO tabla_64_tbl_predio
 		(
 			rela_tabla09,

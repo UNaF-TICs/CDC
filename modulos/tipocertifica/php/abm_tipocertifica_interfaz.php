@@ -16,20 +16,23 @@ $tabla67_descrip=isset($_POST['tabla67_descrip']) ? strval($_POST['tabla67_descr
 $nombre_funcion=isset($_POST['nombre_funcion']) ? strval($_POST['nombre_funcion']) : '';
 
 switch ($nombre_funcion) {
-    case "agregar_tipocertifica":
+	case "agregar_tipocertifica":
 		$id_res=agregar_tipocertifica($tabla67_descrip, $pdo);
-		$vsplit=split("-", $id_res);
-		echo $vsplit[1];
-        break;
-    case "borrar_tipocertifica":
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
+		echo $mensaje ;
+		break;
+	case "borrar_tipocertifica":
 		$id_res=borrar_tipocertifica($id_tabla67, $pdo);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
+		echo $mensaje ;
 		break;
 	case "modificar_tipocertifica":
 		$id_res=modificar_tipocertifica($id_tabla67, $tabla67_descrip, $pdo);
-		$vsplit=split("-",$id_res);
-		echo $vsplit[1];
+		$vexplode=explode("-",$id_res);
+		$mensaje=$vexplode[1];
+		echo $mensaje ;
 		break;
 
 
