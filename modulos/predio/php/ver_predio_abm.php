@@ -93,7 +93,7 @@ if ($num_rows>0) {
 }
 
 // Opciones de Fincas
-$sql="Select * from FincaCompleta order by FincaNombre ASC";
+$sql="Select * from FincaCompleta order by fincanombre ASC";
 $rs = $pdo->query($sql);//
 $num_rows = $rs->rowCount();
 
@@ -103,17 +103,7 @@ if ($num_rows>0) {
 	while ($row = $rs->fetch()) {
 		$id_tabla63=$row["id_tabla63"];
 		$t->set_var("ID", "\"$id_tabla63\"" . (($id_tabla63==$rela_tabla63) ? " SELECTED ": ""));
-		$t->set_var("NOMBRE",utf8_encode($row["FincaNombre"]));
-
-		phpConsoleLog($id_tabla63 . "|". $rela_tabla63. "|" . $row["FincaNombre"]);
-
-		// if ($id_tabla63==$rela_tabla63) {
-		// 	$t->set_var("ID","\"$id_tabla63\" SELECTED ");
-		// 	$t->set_var("NOMBRE",utf8_encode($row["FincaNombre"]));
-		// } else {
-		// 	$t->set_var("ID",$row["$id_tabla63"]);
-		// 	$t->set_var("NOMBRE",utf8_encode($row["FincaNombre"]));
-		// }
+		$t->set_var("NOMBRE",utf8_encode($row["fincanombre"]));
 
 		$t->parse("FINCAS","una_opcion",true);
 	}

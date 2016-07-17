@@ -10,7 +10,7 @@ $t->set_file(array(
 	"un"		=> "un_perfil_modulo.html",
 
 	));
-$titulo="Listado de Módulos";
+$titulo="Listado de MÃ³dulos";
 $id_tabla03=$_POST["id_tabla03"]; 
 $offset=$_POST["offset"];
 $estado = array('0' => 'NO','1' => 'SI','' => 'NO'); 

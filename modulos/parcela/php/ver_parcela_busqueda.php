@@ -8,27 +8,27 @@ session_start();
 $t = new Template('../templates/');
 //Archivos comunes
 $t->set_file(array(
-	"ver" => "ver_predio_busqueda.html",
-	"un" => "un_predio.html",
+	"ver" => "ver_parcela_busqueda.html",
+	"un" => "un_parcela.html",
 	"una_opcion" => "una_opcion.html",
 ));
 
 $offset=isset($_POST['offset']) ? intval($_POST['offset']) : '';
 $id_tablamodulo=isset($_POST['id_tablamodulo']) ? intval($_POST['id_tablamodulo']) : NULL;
-$titulo="Listado de predios";
+$titulo="Listado de parcelas";
 $t->set_var("titulo",$titulo);
 
 //
 //Otras Funciones
-//$t->set_var("funcion_excel","modulos/predio/php/exportar_excel.php?tipo=xls");
-//$t->set_var("funcion_doc","modulos/predio/php/exportar_excel.php?tipo=doc");
-//$t->set_var("funcion_pdf","modulos/predio/php/exportar_excel.php");
+//$t->set_var("funcion_excel","modulos/parcela/php/exportar_excel.php?tipo=xls");
+//$t->set_var("funcion_doc","modulos/parcela/php/exportar_excel.php?tipo=doc");
+//$t->set_var("funcion_pdf","modulos/parcela/php/exportar_excel.php");
 //
 
-$url="'modulos/predio/php/ver_predio.php'";
-$id="'listado_predio'";
+$url="'modulos/parcela/php/ver_parcela.php'";
+$id="'listado_parcela'";
 $vars="'es_buscar=si&id_tablamodulo=$id_tablamodulo&";
-$vars.="tabla64_nombrepredio='+ver_busqueda_predio.tabla64_nombrepredio.value";
+$vars.="tabla65_numero='+ver_busqueda_parcela.tabla65_numero.value";
 $t->set_var("funcion_busqueda","cargar_post($url,$id,$vars)");
 
 if (isset($_POST['offset'])) {
@@ -47,12 +47,10 @@ else{
 }
 $ini=$off*$totalporpag;
 // End New
-$sql="SELECT *,
-		IFNULL(NULLIF(tabla_70_tbl_persona.tabla70_razon_social, ''), tabla_70_tbl_persona.tabla70_nombre_apellido) AS fincanombre
-		FROM tabla_64_tbl_predio
-		JOIN tabla_63_tbl_finca ON tabla_63_tbl_finca.id_tabla63=tabla_64_tbl_predio.rela_tabla63
-		JOIN tabla_70_tbl_persona ON tabla_70_tbl_persona.id_tabla70=tabla_63_tbl_finca.rela_tabla70_finca
-		ORDER BY tabla64_nombrepredio ASC
+$sql="SELECT * FROM tabla_65_tbl_parcela
+		JOIN tabla_64_tbl_predio ON tabla_64_tbl_predio.id_tabla64=tabla_65_tbl_parcela.rela_tabla64
+		JOIN tabla_66_tbl_sisriego ON tabla_66_tbl_sisriego.id_tabla66=tabla_65_tbl_parcela.rela_tabla66
+		ORDER BY tabla65_numero ASC
 		LIMIT $totalporpag OFFSET $ini ";
 $rs = $pdo->query($sql);//
 $num_rows = $rs->rowCount();
@@ -60,24 +58,26 @@ if ($num_rows>0)
 {
 	while ($row = $rs->fetch())
 	{
-		$id_tabla64=$row["id_tabla64"];
+		$id_tabla65=$row["id_tabla65"];
 		$t->set_var("rela_tabla09",$row["rela_tabla09"]);
-		$t->set_var("rela_tabla63",$row["rela_tabla63"]);
-		$t->set_var("fincanombre",htmlentities($row["fincanombre"],ENT_QUOTES));
-		$t->set_var("tabla64_nombrepredio",htmlentities($row["tabla64_nombrepredio"],ENT_QUOTES));
-		$t->set_var("tabla64_limites",htmlentities($row["tabla64_limites"],ENT_QUOTES));
-		$t->set_var("tabla64_areatotal",$row["tabla64_areatotal"]);
+		$t->set_var("rela_tabla64",$row["rela_tabla64"]);
+		$t->set_var("tabla64_nombrepredio",$row["tabla64_nombrepredio"]);
+		$t->set_var("rela_tabla66",$row["rela_tabla66"]);
+		$t->set_var("tabla66_descrip",$row["tabla66_descrip"]);
+		$t->set_var("tabla65_numero",htmlentities($row["tabla65_numero"],ENT_QUOTES));
+		$t->set_var("tabla65_limites",htmlentities($row["tabla65_limites"],ENT_QUOTES));
+		$t->set_var("tabla65_tieneregadio",$row["tabla65_tieneregadio"]);
+		$t->set_var("tabla65_areatotal",$row["tabla65_areatotal"]);
 
-
-		$url="'modulos/predio/php/ver_predio_abm.php'";
+		$url="'modulos/parcela/php/ver_parcela_abm.php'";
 		$id="'tabs-$id_tablamodulo'";
-		$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo&id_tabla64=$id_tabla64'";
+		$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo&id_tabla65=$id_tabla65'";
 		$t->set_var("funcion_editar","cargar_post($url,$id,$vars)");
 
-		$url="'modulos/predio/php/abm_predio_interfaz.php'";
-		$vars="'nombre_funcion=borrar_predio&";
-		$vars.="id_tabla64=$id_tabla64'";
-		$url_exito="'modulos/predio/php/ver_predio_busqueda.php'";
+		$url="'modulos/parcela/php/abm_parcela_interfaz.php'";
+		$vars="'nombre_funcion=borrar_parcela&";
+		$vars.="id_tabla65=$id_tabla65'";
+		$url_exito="'modulos/parcela/php/ver_parcela_busqueda.php'";
 		$id="'tabs-$id_tablamodulo'";
 		$vars_exito="'offset=$offset&id_tablamodulo=$id_tablamodulo'";
 		$msg="'Esta seguro que quiere eliminar el Registro?'";
@@ -91,7 +91,7 @@ else
 	$t->set_var("LISTADO","<tr align='center' class='alt'><td colspan='10'>No se encuentran Registros Cargados. </td></tr>");
 
 }
-	$qrT="select * from tabla_64_tbl_predio";
+	$qrT="SELECT * FROM tabla_65_tbl_parcela";
 	$rs = $pdo->query($qrT);//
 	$totalregistros = $rs->rowCount();
 	$t->set_var("cantidad",$totalregistros);
@@ -105,7 +105,7 @@ else
 	// << Anterior
 	if($offset>1)
 	{
-		$pag.="<td><a href=\"javascript:cargar_post('modulos/predio/php/ver_predio.php','listado_predio','offset=$off&id_tablamodulo=$id_tablamodulo');\"><< Anterior</a> | </td>";
+		$pag.="<td><a href=\"javascript:cargar_post('modulos/parcela/php/ver_parcela.php','listado_parcela','offset=$off&id_tablamodulo=$id_tablamodulo');\"><< Anterior</a> | </td>";
 	}
 	else
 	{
@@ -147,7 +147,7 @@ else
 		}
 		else
 		{
-			$pag.="<a href=\"javascript:cargar_post('modulos/predio/php/ver_predio.php','listado_predio','offset=$i&id_tablamodulo=$id_tablamodulo');\">$i</a>&nbsp;";
+			$pag.="<a href=\"javascript:cargar_post('modulos/parcela/php/ver_parcela.php','listado_parcela','offset=$i&id_tablamodulo=$id_tablamodulo');\">$i</a>&nbsp;";
 		}
 	}
 	$pag.="</td>";
@@ -155,14 +155,14 @@ else
 	if($offset<$totalpaginas)
 	{
 		$ofs=$offset+1;
-		$pag.="<td> | <a href=\"javascript:cargar_post('modulos/predio/php/ver_predio.php','listado_predio','offset=$ofs&id_tablamodulo=$id_tablamodulo');\">Siguiente >></a></td>";
+		$pag.="<td> | <a href=\"javascript:cargar_post('modulos/parcela/php/ver_parcela.php','listado_parcela','offset=$ofs&id_tablamodulo=$id_tablamodulo');\">Siguiente >></a></td>";
 	}else{
 		$pag.="<td></td>";
 	}
 	$t->set_var("paginas","<table align=center><tr>".$pag."</tr></table>");
 		//End Paginador
 
-	$url="'modulos/predio/php/ver_predio_abm.php'";
+	$url="'modulos/parcela/php/ver_parcela_abm.php'";
 	$id="'tabs-$id_tablamodulo'";
 	$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo'";
 	$t->set_var("funcion_agregar","cargar_post($url,$id,$vars);");

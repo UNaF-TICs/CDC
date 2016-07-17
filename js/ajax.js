@@ -74,7 +74,7 @@ function guardar_mostrar(url,vars,url_exito,id,vars_exito){
 				{
 				$.blockUI({
 					theme:     true,
-					title:    'Procesando Informaci�n',
+					title:    'Procesando Información',
 					message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
 				});
 				setTimeout($.unblockUI, 2000);
@@ -83,7 +83,7 @@ function guardar_mostrar(url,vars,url_exito,id,vars_exito){
 				{
 					$.blockUI({
 						theme:     true,
-						title:    'Procesando Informaci�n',
+						title:    'Procesando Información',
 						message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
 					});
 					setTimeout($.unblockUI, 1500);
@@ -109,7 +109,7 @@ function guardar_mostrar_callback(url,vars,url_exito,id,vars_exito,callback){
 			{
 					$.blockUI({
 						theme:     true,
-						title:    'Procesando Informaci�n',
+						title:    'Procesando Información',
 						message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
 					});
 					setTimeout($.unblockUI, 2000);
@@ -118,7 +118,7 @@ function guardar_mostrar_callback(url,vars,url_exito,id,vars_exito,callback){
 			{
 					$.blockUI({
 						theme:     true,
-						title:    'Procesando Informaci�n',
+						title:    'Procesando Información',
 						message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
 					});
 					setTimeout($.unblockUI, 1500);
@@ -155,7 +155,7 @@ function eliminar_mostrar(url,vars,url_exito,id,vars_exito,msj){
 				{
 					$.blockUI({
 						theme:     true,
-						title:    'Procesando Informaci�n',
+						title:    'Procesando Información',
 						message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
 					});
 					setTimeout($.unblockUI, 2000);
@@ -164,7 +164,7 @@ function eliminar_mostrar(url,vars,url_exito,id,vars_exito,msj){
 				{
 					$.blockUI({
 						theme:     true,
-						title:    'Procesando Informaci�n',
+						title:    'Procesando Información',
 						message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
 					});
 					setTimeout($.unblockUI, 1500);
@@ -211,7 +211,7 @@ function eliminar_mostrar_callback(url,vars,url_exito,id,vars_exito,msj,callback
 				{
 					$.blockUI({
 						theme:     true,
-						title:    'Procesando Informaci�n',
+						title:    'Procesando Información',
 						message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
 					});
 					setTimeout($.unblockUI, 2000);
@@ -220,7 +220,7 @@ function eliminar_mostrar_callback(url,vars,url_exito,id,vars_exito,msj,callback
 				{
 					$.blockUI({
 						theme:     true,
-						title:    'Procesando Informaci�n',
+						title:    'Procesando Información',
 						message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> ' + respuesta_mostrar + '</p>'
 					});
 					setTimeout($.unblockUI, 1500);

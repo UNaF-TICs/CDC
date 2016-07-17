@@ -1,7 +1,7 @@
 function enviar_consulta(email,asunto,mensaje)
 {
 	if (email=='' || asunto=='' || mensaje=='')
-	{		
+	{
 			/*$('#popup_mensaje').remove();
 			$( "#popup" ).append( "<div id='popup_mensaje'><br><p align='center'>Por favor, complete los campos obligatorios.</p></div>" )
 			$( "#popup" ).dialog({
@@ -14,23 +14,23 @@ function enviar_consulta(email,asunto,mensaje)
 				}
 			}
 		});*/
-					$.blockUI({ 
-					theme:     true, 
-					title:    'Procesando Información', 
+					$.blockUI({
+					theme:     true,
+					title:    'Procesando InformaciÃ³n',
 					message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> Por favor, complete los campos obligatorios.</p>'
-				}); 
-				setTimeout($.unblockUI, 2000); 
+				});
+				setTimeout($.unblockUI, 2000);
 	}
 	else
 	{
 		if (validarEmail(email))
-		{		
+		{
 			ejecutar_post_enviar_mensaje("modulos/consultas/php/ver_enviar_consultas.php","email="+email+"&asunto="+asunto+"&mensaje="+mensaje)
 		}
 		else
 		{
 			/*$('#popup_mensaje').remove();
-			$( "#popup" ).append( "<div id='popup_mensaje'><br><p align='center'>Debe ingresar un Correo válido.</p></div>" )
+			$( "#popup" ).append( "<div id='popup_mensaje'><br><p align='center'>Debe ingresar un Correo vï¿½lido.</p></div>" )
 			$( "#popup" ).dialog({
 			modal: true,
 			draggable: true,
@@ -41,12 +41,12 @@ function enviar_consulta(email,asunto,mensaje)
 				}
 			}
 		});*/
-				$.blockUI({ 
-					theme:     true, 
-					title:    'Procesando Información', 
-					message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> Debe ingresar un Mail válido.</p>'
-				}); 
-				setTimeout($.unblockUI, 2000); 
+				$.blockUI({
+					theme:     true,
+					title:    'Procesando InformaciÃ³n',
+					message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> Debe ingresar un Mail vï¿½lido.</p>'
+				});
+				setTimeout($.unblockUI, 2000);
 			//alert('Debe ingresar un email v&aacute;lido');
 		}
 	}
@@ -55,7 +55,7 @@ function enviar_consulta(email,asunto,mensaje)
 function ejecutar_post_enviar_mensaje(url,vars)
 {
         //creamos el objeto XMLHttpRequest
-        var ajax=nuevo_ajax(); 
+        var ajax=nuevo_ajax();
 		// id = document.getElementById("contacto");
         //peticionamos los datos, le damos la url enviada desde el link
         ajax.open("POST", url,true);
@@ -66,19 +66,19 @@ function ejecutar_post_enviar_mensaje(url,vars)
                         if(ajax.status==200){
 
 							//cargar_post("modulos/consultas/templates/enviado_exitoso.html","listado_consultas","");
-							$.blockUI({ 
-								theme:     true, 
-								title:    'Procesando Información', 
+							$.blockUI({
+								theme:     true,
+								title:    'Procesando InformaciÃ³n',
 								message:  '<p><img src="media/iconos/loading.gif" class="mimage"/> Consulta Enviada Correctamente.</p>'
-							}); 
+							});
 							$('#formulario_consultas input[type=text],#formulario_consultas textarea').val('');
 							$("#asunto").focus();
-							setTimeout($.unblockUI, 2000); 
+							setTimeout($.unblockUI, 2000);
 						}else if(ajax.status==404){
-							//alert('Error: La página no existe');
-							 id.innerHTML = "Error: La página no existe";
+							//alert('Error: La pÃ¡gina no existe');
+							 id.innerHTML = "Error: La pÃ¡gina no existe";
     					}else{
-                            //alert("Error:".ajax.status); 
+                            //alert("Error:".ajax.status);
 							 id.innerHTML = "Error:".ajax.status;
                         }
                 }
