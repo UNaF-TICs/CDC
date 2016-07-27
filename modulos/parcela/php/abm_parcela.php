@@ -52,7 +52,7 @@ function modificar_parcela($id_tabla65,$tabla65_numero,$rela_tabla09,$rela_tabla
 			rela_tabla64=$rela_tabla64,
 			rela_tabla66=$rela_tabla66,
 			tabla65_limites='$tabla65_limites',
-			tabla65_limites='$tabla65_tieneregadio',
+			tabla65_tieneregadio='$tabla65_tieneregadio',
 			tabla65_areatotal=$tabla65_areatotal
 			where id_tabla65=$id_tabla65";
 

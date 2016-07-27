@@ -19,9 +19,8 @@ $rela_tabla64='';
 $rela_tabla66='';
 
 if ($id_tabla65!="") {
-	$sql="select * from tabla_65_tbl_parcela
-	where id_tabla65=$id_tabla65";
-	$rs = $pdo->query($sql);//
+	$sql="SELECT * FROM tabla_65_tbl_parcela WHERE id_tabla65=$id_tabla65";
+	$rs = $pdo->query($sql);
 	$num_rows = $rs->rowCount();
 	if ($num_rows>0) {
 		$row = $rs->fetch();
@@ -35,6 +34,9 @@ if ($id_tabla65!="") {
 		$t->set_var("tabla65_numero",htmlentities($row["tabla65_numero"],ENT_QUOTES));
 		$t->set_var("tabla65_limites",htmlentities($row["tabla65_limites"],ENT_QUOTES));
 		$t->set_var("tabla65_tieneregadio",$row["tabla65_tieneregadio"]);
+		// $t->set_var("tieneregadio_checked",($row["tabla65_tieneregadio"]==1) ? "checked" : "");
+		$t->set_var("tieneregadio_si",($row["tabla65_tieneregadio"]==1) ? "checked" : "");
+		$t->set_var("tieneregadio_no",($row["tabla65_tieneregadio"]!=1) ? "checked" : "");
 		$t->set_var("tabla65_areatotal",$row["tabla65_areatotal"]);
 	}
 
@@ -57,6 +59,9 @@ if ($id_tabla65!="") {
 	$t->set_var("tabla65_numero","");
 	$t->set_var("tabla65_limites","");
 	$t->set_var("tabla65_tieneregadio","");
+	// $t->set_var("tieneregadio_checked","");
+	$t->set_var("tieneregadio_si","");
+	$t->set_var("tieneregadio_no","");
 	$t->set_var("rela_tabla09","");
 	$t->set_var("rela_tabla64","");
 	$t->set_var("rela_tabla66","");
@@ -71,7 +76,6 @@ if ($id_tabla65!="") {
 	$vars.="tabla65_areatotal='+abm_parcela.tabla65_areatotal.value+'&";
 	$vars.="tabla65_tieneregadio='+abm_parcela.tabla65_tieneregadio.value+'&";
 	$vars.="tabla65_limites='+abm_parcela.tabla65_limites.value";
-
 
 	$url_exito="'modulos/parcela/php/ver_parcela_busqueda.php'";
 	$id="'tabs-$id_tablamodulo'";

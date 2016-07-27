@@ -18,7 +18,7 @@ $rela_tabla64=isset($_POST['rela_tabla64']) ? intval($_POST['rela_tabla64']) : N
 $rela_tabla66=isset($_POST['rela_tabla66']) ? intval($_POST['rela_tabla66']) : NULL;
 $tabla65_numero=isset($_POST['tabla65_numero']) ? strval($_POST['tabla65_numero']) : '';
 $tabla65_limites=isset($_POST['tabla65_limites']) ? strval($_POST['tabla65_limites']) : '';
-$tabla65_tieneregadio=isset($_POST['tabla65_tieneregadio']) ? strval($_POST['tabla65_tieneregadio']) : '';
+$tabla65_tieneregadio=(isset($_POST['tabla65_tieneregadio']) && ($_POST['tabla65_tieneregadio'] == '1')) ? 1 : 0;
 $tabla65_areatotal=isset($_POST['tabla65_areatotal']) ? strval($_POST['tabla65_areatotal']) : '';
 $tabla65_numero=utf8_decode($tabla65_numero);
 

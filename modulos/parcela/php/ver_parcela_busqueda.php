@@ -39,10 +39,9 @@ if (isset($_POST['offset'])) {
 
 // New Paginador
 $totalporpag=10;
-if(!$offset){
+if (!$offset) {
 	$off=0;$offset=1;
-}
-else{
+} else {
     $off=($offset-1);
 }
 $ini=$off*$totalporpag;
@@ -54,10 +53,8 @@ $sql="SELECT * FROM tabla_65_tbl_parcela
 		LIMIT $totalporpag OFFSET $ini ";
 $rs = $pdo->query($sql);//
 $num_rows = $rs->rowCount();
-if ($num_rows>0)
-{
-	while ($row = $rs->fetch())
-	{
+if ($num_rows>0) {
+	while ($row = $rs->fetch()) {
 		$id_tabla65=$row["id_tabla65"];
 		$t->set_var("rela_tabla09",$row["rela_tabla09"]);
 		$t->set_var("rela_tabla64",$row["rela_tabla64"]);
@@ -67,6 +64,7 @@ if ($num_rows>0)
 		$t->set_var("tabla65_numero",htmlentities($row["tabla65_numero"],ENT_QUOTES));
 		$t->set_var("tabla65_limites",htmlentities($row["tabla65_limites"],ENT_QUOTES));
 		$t->set_var("tabla65_tieneregadio",$row["tabla65_tieneregadio"]);
+		$t->set_var("tieneregadio_sn",($row["tabla65_tieneregadio"]=='1') ? "Sí": "No");
 		$t->set_var("tabla65_areatotal",$row["tabla65_areatotal"]);
 
 		$url="'modulos/parcela/php/ver_parcela_abm.php'";
@@ -85,88 +83,69 @@ if ($num_rows>0)
 
 		$t->parse("LISTADO","un",true);
 	}
-}
-else
-{
+} else {
 	$t->set_var("LISTADO","<tr align='center' class='alt'><td colspan='10'>No se encuentran Registros Cargados. </td></tr>");
-
 }
-	$qrT="SELECT * FROM tabla_65_tbl_parcela";
-	$rs = $pdo->query($qrT);//
-	$totalregistros = $rs->rowCount();
-	$t->set_var("cantidad",$totalregistros);
-	$totalpaginas=$totalregistros/$totalporpag;
-	$test=split("\.",$totalpaginas);
-	$pag='';
-	if(isset($test[1]))
-	{
-		$totalpaginas=$test[0]+1;
-	}
-	// << Anterior
-	if($offset>1)
-	{
-		$pag.="<td><a href=\"javascript:cargar_post('modulos/parcela/php/ver_parcela.php','listado_parcela','offset=$off&id_tablamodulo=$id_tablamodulo');\"><< Anterior</a> | </td>";
-	}
-	else
-	{
-		$pag.="<td></td>";
-	}
 
-	// Numeros
-	if($totalpaginas>15)
-	{
-		$faltan=($totalpaginas-$off);
-		if($faltan<15)
-		{
-			$ter=$totalpaginas;
-			$com=$off -(15-($totalpaginas-$off));
-		}
-		elseif($off<8)
-		{
-			$ter=15;
-			$com=1;
-		}
-		else
-		{
-			$ter=$off+7;
-			$com=$off-7;
-		}
-	}
-	else
-	{
-		$com=1;
+$qrT="SELECT * FROM tabla_65_tbl_parcela";
+$rs = $pdo->query($qrT);//
+$totalregistros = $rs->rowCount();
+$t->set_var("cantidad",$totalregistros);
+$totalpaginas=$totalregistros/$totalporpag;
+$test=split("\.",$totalpaginas);
+$pag='';
+if (isset($test[1])) {
+	$totalpaginas=$test[0]+1;
+}
+// << Anterior
+if ($offset>1) {
+	$pag.="<td><a href=\"javascript:cargar_post('modulos/parcela/php/ver_parcela.php','listado_parcela','offset=$off&id_tablamodulo=$id_tablamodulo');\"><< Anterior</a> | </td>";
+} else {
+	$pag.="<td></td>";
+}
+
+// Números
+if ($totalpaginas>15) {
+	$faltan=($totalpaginas-$off);
+	if ($faltan<15) {
 		$ter=$totalpaginas;
+		$com=$off -(15-($totalpaginas-$off));
+	} elseif ($off<8) {
+		$ter=15;
+		$com=1;
+	} else {
+		$ter=$off+7;
+		$com=$off-7;
 	}
+} else {
+	$com=1;
+	$ter=$totalpaginas;
+}
 
-	$pag.="<td align='center'>";
-	for($i=$com;$i<=$ter;$i++)
-	{
-		if($i==$offset)
-		{
-			$pag.="<font color=#000000><b>$i</b></font>&nbsp;";
-		}
-		else
-		{
-			$pag.="<a href=\"javascript:cargar_post('modulos/parcela/php/ver_parcela.php','listado_parcela','offset=$i&id_tablamodulo=$id_tablamodulo');\">$i</a>&nbsp;";
-		}
+$pag.="<td align='center'>";
+for ($i=$com;$i<=$ter;$i++) {
+	if ($i==$offset) {
+		$pag.="<font color=#000000><b>$i</b></font>&nbsp;";
+	} else {
+		$pag.="<a href=\"javascript:cargar_post('modulos/parcela/php/ver_parcela.php','listado_parcela','offset=$i&id_tablamodulo=$id_tablamodulo');\">$i</a>&nbsp;";
 	}
-	$pag.="</td>";
-					// Siguiente >>
-	if($offset<$totalpaginas)
-	{
-		$ofs=$offset+1;
-		$pag.="<td> | <a href=\"javascript:cargar_post('modulos/parcela/php/ver_parcela.php','listado_parcela','offset=$ofs&id_tablamodulo=$id_tablamodulo');\">Siguiente >></a></td>";
-	}else{
-		$pag.="<td></td>";
-	}
-	$t->set_var("paginas","<table align=center><tr>".$pag."</tr></table>");
-		//End Paginador
+}
+$pag.="</td>";
+				// Siguiente >>
+if ($offset<$totalpaginas) {
+	$ofs=$offset+1;
+	$pag.="<td> | <a href=\"javascript:cargar_post('modulos/parcela/php/ver_parcela.php','listado_parcela','offset=$ofs&id_tablamodulo=$id_tablamodulo');\">Siguiente >></a></td>";
+} else {
+	$pag.="<td></td>";
+}
+$t->set_var("paginas","<table align=center><tr>".$pag."</tr></table>");
+//End Paginador
 
-	$url="'modulos/parcela/php/ver_parcela_abm.php'";
-	$id="'tabs-$id_tablamodulo'";
-	$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo'";
-	$t->set_var("funcion_agregar","cargar_post($url,$id,$vars);");
-	$t->set_var("icono_agregar","icon-plus.gif");
+$url="'modulos/parcela/php/ver_parcela_abm.php'";
+$id="'tabs-$id_tablamodulo'";
+$vars="'offset=$offset&id_tablamodulo=$id_tablamodulo'";
+$t->set_var("funcion_agregar","cargar_post($url,$id,$vars);");
+$t->set_var("icono_agregar","icon-plus.gif");
 
 $t->pparse("OUT", "ver");
 ?>
