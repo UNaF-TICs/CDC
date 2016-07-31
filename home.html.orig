@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang = "es">
+<head>	
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/x-icon" href="media/favicon.png">
+	<title>{titulo}</title>
+	{CSS}
+	{JS}
+
+</head>
+<body onload="cargar_inicial('{inicio}');">
+
+<p>&nbsp;</p>
+<p id="titulo_sistema" style="float:left;display:{estilo_body} ;margin-left: 20px; font-weight: bold; color:#FFFFFF;text-shadow: 0.1em 0.1em #CCCCCC;">{titulo}</p>
+<p id="usuario_bienvenida" style="display:{estilo_body}"><strong style="float:left; margin-left:300px;  color:#555555;margin-bottom:5px;">Bienvenido:<a href="javascript:;" onClick="
+	document.getElementById('popup').innerHTML='';
+	$('#popup').dialogr({modal: true,title : 'Modificar Usuario', overlay:{  opacity: 0.6,  background: 'black'}});
+	$('#popup').dialogr('open');
+	 cargar_post('modulos/usuarios/php/ver_usuario_central_abm.php','popup','id_tablamodulo=tabs-useredit&id_tabla01=$id_tabla01');"> {tabla01_nombre} </a></strong></p>
+ <p id="cerrar_sistema" style="display:{estilo_body}"><a href="#" class="demo2" style="float:right; margin-right: 10px; margin-top:-5px; margin-bottom:5px; "><strong>Cerrar Sesi&oacute;n</strong></a></p>
+ <div id="contenedor_layout" style="display:{estilo_body}">
+
+<div class="ui-layout-west">
+		<div id="menu_acordion">
+		{MENUS}
+		</div>
+</div>
+<div class="ui-layout-center">
+		<div id="tabs">
+			<ul>
+				<li><a href="#tabs-0">Bienvenidos</a></li>
+			</ul>
+			<div id="tabs-0" style="height:300px">
+			  <p align="center"><strong>Bienvenido al {titulo}</strong></p>
+			  <p>&nbsp;</p>
+<<<<<<< HEAD
+			<p align="center"> <img src="media/bienvenida.png" alt="" width="254" height="197"> </p>
+=======
+			<p align="center"> <img src="media/Sin título.png" alt="" width="254" height="197"> </p>
+>>>>>>> Lo hecho hasta el momento (a continuar)
+			 <p>&nbsp;</p>
+			<!-- <div id="datepicker"></div>  -->
+
+			</div>
+		</div>
+</div>
+</div>
+<div id="popup"></div>
+
+<div id="dialog-form" title="Acceso al Sistema">
+	<p class="validateTips">Ingrese al {titulo}</p>
+	<form>
+	<fieldset>
+		<label for="name"><strong>Nombre de Usuario:</strong></label>
+		<input type="text" name="user" id="user" class="text ui-widget-content ui-corner-all" />
+		<label for="name"><strong>Contrase&ntilde;a:</strong></label>
+		<input type="password" name="pass" id="pass" value="" class="text ui-widget-content ui-corner-all"/>
+
+	</fieldset>
+	</form>
+</div>
+
+<<<<<<< HEAD
+<div id="dialog-message" title="Cerrar Sesi&oaccute;n" style="display:none ">
+	<br>
+	<p>
+		<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+		Esta seguro que desea Cerrar Sesi&oaccute;n
+=======
+<div id="dialog-message" title="Cerrar Sesi�n" style="display:none ">
+	<br>
+	<p>
+		<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+		¿Está seguro de que desea cerrar la sesión?
+>>>>>>> Lo hecho hasta el momento (a continuar)
+	</p>
+</div>
+<div id="dialog-confirm" title="Eliminar Registro">
+</div>
+<p id="titulo_sistema" style="float:right;display:{estilo_body} ;margin-right: 20px; margin-top: 5px; font-weight: bold; color:#FFFFFF;text-shadow: 0.1em 0.1em #CCCCCC;">&nbsp;</p>
+</body>
+</html>
