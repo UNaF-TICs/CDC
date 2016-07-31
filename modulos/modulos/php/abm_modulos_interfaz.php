@@ -4,6 +4,7 @@ Librer�a: Funciones ABM y de recuperaci�n de datos de noticias.
 */
 session_start();
 require_once "../../../php/check.php";
+require_once "../../../php/funciones_comunes.php";
 include_once "../../../lib/link_mysql.php";
 include_once "abm_modulos.php";
 include_once "../../control/php/abm_control.php";
@@ -27,6 +28,7 @@ switch ($nombre_funcion) {
 			$vexplode=explode("-",$id_res);
 			$mensaje=$vexplode[1];
 			echo $mensaje ;
+			phpConsoleLog($mensaje);
 			break;
 
     case "modificar_modulo":
